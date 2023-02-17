@@ -202,7 +202,7 @@ public class StoredProcParameterTests
         var configuration = ConfigurationFactory.New(
             new[] { "serverSettings.json" });
 
-        return SqlezeRoot.Configure()
+        return SqlezeRoot.OpenBuilder()
             .WithConfiguration(configuration)
             .WithCamelUnderscoreNaming()
             .Connect();
