@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeographyToByteArray.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeographyToByteArrayNullable.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeographyToString.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeographyToStringNullable.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeometryToByteArray.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeometryToByteArrayNullable.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeometryToString.cs" />
+    <Compile Remove="ValueGetters\ReaderGetValueSqlGeometryToStringNullable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
+    <PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sqleze\Sqleze.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE; MOCK_SQLCLIENT</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE; MOCK_SQLCLIENT</DefineConstants>
+  </PropertyGroup>
+
+  <!--<ItemGroup>
+    <Compile Include="..\Sqleze\SqlClient\Ado.cs" Link="SqlClient\Ado.cs" />
+    <Compile Include="..\Sqleze\SqlClient\AdoState.cs" Link="SqlClient\AdoState.cs" />
+    <Compile Include="..\Sqleze\SqlClient\IAdo.cs" Link="SqlClient\IAdo.cs" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <Folder Include="SqlClient\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Sqleze\Collations\*.cs" LinkBase="Collations" />
+    <Compile Include="..\Sqleze\Collections\*.cs" LinkBase="Collections" />
+    <Compile Include="..\Sqleze\Composition\*.cs" LinkBase="Composition" />
+    <Compile Include="..\Sqleze\Configuration\*.cs" LinkBase="Configuration" />
+    <Compile Include="..\Sqleze\ConnectionStrings\*.cs" LinkBase="ConnectionStrings" />
+    <Compile Include="..\Sqleze\Converters\**\*.cs" LinkBase="Converters" />
+    <Compile Include="..\Sqleze\Core\*.cs" LinkBase="Core" />
+    <Compile Include="..\Sqleze\DataSets\*.cs" LinkBase="DataSets" />
+    <Compile Include="..\Sqleze\DryIoc\*.cs" LinkBase="DryIoc" />
+    <Compile Include="..\Sqleze\Dynamics\*.cs" LinkBase="Dynamics" />
+    <Compile Include="..\Sqleze\InfoMessage\*.cs" LinkBase="InfoMessage" />
+    <Compile Include="..\Sqleze\Interfaces\*.cs" LinkBase="Interfaces" />
+    <Compile Include="..\Sqleze\Metadata\*.cs" LinkBase="Metadata" />
+    <Compile Include="..\Sqleze\NamingConventions\*.cs" LinkBase="NamingConventions" />
+    <Compile Include="..\Sqleze\Options\*.cs" LinkBase="Options" />
+    <Compile Include="..\Sqleze\OutputParamReaders\*.cs" LinkBase="OutputParamReaders" />
+    <Compile Include="..\Sqleze\Params\*.cs" LinkBase="Params" />
+    <Compile Include="..\Sqleze\Readers\**\*.cs" LinkBase="Readers" />
+    <Compile Include="..\Sqleze\Registration\*.cs" LinkBase="Registration" />
+    <Compile Include="..\Sqleze\RowsetMetadata\*.cs" LinkBase="RowsetMetadata" />
+    <Compile Include="..\Sqleze\Security\*.cs" LinkBase="Security" />
+    <Compile Include="..\Sqleze\SqlClient\*.cs" LinkBase="SqlClient" />
+    <Compile Include="..\Sqleze\TableValuedParameters\*.cs" LinkBase="TableValuedParameters" />
+    <Compile Include="..\Sqleze\Timeout\*.cs" LinkBase="Timeout" />
+    <Compile Include="..\Sqleze\Util\*.cs" LinkBase="Util" />
+    <Compile Include="..\Sqleze\ValueGetters\*.cs" LinkBase="ValueGetters" />
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\Sqleze\Core\AdoParameterBuilder.cs" />
+    <Compile Remove="..\Sqleze\Core\AdoParameterBuilderHolder.cs" />
+    <Compile Remove="..\Sqleze\NamingConventions\CamelUnderscoreRowsetRoot.cs" />
+    <Compile Remove="..\Sqleze\NamingConventions\NeutralRowsetRoot.cs" />
+    <Compile Remove="..\Sqleze\Params\SizeResolver.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DryIoc.dll" Version="5.3.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

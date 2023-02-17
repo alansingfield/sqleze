@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Sqleze.Microsoft.Data.SqlClient</PackageId>
+    <Title>A fluent, "no-surprises" object-relational mapper for SQL Server.</Title>
+    <Authors>Alan Singfield</Authors>
+    <Company>Didsbury Software Ltd</Company>
+    <Copyright>(C) 2023 Didsbury Software Ltd</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageTags>C#, SQL, SQL Server, POCO, Microsoft.Data.SqlClient, ORM, Binder, Table-valued parameters, SqlDataRecord, Bulk update</PackageTags>
+    <Description>
+      Sqleze aims to make it easy to bind SQL queries to C#.
+      The columns returned from your SQL query can be mapped to standard classes, C# records, or object dictionary.
+      Binds C# objects to scalar (normal) and table-valued parameters.
+      Column names can be mapped verbatim or via a naming convention.
+      Your query can return multiple rowsets.
+      Supports reading output parameters via lambda functions.
+      Automatic transaction handling.
+      Avoids query cache pollution by specifying parameter sizes explicitly.
+
+      Highly fluent and extensible API.
+
+      BUT - does not write the SQL for you.
+
+    </Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DryIoc.dll" Version="5.3.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

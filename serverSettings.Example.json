@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "ConnectionString": "Data Source=YOURSERVER;Initial Catalog=YOURDATABASE;User Id=YOURUSER;Password=REDACTED;TrustServerCertificate=true"
+  }
+}
