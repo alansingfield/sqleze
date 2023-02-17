@@ -40,7 +40,7 @@ public class RootConnectionTests
     private static ISqlezeBuilder sqlezeFactory(IConfiguration configuration)
     {
         return SqlezeRoot
-            .Configure()
+            .OpenBuilder()
             .WithConfiguration(configuration)
             .WithConfigKey("ConnectionString");
     }
