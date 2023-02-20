@@ -11,6 +11,7 @@
     <Copyright>(C) 2023 Didsbury Software Ltd</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/alansingfield/sqleze</PackageProjectUrl>
     <PackageTags>C#, SQL, SQL Server, geometry, geography, hierarchyid, SqlGeometry, SqlGeography, SqlHierarchyId</PackageTags>
     <Description>
       Support for binding C# to SQL Server SqlGeometry, SqlGeography, SqlHierarchyId types.
