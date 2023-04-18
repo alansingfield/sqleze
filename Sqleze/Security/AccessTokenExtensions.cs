@@ -20,4 +20,20 @@ public static class AccessTokenExtensions
             scope.Use(new AccessTokenOptions(accessToken));
         });
     }
+
+
+    /// <summary>
+    /// Specify access token
+    /// </summary>
+    /// <param name="sqlezeConnectionBuilder"></param>
+    /// <param name="accessToken"></param>
+    /// <returns></returns>
+    public static ISqlezeBuilder WithAccessToken(
+        this ISqleze sqleze,
+        string accessToken
+        )
+    {
+        return sqleze.Reconfigure().WithAccessToken(accessToken);
+    }
+
 }
