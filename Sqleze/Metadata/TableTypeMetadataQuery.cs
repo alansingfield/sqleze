@@ -18,14 +18,14 @@ namespace Sqleze.Metadata
     public class TableTypeMetadataQuery : ITableTypeMetadataQuery
     {
         private readonly IConnectionStringProvider connectionStringProvider;
-        private readonly ISqlezeBuilder sqlezeConnectionBuilder;
+        private readonly ISqlezeBuilder sqlezeBuilder;
 
         public TableTypeMetadataQuery(
             IConnectionStringProvider connectionStringProvider,
-            ISqlezeBuilder sqlezeConnectionBuilder)
+            ISqlezeBuilder sqlezeBuilder)
         {
             this.connectionStringProvider = connectionStringProvider;
-            this.sqlezeConnectionBuilder = sqlezeConnectionBuilder;
+            this.sqlezeBuilder = sqlezeBuilder;
         }
 
 
@@ -59,7 +59,7 @@ namespace Sqleze.Metadata
 
             // Go back to the root container and reconfigure in a known state.
             // Only special thing we want is the connection string.
-            var connectionFactory = sqlezeConnectionBuilder
+            var connectionFactory = sqlezeBuilder
                 .WithConnectionString(connStr)
                 .WithCamelUnderscoreNaming()
                 .Build();

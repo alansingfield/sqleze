@@ -44,10 +44,16 @@ namespace Sqleze
         }
 
         public static ISqlezeRowsetBuilder WithCamelUnderscoreNaming(
-            this ISqlezeReader sqlezeReader
-        )
+            this ISqlezeReader sqlezeReader)
         {
             return sqlezeReader.With<CamelUnderscoreNamingConventionRoot>((_, _) => { });
+        }
+
+        
+        public static ISqlezeReaderBuilder WithCamelUnderscoreNaming(
+            this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        {
+            return scopedSqlezeParameterFactory.Command.With<CamelUnderscoreNamingConventionRoot>((_, _) => { });
         }
 
         public static ISqlezeBuilder WithNeutralNaming(
@@ -76,19 +82,22 @@ namespace Sqleze
             return sqlezeParameter.Command.With<NeutralNamingConventionRoot>((_, _) => { });
         }
 
-        public static ISqlezeReaderBuilder WithNeutralNaming(
+        public static ISqlezeParameterBuilder WithNeutralNaming(
             this ISqlezeParameterCollection sqlezeParameterCollection)
         {
-            return sqlezeParameterCollection.Command.With<NeutralNamingConventionRoot>((_, _) => { });
+            return sqlezeParameterCollection.With<NeutralNamingConventionRoot>((_, _) => { });
         }
 
         public static ISqlezeRowsetBuilder WithNeutralNaming(
-            this ISqlezeReader sqlezeReader
-        )
+            this ISqlezeReader sqlezeReader)
         {
             return sqlezeReader.With<NeutralNamingConventionRoot>((_, _) => { });
         }
 
-
+        public static ISqlezeReaderBuilder WithNeutralNaming(
+            this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        {
+            return scopedSqlezeParameterFactory.Command.With<NeutralNamingConventionRoot>((_, _) => { });
+        }
     }
 }

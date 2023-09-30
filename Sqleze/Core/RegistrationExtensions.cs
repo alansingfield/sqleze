@@ -33,7 +33,7 @@ public static class CoreRegistrationExtensions
         registrator.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
         registrator.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));
 
-        registrator.Register<ISqlezeBuilder, SqlezeConnectionBuilder>(
+        registrator.Register<ISqlezeBuilder, SqlezeBuilder>(
             Reuse.ScopedOrSingleton,
             setup: Setup.With(asResolutionCall: true));
 

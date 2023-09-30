@@ -172,6 +172,172 @@ public class StoredProcParameterTests
         }
     }
 
+    [TestMethod]
+    public void StoredProcParameterNamingConvention()
+    {
+        var configuration = ConfigurationFactory.New(
+            new[] { "serverSettings.json" });
+
+        var conn = SqlezeRoot.OpenBuilder()
+            .WithConfiguration(configuration)
+            .Connect();
+
+        var foos = new List<FooUnderscore>()
+        {
+            new()
+            {
+                foo_id = 1,
+                foo_name = "ABC"
+            },
+            new()
+            {
+                foo_id = 2,
+                foo_name = "CDE"
+            },
+        };
+
+        // ALTER PROCEDURE [test].[p_check_parameter_table_entities]
+        // (
+        //     @foos test.tt_p_check_parameter_table_entities_foos READONLY
+        // )
+        // AS
+        // BEGIN
+        //     SELECT  foo_id = foo_id + 100,
+        //             foo_name = foo_name + 'X'
+        //     FROM    @foos
+        //     ;
+        // END
+
+        var result = conn.StoredProc("test.p_check_parameter_table_entities")
+            .Parameters.Set(() => foos)
+            .ReadList<FooUnderscore>();
+
+        //ShouldlyTest.Gen(result, nameof(result));
+
+        {
+            result.ShouldNotBeNull();
+            result.Count().ShouldBe(2);
+            result[0].ShouldNotBeNull();
+            result[0].foo_id.ShouldBe(101);
+            result[0].foo_name.ShouldBe("ABCX");
+            result[1].ShouldNotBeNull();
+            result[1].foo_id.ShouldBe(102);
+            result[1].foo_name.ShouldBe("CDEX");
+        }
+    }
+
+
+    [TestMethod]
+    public void StoredProcParameterNamingConvention2()
+    {
+        var configuration = ConfigurationFactory.New(
+            new[] { "serverSettings.json" });
+
+        var conn = SqlezeRoot.OpenBuilder()
+            .WithConfiguration(configuration)
+            .WithCamelUnderscoreNaming()
+            .Connect();
+
+        var foos = new List<FooUnderscore>()
+        {
+            new()
+            {
+                foo_id = 1,
+                foo_name = "ABC"
+            },
+            new()
+            {
+                foo_id = 2,
+                foo_name = "CDE"
+            },
+        };
+
+        // ALTER PROCEDURE [test].[p_check_parameter_table_entities]
+        // (
+        //     @foos test.tt_p_check_parameter_table_entities_foos READONLY
+        // )
+        // AS
+        // BEGIN
+        //     SELECT  foo_id = foo_id + 100,
+        //             foo_name = foo_name + 'X'
+        //     FROM    @foos
+        //     ;
+        // END
+
+        var result = conn.StoredProc("test.p_check_parameter_table_entities")
+            .Parameters.WithNeutralNaming().Set(() => foos)
+            .ReadList<FooGetSet>();
+
+        //ShouldlyTest.Gen(result, nameof(result));
+
+        {
+            result.ShouldNotBeNull();
+            result.Count().ShouldBe(2);
+            result[0].ShouldNotBeNull();
+            result[0].FooId.ShouldBe(101);
+            result[0].FooName.ShouldBe("ABCX");
+            result[1].ShouldNotBeNull();
+            result[1].FooId.ShouldBe(102);
+            result[1].FooName.ShouldBe("CDEX");
+        }
+    }
+
+    [TestMethod]
+    public void StoredProcParameterNamingConvention3()
+    {
+        var configuration = ConfigurationFactory.New(
+            new[] { "serverSettings.json" });
+
+        var conn = SqlezeRoot.OpenBuilder()
+            .WithConfiguration(configuration)
+            .WithCamelUnderscoreNaming()
+            .Connect();
+
+        var foos = new List<FooGetSet>()
+        {
+            new()
+            {
+                FooId = 1,
+                FooName = "ABC"
+            },
+            new()
+            {
+                FooId = 2,
+                FooName = "CDE"
+            },
+        };
+
+        // ALTER PROCEDURE [test].[p_check_parameter_table_entities]
+        // (
+        //     @foos test.tt_p_check_parameter_table_entities_foos READONLY
+        // )
+        // AS
+        // BEGIN
+        //     SELECT  foo_id = foo_id + 100,
+        //             foo_name = foo_name + 'X'
+        //     FROM    @foos
+        //     ;
+        // END
+
+        var result = conn.StoredProc("test.p_check_parameter_table_entities")
+            .Parameters.WithCamelUnderscoreNaming().Set(() => foos)
+            .WithNeutralNaming()
+            .ReadList<FooUnderscore>();
+
+        //ShouldlyTest.Gen(result, nameof(result));
+
+        {
+            result.ShouldNotBeNull();
+            result.Count().ShouldBe(2);
+            result[0].ShouldNotBeNull();
+            result[0].foo_id.ShouldBe(101);
+            result[0].foo_name.ShouldBe("ABCX");
+            result[1].ShouldNotBeNull();
+            result[1].foo_id.ShouldBe(102);
+            result[1].foo_name.ShouldBe("CDEX");
+        }
+    }
+
     private class FooInit
     {
         public int FooId { get; init; }
@@ -196,6 +362,12 @@ public class StoredProcParameterTests
     }
 
     private record FooRecord (int FooId, string FooName);
+
+    private class FooUnderscore
+    {
+        public int foo_id { get; set; }
+        public string foo_name { get; set; } = "";
+    }
 
     private ISqlezeConnection connect()
     {

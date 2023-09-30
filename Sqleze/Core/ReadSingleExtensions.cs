@@ -119,6 +119,46 @@ public static class ReadSingleExtensions
 
 
 
+    public static T ReadSingle<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        where T : notnull
+        => scopedSqlezeParameterFactory.Command
+            .ExecuteReader()
+            .ReadSingle<T>();
+
+    public static T? ReadSingleNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        => scopedSqlezeParameterFactory.Command
+            .ExecuteReader()
+            .ReadSingleNullable<T?>();
+
+    public static T? ReadSingleOrDefault<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        => scopedSqlezeParameterFactory.Command
+            .ExecuteReader()
+            .ReadSingleOrDefault<T?>();
+
+
+
+    public static ISqlezeReader ReadSingle<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<T>> action)
+        where T : notnull
+    {
+        var reader = scopedSqlezeParameterFactory.Command.ExecuteReader();
+        return reader.ReadSingle<T>(action);
+    }
+
+    public static ISqlezeReader ReadSingleNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<T?>> action)
+    {
+        var reader = scopedSqlezeParameterFactory.Command.ExecuteReader();
+        return reader.ReadSingleNullable<T?>(action);
+    }
+
+    public static ISqlezeReader ReadSingleOrDefault<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<T?>> action)
+    {
+        var reader = scopedSqlezeParameterFactory.Command.ExecuteReader();
+        return reader.ReadSingleOrDefault<T?>(action);
+    }
+
+
+
+
 
     public static async Task<T> ReadSingleAsync<T>(this ISqlezeReader sqlezeReader,
         CancellationToken cancellationToken = default)
@@ -309,6 +349,103 @@ public static class ReadSingleExtensions
             .ReadSingleOrDefaultAsync<T>(action, cancellationToken)
             .ConfigureAwait(false);
     }
+
+
+
+
+
+
+
+
+    
+    public static async Task<T> ReadSingleAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+        where T : notnull
+    {
+        var reader = await scopedSqlezeParameterFactory.Command 
+            .ExecuteReaderAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        return await reader
+            .ReadSingleAsync<T>(cancellationToken)
+            .ConfigureAwait(false);
+    }
+    public static async Task<T?> ReadSingleNullableAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+    {
+        var reader = await scopedSqlezeParameterFactory.Command
+            .ExecuteReaderAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        return await reader
+            .ReadSingleNullableAsync<T>(cancellationToken)
+            .ConfigureAwait(false);
+    }
+
+    public static async Task<T?> ReadSingleOrDefaultAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+    {
+        var reader = await scopedSqlezeParameterFactory.Command
+            .ExecuteReaderAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        return await reader
+            .ReadSingleOrDefaultAsync<T>(cancellationToken)
+            .ConfigureAwait(false);
+    }
+
+
+
+
+
+    public static async Task<ISqlezeReader> ReadSingleAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<T>> action,
+        CancellationToken cancellationToken = default)
+        where T : notnull
+    {
+        var reader = await scopedSqlezeParameterFactory.Command
+            .ExecuteReaderAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        return await reader
+            .ReadSingleAsync<T>(action, cancellationToken)
+            .ConfigureAwait(false);
+    }
+    public static async Task<ISqlezeReader> ReadSingleNullableAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<T?>> action,
+        CancellationToken cancellationToken = default)
+    {
+        var reader = await scopedSqlezeParameterFactory.Command
+            .ExecuteReaderAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        return await reader
+            .ReadSingleNullableAsync<T>(action, cancellationToken)
+            .ConfigureAwait(false);
+    }
+
+    public static async Task<ISqlezeReader> ReadSingleOrDefaultAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<T?>> action,
+        CancellationToken cancellationToken = default)
+    {
+        var reader = await scopedSqlezeParameterFactory.Command
+            .ExecuteReaderAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        return await reader
+            .ReadSingleOrDefaultAsync<T>(action, cancellationToken)
+            .ConfigureAwait(false);
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -2,12 +2,12 @@
 
 namespace Sqleze;
 
-public class SqlezeConnectionBuilder : ISqlezeBuilder
+public class SqlezeBuilder : ISqlezeBuilder
 {
     private readonly IResolverContext factoryScope;
     private readonly Func<ISqleze> newSqlezeConnectionFactory;
 
-    public SqlezeConnectionBuilder(IResolverContext scope,
+    public SqlezeBuilder(IResolverContext scope,
         Func<ISqleze> newSqlezeConnectionFactory)
     {
         this.factoryScope = scope;
