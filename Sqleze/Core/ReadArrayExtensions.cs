@@ -88,37 +88,21 @@ public static class ReadArrayExtensions
     }
 
 
-
     public static T[] ReadArray<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
         where T : notnull
-        => scopedSqlezeParameterFactory.Command
-            .ExecuteReader()
-            .ReadArray<T>();
+        => scopedSqlezeParameterFactory.Command.ReadArray<T>();
 
     public static T?[] ReadArrayNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
-        => scopedSqlezeParameterFactory.Command
-            .ExecuteReader()
-            .ReadArrayNullable<T?>();
+        => scopedSqlezeParameterFactory.Command.ReadArrayNullable<T?>();
 
-    public static ISqlezeReader ReadArray<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<T[]>> action)
-    where T : notnull
-    {
-        var sqlezeReader = scopedSqlezeParameterFactory.Command.ExecuteReader();
-        sqlezeReader.ReadArray<T>(action);
+    public static ISqlezeReader ReadArray<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<T[]>> action)
+    where T : notnull 
+        => scopedSqlezeParameterFactory.Command.ExecuteReader().ReadArray<T>(action);
 
-        return sqlezeReader;
-    }
-
-    public static ISqlezeReader ReadArrayNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<T?[]>> action)
-    {
-        var sqlezeReader = scopedSqlezeParameterFactory.Command.ExecuteReader();
-        sqlezeReader.ReadArrayNullable<T>(action);
-
-        return sqlezeReader;
-    }
-
-
-
+    public static ISqlezeReader ReadArrayNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<T?[]>> action)
+        => scopedSqlezeParameterFactory.Command.ReadArrayNullable<T>(action);
 
 
     // async versions. Note we can't have the OUT parameter ones due to how async works.
@@ -221,77 +205,40 @@ public static class ReadArrayExtensions
     }
 
 
+    public static async Task<T[]> ReadArrayAsync<T>(
+        this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+        where T : notnull 
+        => await scopedSqlezeParameterFactory
+                .Command
+                .ReadArrayAsync<T>(cancellationToken)
+                .ConfigureAwait(false);
 
-
-
-
-    public static async Task<T[]> ReadArrayAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, CancellationToken cancellationToken = default)
-        where T : notnull
-    {
-        return await
-            (
-                await scopedSqlezeParameterFactory
-                    .Command
-                    .ExecuteReaderAsync(null, cancellationToken)
-                    .ConfigureAwait(false)
-            )
-            .ReadArrayAsync<T>(cancellationToken)
-            .ConfigureAwait(false);
-    }
-
-    public static async Task<T?[]> ReadArrayNullableAsync<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, CancellationToken cancellationToken = default)
-    {
-        return await
-            (
-                await scopedSqlezeParameterFactory
-                    .Command
-                    .ExecuteReaderAsync(null, cancellationToken)
-                    .ConfigureAwait(false)
-            )
-            .ReadArrayNullableAsync<T>(cancellationToken)
-            .ConfigureAwait(false);
-    }
+    public static async Task<T?[]> ReadArrayNullableAsync<T>(
+        this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+        => await scopedSqlezeParameterFactory
+                .Command
+                .ReadArrayNullableAsync<T>(cancellationToken)
+                .ConfigureAwait(false);
 
     public static async Task<ISqlezeReader> ReadArrayAsync<T>(
         this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
         Expression<Func<T[]>> action,
         CancellationToken cancellationToken = default)
         where T : notnull
-    {
-        var reader = await scopedSqlezeParameterFactory
-            .Command
-            .ExecuteReaderAsync(null, cancellationToken)
-            .ConfigureAwait(false);
-
-        return await reader.ReadArrayAsync<T>(action, cancellationToken).ConfigureAwait(false);
-    }
+        => await scopedSqlezeParameterFactory
+                .Command
+                .ReadArrayAsync<T>(action, cancellationToken)
+                .ConfigureAwait(false);
 
     public static async Task<ISqlezeReader> ReadArrayNullableAsync<T>(
         this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
         Expression<Func<T?[]>> action,
         CancellationToken cancellationToken = default)
-    {
-        var reader = await scopedSqlezeParameterFactory
-            .Command
-            .ExecuteReaderAsync(null, cancellationToken)
-            .ConfigureAwait(false);
-
-        return await reader.ReadArrayNullableAsync<T?>(action, cancellationToken).ConfigureAwait(false);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        => await scopedSqlezeParameterFactory
+                .Command
+                .ReadArrayNullableAsync<T?>(action, cancellationToken).ConfigureAwait(false);
 
 
     public static async Task<ISqlezeReader> ReadArrayAsync<T>(
