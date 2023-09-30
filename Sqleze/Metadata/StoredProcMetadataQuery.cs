@@ -16,24 +16,21 @@ namespace Sqleze.Metadata
 
     public class StoredProcMetadataQuery : IStoredProcMetadataQuery
     {
-        private readonly IConnectionStringProvider connectionStringProvider;
-        private readonly ISqlezeBuilder sqlezeConnectionBuilder;
+        private readonly ISqleze sqleze;
 
         public StoredProcMetadataQuery(
             IConnectionStringProvider connectionStringProvider,
-            ISqlezeBuilder sqlezeConnectionBuilder)
+            ISqlezeBuilder sqlezeConnectionBuilder,
+            ISqleze sqleze)
         {
-            this.connectionStringProvider = connectionStringProvider;
-            this.sqlezeConnectionBuilder = sqlezeConnectionBuilder;
+            this.sqleze = sqleze;
         }
 
 
         public async Task<IReadOnlyList<StoredProcParamDefinition>> QueryAsync(string procName,
             CancellationToken cancellationToken = default)
         {
-            var factory = setupConnectionFactory();
-
-            using var conn = factory.Connect();
+            using var conn = sqleze.Connect();
             var command = buildCommand(conn, procName);
 
             return (await command.ReadListAsync<StoredProcParamDefinition>(cancellationToken).ConfigureAwait(false))
@@ -42,33 +39,16 @@ namespace Sqleze.Metadata
 
         public IReadOnlyList<StoredProcParamDefinition> Query(string procName)
         {
-            var factory = setupConnectionFactory();
-
-            using var conn = factory.Connect();
+            using var conn = sqleze.Connect();
             var command = buildCommand(conn, procName);
 
             return command.ReadList<StoredProcParamDefinition>()
                 .AsReadOnly();
         }
 
-        private ISqleze setupConnectionFactory()
+        private ISqlezeCommand buildCommand(ISqlezeConnection conn, string procName)
         {
-            // Pull out the connection string verbatim.
-            var connStr = connectionStringProvider.GetConnectionString();
-
-            // Go back to the root container and reconfigure in a known state.
-            // Only special thing we want is the connection string.
-            var connectionFactory = sqlezeConnectionBuilder
-                .WithConnectionString(connStr)
-                .WithCamelUnderscoreNaming()
-                .Build();
-
-            return connectionFactory;
-        }
-
-        private static ISqlezeCommand buildCommand(ISqlezeConnection conn, string procName)
-        {
-            var command = conn.Sql(@"
+            var command = conn.WithCamelUnderscoreNaming().Sql(@"
 
 SELECT	syprm.parameter_id,
         parameter_name = syprm.name,
