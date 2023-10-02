@@ -88,6 +88,22 @@ public static class ReadListExtensions
         return sqlezeReader;
     }
 
+    
+    public static List<T> ReadList<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        where T : notnull
+        => scopedSqlezeParameterFactory.Command.ReadList<T>();
+
+    public static List<T?> ReadListNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory)
+        => scopedSqlezeParameterFactory.Command.ReadListNullable<T?>();
+
+
+    public static ISqlezeReader ReadList<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<List<T>>> action)
+        where T : notnull
+        => scopedSqlezeParameterFactory.Command.ReadList<T>(action);
+
+    public static ISqlezeReader ReadListNullable<T>(this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory, Expression<Func<List<T?>>> action)
+        => scopedSqlezeParameterFactory.Command.ReadListNullable<T>(action);
+
 
     // async versions. Note we can't have the OUT parameter ones due to how async works.
 
@@ -188,6 +204,41 @@ public static class ReadListExtensions
         return await reader.ReadListNullableAsync<T?>(action, cancellationToken).ConfigureAwait(false);
     }
 
+    public static async Task<List<T>> ReadListAsync<T>(
+        this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+        where T : notnull 
+        => await scopedSqlezeParameterFactory
+            .Command
+            .ReadListAsync<T>(cancellationToken)
+            .ConfigureAwait(false);
+
+    public static async Task<List<T?>> ReadListNullableAsync<T>(
+        this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        CancellationToken cancellationToken = default)
+        => await scopedSqlezeParameterFactory
+            .Command
+            .ReadListNullableAsync<T>(cancellationToken)
+            .ConfigureAwait(false);
+
+    public static async Task<ISqlezeReader> ReadListAsync<T>(
+        this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<List<T>>> action,
+        CancellationToken cancellationToken = default)
+        where T : notnull
+        => await scopedSqlezeParameterFactory
+            .Command
+            .ReadListAsync<T>(action, cancellationToken)
+            .ConfigureAwait(false);
+
+    public static async Task<ISqlezeReader> ReadListNullableAsync<T>(
+        this IScopedSqlezeParameterFactory scopedSqlezeParameterFactory,
+        Expression<Func<List<T?>>> action,
+        CancellationToken cancellationToken = default)
+        => await scopedSqlezeParameterFactory
+            .Command
+            .ReadListNullableAsync<T?>(action, cancellationToken)
+            .ConfigureAwait(false);
 
     public static async Task<ISqlezeReader> ReadListAsync<T>(
         this Task<ISqlezeReader> sqlezeReaderTask,

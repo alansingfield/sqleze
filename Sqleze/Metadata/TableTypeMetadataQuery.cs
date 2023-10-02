@@ -17,24 +17,19 @@ namespace Sqleze.Metadata
 
     public class TableTypeMetadataQuery : ITableTypeMetadataQuery
     {
-        private readonly IConnectionStringProvider connectionStringProvider;
-        private readonly ISqlezeBuilder sqlezeConnectionBuilder;
+        private readonly ISqleze sqleze;
 
         public TableTypeMetadataQuery(
-            IConnectionStringProvider connectionStringProvider,
-            ISqlezeBuilder sqlezeConnectionBuilder)
+            ISqleze sqleze)
         {
-            this.connectionStringProvider = connectionStringProvider;
-            this.sqlezeConnectionBuilder = sqlezeConnectionBuilder;
+            this.sqleze = sqleze;
         }
 
 
         public async Task<IReadOnlyList<TableTypeColumnDefinition>> QueryAsync(string sqlTypeName,
             CancellationToken cancellationToken = default)
         {
-            var factory = setupConnectionFactory();
-
-            using var conn = factory.Connect();
+            using var conn = sqleze.Connect();
             var command = buildCommand(conn, sqlTypeName);
 
             return (await command.ReadListAsync<TableTypeColumnDefinition>(cancellationToken).ConfigureAwait(false))
@@ -43,33 +38,16 @@ namespace Sqleze.Metadata
 
         public IReadOnlyList<TableTypeColumnDefinition> Query(string sqlTypeName)
         {
-            var factory = setupConnectionFactory();
-
-            using var conn = factory.Connect();
+            using var conn = sqleze.Connect();
             var command = buildCommand(conn, sqlTypeName);
 
             return command.ReadList<TableTypeColumnDefinition>()
                 .AsReadOnly();
         }
 
-        private ISqleze setupConnectionFactory()
-        {
-            // Pull out the connection string verbatim.
-            var connStr = connectionStringProvider.GetConnectionString();
-
-            // Go back to the root container and reconfigure in a known state.
-            // Only special thing we want is the connection string.
-            var connectionFactory = sqlezeConnectionBuilder
-                .WithConnectionString(connStr)
-                .WithCamelUnderscoreNaming()
-                .Build();
-
-            return connectionFactory;
-        }
-
         private static ISqlezeCommand buildCommand(ISqlezeConnection conn, string sqlTypeName)
         {
-            var command = conn.Sql(@"
+            var command = conn.WithCamelUnderscoreNaming().Sql(@"
 
 SELECT	column_name = sycol.name,
         column_ordinal = ROW_NUMBER() OVER (ORDER BY sycol.column_id) - 1,
