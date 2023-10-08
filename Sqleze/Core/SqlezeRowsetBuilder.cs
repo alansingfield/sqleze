@@ -7,7 +7,12 @@ public class SqlezeRowsetBuilder : ISqlezeRowsetBuilder
     private readonly IResolverContext factoryScope;
     private readonly Func<ISqlezeRowsetFactory> newSqlezeRowsetFactory;
 
-    public SqlezeRowsetBuilder(IResolverContext scope,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+        SqlezeRowsetBuilder(IResolverContext scope,
         Func<ISqlezeRowsetFactory> newSqlezeRowsetFactory)
     {
         this.factoryScope = scope;

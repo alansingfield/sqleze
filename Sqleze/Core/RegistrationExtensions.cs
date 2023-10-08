@@ -28,7 +28,12 @@ namespace Sqleze.Registration;
 
 public static class CoreRegistrationExtensions
 {
-    public static void RegisterSqlezeCore(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSqlezeCore(this IRegistrator registrator)
     {
         registrator.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
         registrator.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));

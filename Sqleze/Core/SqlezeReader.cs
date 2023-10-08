@@ -9,7 +9,12 @@ public class SqlezeReader : ISqlezeReader
     private readonly IResolverContext readerScope;
     private readonly ISqlezeRowsetFactory sqlezeRowsetFactory;
 
-    public SqlezeReader(IResolverContext readerScope, ISqlezeRowsetFactory sqlezeRowsetFactory)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeReader(IResolverContext readerScope, ISqlezeRowsetFactory sqlezeRowsetFactory)
     {
         this.readerScope = readerScope;
         this.sqlezeRowsetFactory = sqlezeRowsetFactory;

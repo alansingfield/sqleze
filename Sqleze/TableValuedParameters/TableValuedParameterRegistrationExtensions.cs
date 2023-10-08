@@ -10,7 +10,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
 
-public static class TableValuedParameterRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class TableValuedParameterRegistrationExtensions
 {
     public static void RegisterRecordValueSetters(this IRegistrator registrator)
     {

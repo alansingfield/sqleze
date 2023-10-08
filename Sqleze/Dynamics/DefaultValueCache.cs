@@ -53,7 +53,12 @@ namespace Sqleze.Dynamics
 
 namespace Sqleze.Registration
 {
-    public static class DefaultValueCacheRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+        static class DefaultValueCacheRegistrationExtensions
     {
         public static void RegisterDefaultValueCache(this IRegistrator registrator)
         {

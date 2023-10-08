@@ -7,7 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
-public static class InfoMessageRegistrationExtensions
+
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class InfoMessageRegistrationExtensions
 {
     public static void RegisterInfoMessage(this IRegistrator registrator)
     {

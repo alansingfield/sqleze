@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
 
-public static class CommandTimeoutRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class CommandTimeoutRegistrationExtensions
 {
     public static void RegisterCommandTimeout(this IRegistrator registrator)
     {

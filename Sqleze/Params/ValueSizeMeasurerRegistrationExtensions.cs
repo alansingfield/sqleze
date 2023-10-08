@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
 
-public static class ValueSizeMeasurerRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class ValueSizeMeasurerRegistrationExtensions
 {
     public static void RegisterValueSizeMeasurers(this IRegistrator registrator)
     {

@@ -36,7 +36,12 @@ namespace Sqleze.TableValuedParameters
 
 namespace Sqleze.Registration
 {
-    public static class TableTypeUnmappedColumnsPolicyRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class TableTypeUnmappedColumnsPolicyRegistrationExtensions
     {
         public static void RegisterTableTypeUnmappedColumnsPolicy(this IRegistrator registrator)
         {

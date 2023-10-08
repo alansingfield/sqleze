@@ -7,7 +7,12 @@ public class SqlezeBuilder : ISqlezeBuilder
     private readonly IResolverContext factoryScope;
     private readonly Func<ISqleze> newSqlezeConnectionFactory;
 
-    public SqlezeBuilder(IResolverContext scope,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeBuilder(IResolverContext scope,
         Func<ISqleze> newSqlezeConnectionFactory)
     {
         this.factoryScope = scope;

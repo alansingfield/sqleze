@@ -44,8 +44,16 @@ namespace Sqleze.TableValuedParameters
     public class TableTypeRoot { }
 
     public class TableTypeRoot<T> : TableTypeRoot { } 
+}
 
-    public static class ValuedParameterExtensionsRegistration
+namespace Sqleze.Registration
+{
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class ValuedParameterExtensionsRegistration
     {
         public static void RegisterTableValuedParameterExtensions(this IRegistrator registrator)
         {
@@ -54,4 +62,3 @@ namespace Sqleze.TableValuedParameters
         }
     }
 }
-

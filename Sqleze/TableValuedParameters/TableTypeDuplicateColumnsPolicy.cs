@@ -36,7 +36,12 @@ namespace Sqleze.TableValuedParameters
 
 namespace Sqleze.Registration
 {
-    public static class TableTypeDuplicateColumnsPolicyRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class TableTypeDuplicateColumnsPolicyRegistrationExtensions
     {
         public static void RegisterTableTypeDuplicateColumnsPolicy(this IRegistrator registrator)
         {

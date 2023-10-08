@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
 
-public static class NamingConventionRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class NamingConventionRegistrationExtensions
 {
     public static void RegisterSqlezeNamingConventions(this IRegistrator registrator)
     {

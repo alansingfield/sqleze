@@ -4,7 +4,12 @@ using Sqleze.DryIoc;
 
 namespace Sqleze.Registration;
 
-public static class ConnectionStringRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class ConnectionStringRegistrationExtensions
 {
     public static void RegisterSqlezeConnectionStringProviders(this IRegistrator registrator)
     {

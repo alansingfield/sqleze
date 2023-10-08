@@ -18,9 +18,15 @@ namespace Sqleze.Readers
     public class CheckedAdoDataReaderRoot { }
 }
 
+
 namespace Sqleze.Registration
 {
-    public static class CheckedAdoDataReaderRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class CheckedAdoDataReaderRegistrationExtensions
     {
         public static void RegisterCheckedAdoDataReader(this IRegistrator registrator)
         {

@@ -8,7 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
-public static class RowsetMetadataRegistrationExtensions
+
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class RowsetMetadataRegistrationExtensions
 {
     public static void RegisterRowsetMetadata(this IRegistrator registrator)
     {

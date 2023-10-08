@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration
 {
-    public static class MultiParameterSetterRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class MultiParameterSetterRegistrationExtensions
     {
         public static void RegisterMultiParameterSetter(this IRegistrator registrator)
         {

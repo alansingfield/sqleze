@@ -22,7 +22,12 @@ public class SqlezeParameterCollection : ISqlezeParameterCollection
     protected IDictionary<string, ISqlezeParameterProvider> DictByAdoName { get; init; }
     protected IDictionary<string, ISqlezeParameterProvider> DictByName { get; init; }
 
-    public SqlezeParameterCollection(
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeParameterCollection(
         IResolverContext commandScope,
         Lazy<ISqlezeCommand> lazySqlezeCommand,
         ISqlezeParameterFactory sqlezeParameterFactory,

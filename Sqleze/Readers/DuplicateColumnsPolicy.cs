@@ -50,7 +50,12 @@ namespace Sqleze.Readers
 
 namespace Sqleze.Registration
 {
-    public static class DuplicateColumnsPolicyRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class DuplicateColumnsPolicyRegistrationExtensions
     {
         public static void RegisterDuplicateColumnsPolicy(this IRegistrator registrator)
         {

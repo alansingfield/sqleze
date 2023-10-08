@@ -12,7 +12,12 @@ using Sqleze.Params;
 
 namespace Sqleze.Registration;
 
-public static class ParamsRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class ParamsRegistrationExtensions
 {
     public static void RegisterParameterPreparation(this IRegistrator registrator)
     {

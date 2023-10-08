@@ -8,7 +8,12 @@ public class SqlezeReaderBuilder : ISqlezeReaderBuilder
     private readonly Func<ISqlezeReaderFactory> newSqlezeReaderFactory;
     private readonly ISqlezeCommand sqlezeCommand;
 
-    public SqlezeReaderBuilder(IResolverContext scope,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeReaderBuilder(IResolverContext scope,
         Func<ISqlezeReaderFactory> newSqlezeReaderFactory,
         ISqlezeCommand sqlezeCommand)
     {

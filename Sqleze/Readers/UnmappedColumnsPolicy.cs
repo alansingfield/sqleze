@@ -60,7 +60,12 @@ namespace Sqleze.Readers
 
 namespace Sqleze.Registration
 {
-    public static class UnmappedColumnsPolicyRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class UnmappedColumnsPolicyRegistrationExtensions
     {
         public static void RegisterUnmappedColumnsPolicy(this IRegistrator registrator)
         {

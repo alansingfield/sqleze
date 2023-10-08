@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
 
-public static class RegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class RegistrationExtensions
 {
     public static void RegisterSqlCredential(this IRegistrator registrator)
     {

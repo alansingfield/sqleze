@@ -8,7 +8,12 @@ public class SqlezeScope : ISqlezeScope
 
     private bool disposedValue;
 
-    public SqlezeScope(IResolverContext scope)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeScope(IResolverContext scope)
     {
         this.scope = scope;
     }

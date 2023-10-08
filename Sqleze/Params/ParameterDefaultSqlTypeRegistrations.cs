@@ -5,7 +5,12 @@ using Sqleze.DryIoc;
 
 namespace Sqleze.Params
 {
-    public static class ParameterDefaultSqlTypeRegistrations
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class ParameterDefaultSqlTypeRegistrations
     {
         public static void RegisterParameterDefaultSqlTypes(this IRegistrator registrator)
         {

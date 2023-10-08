@@ -1,7 +1,12 @@
 ﻿
 namespace Sqleze.DryIoc;
 
-public static class Condition
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class Condition
 {
     /// <summary>
     /// For use with Setup.With(condition: Condition.ScopedToService&lt;TScopeService&gt;)
@@ -11,6 +16,7 @@ public static class Condition
     /// </summary>
     /// <typeparam name="TScopeService"></typeparam>
     /// <returns></returns>
+
     public static Func<Request, bool> ScopedToService<TScopeService>() => 
     request =>
     {

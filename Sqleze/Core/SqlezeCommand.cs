@@ -13,7 +13,12 @@ public class SqlezeCommand : ISqlezeCommand
     private readonly IAdo ado;
     private readonly IParameterPreparation parameterPreparation;
 
-    public SqlezeCommand(
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeCommand(
         IResolverContext commandScope,
         CommandCreateOptions commandCreateOptions,
         ISqlezeParameterCollection sqlezeParameterCollection,

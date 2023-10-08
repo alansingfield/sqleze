@@ -110,7 +110,12 @@ namespace Sqleze.DataSets
 
 namespace Sqleze.Registration
 {
-    public static class DataSetReaderRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class DataSetReaderRegistrationExtensions
     {
         public static void RegisterFillDataTable(this IRegistrator registrator)
         {

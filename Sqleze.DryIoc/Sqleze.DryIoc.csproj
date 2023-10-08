@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Sqleze.Microsoft.Data.SqlClient.DryIoc</PackageId>
+    <Title>A fluent, "no-surprises" object-relational mapper for SQL Server.</Title>
+    <Authors>Alan Singfield</Authors>
+    <Company>Didsbury Software Ltd</Company>
+    <Copyright>(C) 2023 Didsbury Software Ltd</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/alansingfield/sqleze</PackageProjectUrl>
+    <PackageTags>C#, SQL, SQL Server, POCO, Microsoft.Data.SqlClient, ORM, Binder, Table-valued parameters, SqlDataRecord, Bulk update</PackageTags>
+    <Description>
+      Sqleze aims to make it easy to bind SQL queries to C#.
+      The columns returned from your SQL query can be mapped to standard classes, C# records, or object dictionary.
+      Binds C# objects to scalar (normal) and table-valued parameters.
+      Column names can be mapped verbatim or via a naming convention.
+      Your query can return multiple rowsets.
+      Supports reading output parameters via lambda functions.
+      Automatic transaction handling.
+      Avoids query cache pollution by specifying parameter sizes explicitly.
+
+      Highly fluent and extensible API.
+
+      BUT - does not write the SQL for you.
+
+    </Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+    <DefineConstants>$(DefineConstants);DRYIOC_DLL</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+    <DefineConstants>$(DefineConstants);DRYIOC_DLL</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Sqleze\Collations\*.cs" LinkBase="Collations" />
+    <Compile Include="..\Sqleze\Collections\*.cs" LinkBase="Collections" />
+    <Compile Include="..\Sqleze\Composition\*.cs" LinkBase="Composition" />
+    <Compile Include="..\Sqleze\Configuration\*.cs" LinkBase="Configuration" />
+    <Compile Include="..\Sqleze\ConnectionStrings\*.cs" LinkBase="ConnectionStrings" />
+    <Compile Include="..\Sqleze\Converters\**\*.cs" LinkBase="Converters" />
+    <Compile Include="..\Sqleze\Core\*.cs" LinkBase="Core" />
+    <Compile Include="..\Sqleze\DataSets\*.cs" LinkBase="DataSets" />
+    <Compile Include="..\Sqleze\DryIoc\*.cs" LinkBase="DryIoc" />
+    <Compile Include="..\Sqleze\Dynamics\*.cs" LinkBase="Dynamics" />
+    <Compile Include="..\Sqleze\InfoMessage\*.cs" LinkBase="InfoMessage" />
+    <Compile Include="..\Sqleze\Interfaces\*.cs" LinkBase="Interfaces" />
+    <Compile Include="..\Sqleze\Metadata\*.cs" LinkBase="Metadata" />
+    <Compile Include="..\Sqleze\NamingConventions\*.cs" LinkBase="NamingConventions" />
+    <Compile Include="..\Sqleze\Options\*.cs" LinkBase="Options" />
+    <Compile Include="..\Sqleze\OutputParamReaders\*.cs" LinkBase="OutputParamReaders" />
+    <Compile Include="..\Sqleze\Params\*.cs" LinkBase="Params" />
+    <Compile Include="..\Sqleze\Readers\**\*.cs" LinkBase="Readers" />
+    <Compile Include="..\Sqleze\Registration\*.cs" LinkBase="Registration" />
+    <Compile Include="..\Sqleze\RowsetMetadata\*.cs" LinkBase="RowsetMetadata" />
+    <Compile Include="..\Sqleze\Security\*.cs" LinkBase="Security" />
+    <Compile Include="..\Sqleze\SqlClient\*.cs" LinkBase="SqlClient" />
+    <Compile Include="..\Sqleze\TableValuedParameters\*.cs" LinkBase="TableValuedParameters" />
+    <Compile Include="..\Sqleze\Timeout\*.cs" LinkBase="Timeout" />
+    <Compile Include="..\Sqleze\Util\*.cs" LinkBase="Util" />
+    <Compile Include="..\Sqleze\ValueGetters\*.cs" LinkBase="ValueGetters" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Sqleze\GlobalUsings.SqlClient.cs" Link="GlobalUsings.SqlClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DryIoc.dll" Version="5.3.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

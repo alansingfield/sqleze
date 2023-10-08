@@ -13,7 +13,12 @@ public class SqlezeConnection : ISqlezeConnection
     private readonly IAdo ado;
     private bool disposedValue;
 
-    public SqlezeConnection(IResolverContext scope,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeConnection(IResolverContext scope,
         IConnectionStringProvider connectionStringProvider,
         ISqlezeCommandFactory sqlezeCommandFactory,
         IAdo ado)

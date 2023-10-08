@@ -19,7 +19,12 @@ namespace Sqleze.Readers
 
 namespace Sqleze.Registration
 {
-    public static class ScalarReaderFallbackPolicyRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class ScalarReaderFallbackPolicyRegistrationExtensions
     {
         public static void RegisterScalarReaderFallbackPolicy(this IRegistrator registrator)
         {

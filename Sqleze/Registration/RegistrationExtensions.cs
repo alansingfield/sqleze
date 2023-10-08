@@ -7,7 +7,12 @@ namespace Sqleze;
 
 public static class SqlezeRegistrationExtensions
 {
-    public static void RegisterSqleze(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSqleze(this IRegistrator registrator)
     {
         registrator.RegisterSqlezeCore();
         registrator.RegisterSqlezeConnectionStringProviders();

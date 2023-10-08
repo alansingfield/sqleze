@@ -13,7 +13,12 @@ namespace Sqleze.DryIoc
         TService Resolve(Type extraType, object?[]? args = null);
     }
 
-    public class GenericResolver<TService> : IGenericResolver<TService>
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    class GenericResolver<TService> : IGenericResolver<TService>
         where TService: notnull
     {
         private readonly IResolverContext resolverContext;

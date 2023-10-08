@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.Registration;
 
-public static class ValueGetterRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class ValueGetterRegistrationExtensions
 {
     public static void RegisterValueGetters(this IRegistrator registrator)
     {

@@ -49,7 +49,12 @@ namespace Sqleze.Readers
 
 namespace Sqleze.Registration
 {
-    public static class UnmappedPropertiesPolicyRegistrationExtensions
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static class UnmappedPropertiesPolicyRegistrationExtensions
     {
         public static void RegisterUnmappedPropertiesPolicy(this IRegistrator registrator)
         {

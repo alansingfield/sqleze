@@ -3,7 +3,12 @@ using Sqleze.DryIoc;
 
 namespace Sqleze.Registration;
 
-public static class GenericPromoterExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class GenericPromoterExtensions
 {
     /// <summary>
     /// Configures the container so that a smaller service interface can be implemented

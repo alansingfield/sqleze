@@ -13,7 +13,12 @@ namespace Sqleze.DryIoc
         IEnumerable<TService> ResolvePerProperty(Func<PropertyInfo, (bool, object?[]?)>? filter = null);
     }
 
-    public class MultiResolver<TService, TElement> : IMultiResolver<TService, TElement>
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    class MultiResolver<TService, TElement> : IMultiResolver<TService, TElement>
         where TService : notnull
     {
         private readonly IResolverContext scope;

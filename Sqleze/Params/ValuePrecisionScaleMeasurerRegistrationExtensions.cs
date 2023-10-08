@@ -8,7 +8,12 @@ using Sqleze.Params;
 
 namespace Sqleze.Registration;
 
-public static class ValuePrecisionScaleMeasurerRegistrationExtensions
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class ValuePrecisionScaleMeasurerRegistrationExtensions
 {
     public static void RegisterValuePrecisionScaleMeasurers(this IRegistrator registrator)
     {

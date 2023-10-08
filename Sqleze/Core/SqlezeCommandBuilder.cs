@@ -8,7 +8,12 @@ public class SqlezeCommandBuilder : ISqlezeCommandBuilder
     private readonly IResolverContext factoryScope;
     private readonly Func<ISqlezeCommandFactory> newSqlezeCommandFactory;
 
-    public SqlezeCommandBuilder(IResolverContext scope,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeCommandBuilder(IResolverContext scope,
         Func<ISqlezeCommandFactory> newSqlezeCommandFactory)
     {
         this.factoryScope = scope;

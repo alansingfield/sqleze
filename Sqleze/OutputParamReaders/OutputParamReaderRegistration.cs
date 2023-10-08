@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Sqleze.OutputParamReaders;
 
-public static class OutputParamReaderRegistration
+#if DRYIOC_DLL
+public
+#else
+internal
+#endif
+static class OutputParamReaderRegistration
 {
     public static void RegisterOutputParamReaders(this IRegistrator registrator)
     {

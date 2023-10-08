@@ -6,7 +6,13 @@ namespace Sqleze.Registration;
 public static class MicrosoftSqlClientRegistrationExtensions
 {
 #if !MOCK_SQLCLIENT
-    public static void RegisterMicrosoftSqlClient(this IRegistrator registrator)
+
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterMicrosoftSqlClient(this IRegistrator registrator)
     {
         // Register the concrete types for these for the real thing.
         // We use NSubstitute mocks in the mock version.

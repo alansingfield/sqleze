@@ -7,7 +7,12 @@ public class SqlezeParameterBuilder : ISqlezeParameterBuilder
     private readonly IResolverContext factoryScope;
     private readonly Func<ISqlezeParameterFactory> newSqlezeParameterFactory;
 
-    public SqlezeParameterBuilder(IResolverContext scope,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    SqlezeParameterBuilder(IResolverContext scope,
         Func<ISqlezeParameterFactory> newSqlezeParameterFactory)
     {
         this.factoryScope = scope;
