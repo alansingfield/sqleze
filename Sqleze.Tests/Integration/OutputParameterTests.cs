@@ -256,6 +256,22 @@ public class OutputParameterTests
         retval.ShouldBe("Banana");
     }
 
+    [TestMethod]
+    public void OutputParameterReturnToFunctionWithArgSetter()
+    {
+        using var conn = connect();
+
+        string arg = "Banana";
+        string? retval = null;
+
+        conn.StoredProc("dbo.fn_return_nvarchar")
+            .Parameters.ReturnTo(() => retval)
+            .Set(() => arg)
+            .ExecuteNonQuery();
+
+        retval.ShouldBe("Banana");
+    }
+
 
 
     [TestMethod]
