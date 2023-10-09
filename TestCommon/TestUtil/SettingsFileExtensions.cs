@@ -9,7 +9,12 @@ namespace TestCommon.TestUtil
 {
     public static class SettingsFileExtensions
     {
-        public static void RegisterTestSettings(this IRegistrator container)
+        #if DRYIOC_DLL
+        public
+        #else
+        internal
+        #endif
+        static void RegisterTestSettings(this IRegistrator container)
         {
             container.RegisterSettingsFiles(
                 new[] { "serverSettings.json" });

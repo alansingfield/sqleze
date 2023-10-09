@@ -8,7 +8,12 @@ namespace TestCommon.TestUtil
 {
     public static class DryIocExtensions
     {
-        public static void ValidateOrThrow(this IContainer container)
+        #if DRYIOC_DLL
+        public
+        #else
+        internal
+        #endif
+        static void ValidateOrThrow(this IContainer container)
         {
             var validateResult = String.Join("\r\n", container.Validate(x => !x.ServiceType.IsOpenGeneric())
                 .Select(x => new { x.Key, x.Value })

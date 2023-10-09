@@ -11,7 +11,12 @@ public static class NSubstituteContainerExtensions
     /// <param name="container"></param>
     /// <param name="reuse">Default is Reuse.ScopedOrSingleton</param>
     /// <returns></returns>
-    public static IContainer WithNSubstituteFallback(this IContainer container, IReuse? reuse = null)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static IContainer WithNSubstituteFallback(this IContainer container, IReuse? reuse = null)
     {
         // See: https://github.com/dadhi/DryIoc/blob/master/docs/DryIoc.Docs/UsingInTestsWithMockingLibrary.md
         var dict = new ConcurrentDictionary<Type, DynamicRegistration>();

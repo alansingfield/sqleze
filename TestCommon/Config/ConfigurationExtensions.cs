@@ -33,7 +33,12 @@ public static class ConfigurationExtensions
         return options;
     }
 
-    public static void RegisterSettingsFiles(this IRegistrator container,
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSettingsFiles(this IRegistrator container,
         IEnumerable<string> filenames,
         IEnumerable<string>? optionalFilenames = null)
     {
