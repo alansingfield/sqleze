@@ -22,10 +22,12 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+    <DefineConstants>$(DefineConstants);DRYIOC_DLL</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <WarningsAsErrors>$(WarningsAsErrors);NU1605;CA2007</WarningsAsErrors>
+    <DefineConstants>$(DefineConstants);DRYIOC_DLL</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
