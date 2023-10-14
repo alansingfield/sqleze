@@ -17,7 +17,7 @@ namespace Sqleze.Mock.Tests.TableValuedParameters
         [TestMethod]
         public void TableTypeColumnToSqlMetaDataConverterStandard()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register<ITableTypeColumnToSqlMetaDataConverter, TableTypeColumnToSqlMetaDataConverter>();
 
@@ -53,7 +53,7 @@ namespace Sqleze.Mock.Tests.TableValuedParameters
         [TestMethod]
         public void TableTypeColumnToSqlMetaDataConverterSized()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register<ITableTypeColumnToSqlMetaDataConverter, TableTypeColumnToSqlMetaDataConverter>();
 
@@ -89,7 +89,7 @@ namespace Sqleze.Mock.Tests.TableValuedParameters
         [TestMethod]
         public void TableTypeColumnToSqlMetaDataConverterScaled()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register<ITableTypeColumnToSqlMetaDataConverter, TableTypeColumnToSqlMetaDataConverter>();
 

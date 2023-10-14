@@ -16,7 +16,7 @@ namespace Sqleze.Mock.Tests.ValueGetters
         [TestMethod]
         public void ReaderGetValueRegistration()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterValueGetters();
 

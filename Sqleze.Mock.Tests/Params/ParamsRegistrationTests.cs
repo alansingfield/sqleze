@@ -18,7 +18,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseValueParamInt()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
             container.Use(CommandCreateOptions.Default);
@@ -30,7 +30,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseValueParamString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
             container.Use(CommandCreateOptions.Default);
@@ -44,7 +44,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseValueParamByteArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
             container.Use(CommandCreateOptions.Default);
@@ -60,7 +60,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseTableTypeParamList()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
 
@@ -73,7 +73,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseTableTypeParamArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
 
@@ -86,7 +86,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseTableTypeParamScalarList()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
 
@@ -99,7 +99,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseTableTypeParamScalarArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
 
@@ -113,7 +113,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseTableTypeParamEnumerable()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
 
@@ -126,7 +126,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParamsRegistrationChooseTableTypeParamScalarEnumerable()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterParameterPreparation();
 

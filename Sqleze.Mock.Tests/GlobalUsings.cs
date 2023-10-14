@@ -6,3 +6,4 @@ global using NSubstitute;
 global using MS = Sqleze.Mock.MockSqlClient;
 global using MSS = Sqleze.Mock.MockSqlClientServer;
 global using DryIoc;
+global using TestCommon.DependencyInjection;

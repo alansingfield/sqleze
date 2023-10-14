@@ -14,7 +14,7 @@ public class AccessTokenExtensionsTests
     [TestMethod]
     public void AccessTokenAtRoot()
     {
-        using var container = new Container().WithNSubstituteFallback();
+        using var container = DI.NewContainer().WithNSubstituteFallback();
 
         container.RegisterSqlezeCore();
         container.RegisterSqlezeConnectionStringProviders();
@@ -42,7 +42,7 @@ public class AccessTokenExtensionsTests
     [TestMethod]
     public void AccessTokenAfterBuilder()
     {
-        using var container = new Container().WithNSubstituteFallback();
+        using var container = DI.NewContainer().WithNSubstituteFallback();
 
         container.RegisterSqlezeCore();
         container.RegisterSqlezeConnectionStringProviders();
