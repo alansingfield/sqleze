@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sqleze.Tests
+namespace Sqleze.Tests.GenericResolution
 {
     [TestClass]
     public class PerPropResolveTests2
@@ -15,7 +15,7 @@ namespace Sqleze.Tests
         [TestMethod]
         public void PerPropResolve2()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
             container.Register(typeof(OpenGenResolver<>));
             container.Register(typeof(IOpenGen<,>), typeof(OpenGen<,>));
             container.Register(typeof(IOpenGenResolverInnards<>), typeof(OpenGenResolverInnards<>));
@@ -63,7 +63,7 @@ namespace Sqleze.Tests
 
             public IEnumerable<(PropertyInfo, TResult)> Run<TResult>(Func<Type, Type> makeGenericFunc)
             {
-                foreach(var prop in typeof(TElement).GetProperties())
+                foreach (var prop in typeof(TElement).GetProperties())
                 {
                     var propertyType = prop.PropertyType;
 
@@ -101,7 +101,7 @@ namespace Sqleze.Tests
 
             object? IOpenGen<TElement>.GetValue(TElement element)
             {
-                return (object?)this.GetValue(element);
+                return GetValue(element);
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sqleze.Tests
+namespace Sqleze.Tests.GenericResolution
 {
     [TestClass]
     public class PerPropResolveTests
@@ -14,13 +14,13 @@ namespace Sqleze.Tests
         [TestMethod]
         public void PerPropResolve1()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
             container.Register(typeof(MyResolver<,>));
             container.Register(typeof(IOpenGen<>), typeof(OpenGen<>));
 
             var resolver = container.Resolve<MyResolver<MyClass, IOpenGen>>();
 
-            foreach(var (propInfo, openGen) in resolver.ResolveForEachProperty(typeof(IOpenGen<>)))
+            foreach (var (propInfo, openGen) in resolver.ResolveForEachProperty(typeof(IOpenGen<>)))
             {
 
             }
@@ -37,13 +37,13 @@ namespace Sqleze.Tests
 
             public IEnumerable<(PropertyInfo, TService)> ResolveForEachProperty(Type openGen)
             {
-                if(!openGen.IsOpenGeneric())
+                if (!openGen.IsOpenGeneric())
                     throw new Exception("openGen must be open generic");
 
-                if(!typeof(TService).IsAssignableFrom(openGen))
+                if (!typeof(TService).IsAssignableFrom(openGen))
                     throw new Exception($"The type {openGen} does not implement service {typeof(TService)}");
 
-                foreach(var prop in typeof(T).GetProperties())
+                foreach (var prop in typeof(T).GetProperties())
                 {
                     var propertyType = prop.PropertyType;
 
@@ -75,7 +75,7 @@ namespace Sqleze.Tests
             object? IOpenGen.Value
             {
                 get => Value;
-                set => this.Value = (T?)value;
+                set => Value = (T?)value;
             }
         }
     }

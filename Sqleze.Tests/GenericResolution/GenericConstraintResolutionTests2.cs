@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sqleze.Tests
+namespace Sqleze.Tests.GenericResolution
 {
     [TestClass]
     public class GenericConstraintResolutionTests2
@@ -27,7 +27,7 @@ namespace Sqleze.Tests
         [TestMethod]
         public void ListDoesMatch()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.Register(typeof(IMyThing<>), typeof(MyThing<,>),
                 Reuse.ScopedOrSingleton);
@@ -38,7 +38,7 @@ namespace Sqleze.Tests
         [TestMethod]
         public void ArrayDoesntMatch()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.Register(typeof(IMyThing<>), typeof(MyThing<,>),
                 Reuse.ScopedOrSingleton);

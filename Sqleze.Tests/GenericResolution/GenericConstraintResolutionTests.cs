@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sqleze.Tests
+namespace Sqleze.Tests.GenericResolution
 {
     [TestClass]
     public class GenericConstraintResolutionTests
@@ -28,7 +28,7 @@ namespace Sqleze.Tests
 
         private IContainer openContainer()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             // Normal impl for non-enumerables.
             container.Register(typeof(IMyFactory<>), typeof(MyFactory<>),
@@ -49,12 +49,12 @@ namespace Sqleze.Tests
             {
                 var serviceType = request.ServiceType;
 
-                if(!serviceType.IsClosedGeneric())
+                if (!serviceType.IsClosedGeneric())
                     return false;
 
                 var genArg = serviceType.GetGenericArguments().Skip(argPosition).FirstOrDefault();
 
-                if(genArg == null)
+                if (genArg == null)
                     return false;
 
                 return argCondition(genArg);
@@ -63,7 +63,7 @@ namespace Sqleze.Tests
         [TestMethod]
         public void XXXX()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.Register(typeof(IMyFactory<>), typeof(MyFactoryForEnumerables<,>),
                 Reuse.ScopedOrSingleton);
@@ -82,7 +82,7 @@ namespace Sqleze.Tests
         [TestMethod]
         public void YYYY()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.Register(typeof(IMyFactory<>), typeof(MyFactoryForEnumerables<,>),
                 Reuse.ScopedOrSingleton);
