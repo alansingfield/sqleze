@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.SpatialTypes", "Sqle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.SpatialTypes.DryIoc", "Sqleze.SpatialTypes.DryIoc\Sqleze.SpatialTypes.DryIoc.csproj", "{1BFA03D0-8772-4163-BDEF-4855F7F2CB4D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.SpatialTypes.Tests", "Sqleze.SpatialTypes.Tests\Sqleze.SpatialTypes.Tests.csproj", "{B2F0746D-7CC6-4697-A07E-6F602A4E0B9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{1BFA03D0-8772-4163-BDEF-4855F7F2CB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BFA03D0-8772-4163-BDEF-4855F7F2CB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BFA03D0-8772-4163-BDEF-4855F7F2CB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F0746D-7CC6-4697-A07E-6F602A4E0B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F0746D-7CC6-4697-A07E-6F602A4E0B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F0746D-7CC6-4697-A07E-6F602A4E0B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F0746D-7CC6-4697-A07E-6F602A4E0B9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

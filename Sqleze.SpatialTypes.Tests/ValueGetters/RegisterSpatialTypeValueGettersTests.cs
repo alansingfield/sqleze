@@ -18,7 +18,7 @@ public class RegisterSpatialTypeValueGettersTests
     [TestMethod]
     public void SpatialTypeValueGettersResolve()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterValueGetters();
         container.RegisterSpatialTypeValueGetters();

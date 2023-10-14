@@ -19,7 +19,7 @@ namespace Sqleze.SpatialTypes.Tests.Registration
         [TestMethod]
         public void ReaderRegistrationGeography()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
             container.RegisterSpatialReaders();
@@ -30,7 +30,7 @@ namespace Sqleze.SpatialTypes.Tests.Registration
         [TestMethod]
         public void ReaderRegistrationGeographyNullable()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
             container.RegisterSpatialReaders();
@@ -41,7 +41,7 @@ namespace Sqleze.SpatialTypes.Tests.Registration
         [TestMethod]
         public void ReaderRegistrationGeometry()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
             container.RegisterSpatialReaders();
@@ -52,7 +52,7 @@ namespace Sqleze.SpatialTypes.Tests.Registration
         [TestMethod]
         public void ReaderRegistrationGeometryNullable()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
             container.RegisterSpatialReaders();
@@ -63,7 +63,7 @@ namespace Sqleze.SpatialTypes.Tests.Registration
         [TestMethod]
         public void ReaderRegistrationHierarchyId()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
             container.RegisterSpatialReaders();
@@ -74,7 +74,7 @@ namespace Sqleze.SpatialTypes.Tests.Registration
         [TestMethod]
         public void ReaderRegistrationHierarchyIdNullable()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
             container.RegisterSpatialReaders();
