@@ -1,4 +1,5 @@
-﻿global using Shouldly;
+﻿global using System;
+global using Shouldly;
 global using Microsoft.VisualStudio.TestTools.UnitTesting;
 global using TestCommon.TestUtil;
 global using NS = NSubstitute;

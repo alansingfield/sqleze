@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Mock", "Sqleze.Mock\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Mock.DryIoc", "Sqleze.Mock.DryIoc\Sqleze.Mock.DryIoc.csproj", "{B5CA6152-36E2-4B2B-A3E7-24DB979C7229}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Mock.Tests", "Sqleze.Mock.Tests\Sqleze.Mock.Tests.csproj", "{46B138FE-6EA4-48A0-B14A-DEFB5FA793E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,7 +46,6 @@ Global
 		{82FCEB3F-E089-4791-A46E-38CD231DC685}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82FCEB3F-E089-4791-A46E-38CD231DC685}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5CCF357-3683-4FF8-9006-E3DE12AE0D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5CCF357-3683-4FF8-9006-E3DE12AE0D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5CCF357-3683-4FF8-9006-E3DE12AE0D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5CCF357-3683-4FF8-9006-E3DE12AE0D35}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A22BDAF9-9174-4933-82EE-FDE3C627FE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -63,6 +64,10 @@ Global
 		{B5CA6152-36E2-4B2B-A3E7-24DB979C7229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5CA6152-36E2-4B2B-A3E7-24DB979C7229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5CA6152-36E2-4B2B-A3E7-24DB979C7229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B138FE-6EA4-48A0-B14A-DEFB5FA793E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B138FE-6EA4-48A0-B14A-DEFB5FA793E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B138FE-6EA4-48A0-B14A-DEFB5FA793E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B138FE-6EA4-48A0-B14A-DEFB5FA793E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
