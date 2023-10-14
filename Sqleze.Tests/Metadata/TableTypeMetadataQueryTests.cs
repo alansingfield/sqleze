@@ -18,7 +18,7 @@ namespace Sqleze.Tests.Metadata
         [TestMethod]
         public void TableTypeMetadataQuery1()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -346,7 +346,7 @@ namespace Sqleze.Tests.Metadata
         [TestMethod]
         public void TableTypeMetadataQuery2()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -676,7 +676,7 @@ namespace Sqleze.Tests.Metadata
         [TestMethod]
         public async Task TableTypeMetadataQueryAsync()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -708,7 +708,7 @@ namespace Sqleze.Tests.Metadata
 
         private static ISqlezeBuilder openSqleze()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();

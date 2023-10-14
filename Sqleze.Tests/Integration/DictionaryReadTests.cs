@@ -43,7 +43,7 @@ public class DictionaryReadTests
 
     private ISqlezeConnection connect()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterSqleze();
         container.RegisterTestSettings();

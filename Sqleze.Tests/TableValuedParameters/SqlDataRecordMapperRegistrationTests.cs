@@ -18,7 +18,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationPoco()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -30,7 +30,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarBool()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -40,7 +40,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableBool()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -50,7 +50,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -60,7 +60,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -70,7 +70,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarByteArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -80,7 +80,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableByteArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -90,7 +90,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -100,7 +100,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -110,7 +110,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -120,7 +120,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -130,7 +130,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -140,7 +140,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -150,7 +150,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarFloat()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -160,7 +160,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableFloat()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -170,7 +170,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarInt()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -180,7 +180,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableInt()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -190,7 +190,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarLong()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -200,7 +200,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableLong()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -210,7 +210,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarObject()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -220,7 +220,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableObject()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -230,7 +230,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarShort()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -240,7 +240,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableShort()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -250,7 +250,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -260,7 +260,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -270,7 +270,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarDateTimeOffset()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -280,7 +280,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableDateTimeOffset()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -290,7 +290,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -300,7 +300,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -310,7 +310,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarTimeSpan()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -320,7 +320,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableTimeSpan()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -330,7 +330,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlBinary()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -340,7 +340,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlBinary()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -350,7 +350,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlBoolean()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -360,7 +360,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlBoolean()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -370,7 +370,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -380,7 +380,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -390,7 +390,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlBytes()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -400,7 +400,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlBytes()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -410,7 +410,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlChars()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -420,7 +420,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlChars()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -430,7 +430,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -440,7 +440,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -450,7 +450,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -460,7 +460,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -470,7 +470,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -480,7 +480,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -490,7 +490,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -500,7 +500,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -510,7 +510,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlInt16()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -520,7 +520,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlInt16()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -530,7 +530,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlInt32()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -540,7 +540,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlInt32()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -550,7 +550,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlInt64()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -560,7 +560,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlInt64()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -570,7 +570,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlMoney()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -580,7 +580,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlMoney()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -590,7 +590,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlSingle()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -600,7 +600,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlSingle()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -610,7 +610,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -620,7 +620,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -630,7 +630,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarSqlXml()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -640,7 +640,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlDataRecordMapperRegistrationScalarNullableSqlXml()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlDataRecordMappers();
 
@@ -651,7 +651,7 @@ namespace Sqleze.Tests.TableValuedParameters
         //[TestMethod]
         //public void SqlDataRecordMapperRegistrationDictionaryObject()
         //{
-        //    var container = new Container().WithNSubstituteFallback();
+        //    var container = DI.NewContainer().WithNSubstituteFallback();
 
         //    container.RegisterSqlDataRecordMappers();
 
@@ -661,7 +661,7 @@ namespace Sqleze.Tests.TableValuedParameters
         //[TestMethod]
         //public void SqlDataRecordMapperRegistrationDictionaryNullableObject()
         //{
-        //    var container = new Container().WithNSubstituteFallback();
+        //    var container = DI.NewContainer().WithNSubstituteFallback();
 
         //    container.RegisterSqlDataRecordMappers();
 

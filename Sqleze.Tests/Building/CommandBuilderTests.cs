@@ -16,7 +16,7 @@ namespace Sqleze.Tests.Building
         [TestMethod]
         public void CommandBuild1()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqleze();
 
@@ -53,7 +53,7 @@ namespace Sqleze.Tests.Building
         [TestMethod]
         public void CommandBuild2()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqleze();
 

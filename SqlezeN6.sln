@@ -13,11 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{DEA02B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Docs", "Sqleze.Docs\Sqleze.Docs.csproj", "{3110B7C4-D931-464F-B1E0-00E69B99B485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.DryIoc", "Sqleze.DryIoc\Sqleze.DryIoc.csproj", "{82FCEB3F-E089-4791-A46E-38CD231DC685}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.DryIoc", "Sqleze.DryIoc\Sqleze.DryIoc.csproj", "{82FCEB3F-E089-4791-A46E-38CD231DC685}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCommon", "TestCommon\TestCommon.csproj", "{D5CCF357-3683-4FF8-9006-E3DE12AE0D35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCommon.DryIoc", "TestCommon.DryIoc\TestCommon.DryIoc.csproj", "{D244A806-BB84-4E00-8D82-E2D5EB05C375}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCommon.DryIoc", "TestCommon.DryIoc\TestCommon.DryIoc.csproj", "{D244A806-BB84-4E00-8D82-E2D5EB05C375}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Tests", "Sqleze.Tests\Sqleze.Tests.csproj", "{A22BDAF9-9174-4933-82EE-FDE3C627FE68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Tests.DryIoc", "Sqleze.Tests.DryIoc\Sqleze.Tests.DryIoc.csproj", "{4B0EE606-3461-469F-B359-E9F9DED83020}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{D244A806-BB84-4E00-8D82-E2D5EB05C375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D244A806-BB84-4E00-8D82-E2D5EB05C375}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D244A806-BB84-4E00-8D82-E2D5EB05C375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22BDAF9-9174-4933-82EE-FDE3C627FE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22BDAF9-9174-4933-82EE-FDE3C627FE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22BDAF9-9174-4933-82EE-FDE3C627FE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22BDAF9-9174-4933-82EE-FDE3C627FE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B0EE606-3461-469F-B359-E9F9DED83020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B0EE606-3461-469F-B359-E9F9DED83020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B0EE606-3461-469F-B359-E9F9DED83020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B0EE606-3461-469F-B359-E9F9DED83020}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

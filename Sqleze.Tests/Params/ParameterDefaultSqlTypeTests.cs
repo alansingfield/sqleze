@@ -17,7 +17,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionNVarChar()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -31,7 +31,7 @@ namespace Sqleze.Tests.Params
         //[TestMethod]
         //public void ParameterDefaultSqlResolutionInt()
         //{
-        //    var container = new Container();
+        //    var container = DI.NewContainer();
 
         //    container.RegisterParameterDefaultSqlTypes();
 
@@ -45,7 +45,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionObject()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -61,7 +61,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionString()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -75,7 +75,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionByteArray()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -89,7 +89,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionInt()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -103,7 +103,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionBool()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -117,7 +117,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionByte()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -131,7 +131,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionShort()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -145,7 +145,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionLong()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -159,7 +159,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSingle()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -173,7 +173,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionDouble()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -187,7 +187,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutiondecimal()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -201,7 +201,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionDateTime()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -215,7 +215,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionDateTimeOffset()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -229,7 +229,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionTimeSpan()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -243,7 +243,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionGuid()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -257,7 +257,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlBinary()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -271,7 +271,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlBoolean()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -285,7 +285,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlByte()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -299,7 +299,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlBytes()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -313,7 +313,7 @@ namespace Sqleze.Tests.Params
         //[TestMethod]
         //public void ParameterDefaultSqlResolutionSqlChars()
         //{
-        //    var container = new Container();
+        //    var container = DI.NewContainer();
 
         //    container.RegisterParameterDefaultSqlTypes();
 
@@ -327,7 +327,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlDateTime()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -341,7 +341,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlDouble()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -355,7 +355,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlGuid()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -369,7 +369,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlInt16()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -383,7 +383,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlInt32()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -397,7 +397,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlInt64()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -411,7 +411,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlMoney()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -425,7 +425,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlDecimal()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -439,7 +439,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlSingle()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -453,7 +453,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlString()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -467,7 +467,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionSqlXml()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 
@@ -482,7 +482,7 @@ namespace Sqleze.Tests.Params
         [TestMethod]
         public void ParameterDefaultSqlResolutionTableTypeNotKnown()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterParameterDefaultSqlTypes();
 

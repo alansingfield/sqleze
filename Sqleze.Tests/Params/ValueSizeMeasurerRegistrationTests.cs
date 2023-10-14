@@ -18,7 +18,7 @@ public class ValueSizeMeasurerRegistrationTests
     [TestMethod]
     public void SizeMeasurerRegistrationBaseTypes()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterValueSizeMeasurers();
 
@@ -32,7 +32,7 @@ public class ValueSizeMeasurerRegistrationTests
     [TestMethod]
     public void SizeMeasurerRegistrationSqlTypes()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterValueSizeMeasurers();
 
@@ -51,7 +51,7 @@ public class ValueSizeMeasurerRegistrationTests
     [TestMethod]
     public void SizeMeasurerRegistrationFallback()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterValueSizeMeasurers();
 

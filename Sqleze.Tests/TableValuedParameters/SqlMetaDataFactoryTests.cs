@@ -16,7 +16,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlMetaDataFactoryStandard()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register<MSS.SqlMetaData>(made: FactoryMethod.ConstructorWithResolvableArguments);
 
@@ -33,7 +33,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlMetaDataFactorySized()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register<MSS.SqlMetaData>(made: FactoryMethod.ConstructorWithResolvableArguments);
 
@@ -51,7 +51,7 @@ namespace Sqleze.Tests.TableValuedParameters
         [TestMethod]
         public void SqlMetaDataFactoryScaled()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register<MSS.SqlMetaData>(made: FactoryMethod.ConstructorWithResolvableArguments);
 

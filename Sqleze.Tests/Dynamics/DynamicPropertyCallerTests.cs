@@ -103,7 +103,7 @@ public class DynamicPropertyCallerTests
 
     private IContainer openContainer()
     {
-        var container = new Container().WithNSubstituteFallback();
+        var container = DI.NewContainer().WithNSubstituteFallback();
         container.Register(typeof(IDynamicPropertyCaller<>), typeof(DynamicPropertyCaller<>), Reuse.Singleton);
         container.Register<IDefaultFallbackExpressionBuilder, DefaultFallbackExpressionBuilder>(Reuse.Singleton);
 

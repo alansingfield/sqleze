@@ -15,7 +15,13 @@ public static class SqlezeRoot
     /// <returns></returns>
     public static ISqlezeBuilder OpenBuilder()
     {
-        var container = new Container();
+        var rules = Rules.Default;
+
+        #if !DRYIOC_DLL
+        rules = rules.With(FactoryMethod.ConstructorWithResolvableArgumentsIncludingNonPublic);
+        #endif
+
+        var container = new Container(rules);
 
         container.RegisterSqleze();
 

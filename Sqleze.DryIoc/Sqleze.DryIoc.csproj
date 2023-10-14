@@ -62,6 +62,7 @@
     <Compile Include="..\Sqleze\Registration\*.cs" LinkBase="Registration" />
     <Compile Include="..\Sqleze\RowsetMetadata\*.cs" LinkBase="RowsetMetadata" />
     <Compile Include="..\Sqleze\Security\*.cs" LinkBase="Security" />
+    <Compile Include="..\Sqleze\Sizing\*.cs" LinkBase="Sizing" />
     <Compile Include="..\Sqleze\SqlClient\*.cs" LinkBase="SqlClient" />
     <Compile Include="..\Sqleze\TableValuedParameters\*.cs" LinkBase="TableValuedParameters" />
     <Compile Include="..\Sqleze\Timeout\*.cs" LinkBase="Timeout" />

@@ -205,7 +205,7 @@ namespace Sqleze.Tests.Integration
 
         private static ISqlezeBuilder openSqleze()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();

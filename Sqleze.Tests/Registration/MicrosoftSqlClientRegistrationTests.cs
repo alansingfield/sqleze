@@ -14,7 +14,7 @@ namespace Sqleze.Tests.Registration
         [TestMethod]
         public void MicrosoftSqlClientRegistered()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterMicrosoftSqlClient();
 

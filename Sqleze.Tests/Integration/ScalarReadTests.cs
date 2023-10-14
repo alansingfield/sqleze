@@ -19,7 +19,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ScalarRead1()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -53,7 +53,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ScalarReadSimpleConnection2()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -415,7 +415,7 @@ namespace Sqleze.Tests.Integration
 
         private ISqlezeBuilder sqleze()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -426,7 +426,7 @@ namespace Sqleze.Tests.Integration
 
         private ISqlezeConnection connect()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();

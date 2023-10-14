@@ -15,7 +15,7 @@ public class ConnectionBuilderTests
     [TestMethod]
     public void ConnectionBuilderVerbatim()
     {
-        var container = new Container().WithNSubstituteFallback();
+        var container = DI.NewContainer().WithNSubstituteFallback();
 
         container.RegisterSqleze();
 
@@ -41,7 +41,7 @@ public class ConnectionBuilderTests
     [TestMethod]
     public void ConnectionBuilderConfig()
     {
-        var container = new Container().WithNSubstituteFallback();
+        var container = DI.NewContainer().WithNSubstituteFallback();
 
         container.RegisterSqleze();
 
@@ -72,7 +72,7 @@ public class ConnectionBuilderTests
     [TestMethod]
     public void ConnectionBuilderSharedScope()
     {
-        var container = new Container().WithNSubstituteFallback();
+        var container = DI.NewContainer().WithNSubstituteFallback();
 
         container.RegisterSqleze();
 

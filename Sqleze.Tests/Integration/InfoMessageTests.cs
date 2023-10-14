@@ -16,7 +16,7 @@ public class InfoMessageTests
     [TestMethod]
     public void InfoMessageOutput()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterSqleze();
         container.RegisterTestSettings();
@@ -37,7 +37,7 @@ public class InfoMessageTests
     [TestMethod]
     public void InfoMessageOutputDual()
     {
-        var container = new Container();
+        var container = DI.NewContainer();
 
         container.RegisterSqleze();
         container.RegisterTestSettings();

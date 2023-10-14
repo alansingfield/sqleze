@@ -17,7 +17,7 @@ namespace Sqleze.Tests.DryIoc
         [TestMethod]
         public void MultiResolver1()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
             container.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));

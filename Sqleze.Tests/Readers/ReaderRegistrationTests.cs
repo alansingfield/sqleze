@@ -18,7 +18,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationPoco()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -34,7 +34,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarBool()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -44,7 +44,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableBool()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -54,7 +54,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -64,7 +64,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -74,7 +74,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarByteArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -84,7 +84,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableByteArray()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -94,7 +94,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -104,7 +104,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -114,7 +114,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -124,7 +124,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -134,7 +134,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -144,7 +144,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -154,7 +154,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarFloat()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -164,7 +164,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableFloat()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -174,7 +174,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarInt()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -184,7 +184,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableInt()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -194,7 +194,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarLong()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -204,7 +204,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableLong()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -214,7 +214,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarObject()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -224,7 +224,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableObject()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -234,7 +234,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarShort()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -244,7 +244,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableShort()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -254,7 +254,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -264,7 +264,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -274,7 +274,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarDateTimeOffset()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -284,7 +284,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableDateTimeOffset()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -294,7 +294,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -304,7 +304,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -314,7 +314,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarTimeSpan()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -324,7 +324,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableTimeSpan()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -334,7 +334,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlBinary()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -344,7 +344,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlBinary()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -354,7 +354,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlBoolean()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -364,7 +364,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlBoolean()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -374,7 +374,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -384,7 +384,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlByte()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -394,7 +394,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlBytes()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -404,7 +404,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlBytes()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -414,7 +414,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlChars()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -424,7 +424,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlChars()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -434,7 +434,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -444,7 +444,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlDateTime()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -454,7 +454,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -464,7 +464,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlDecimal()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -474,7 +474,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -484,7 +484,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlDouble()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -494,7 +494,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -504,7 +504,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlGuid()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -514,7 +514,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlInt16()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -524,7 +524,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlInt16()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -534,7 +534,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlInt32()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -544,7 +544,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlInt32()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -554,7 +554,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlInt64()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -564,7 +564,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlInt64()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -574,7 +574,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlMoney()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -584,7 +584,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlMoney()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -594,7 +594,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlSingle()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -604,7 +604,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlSingle()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -614,7 +614,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -624,7 +624,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlString()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -634,7 +634,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarSqlXml()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -644,7 +644,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationScalarNullableSqlXml()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -655,7 +655,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationDictionaryObject()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 
@@ -665,7 +665,7 @@ namespace Sqleze.Tests.Readers
         [TestMethod]
         public void ReaderRegistrationDictionaryNullableObject()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqlezeReaders();
 

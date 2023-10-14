@@ -316,7 +316,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSize1()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -346,7 +346,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSize2()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -380,7 +380,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeMaxNVarChar()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -412,7 +412,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeMaxVarChar()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -445,7 +445,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimal()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -475,7 +475,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes1()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -493,7 +493,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes2()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -511,7 +511,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes3()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -529,7 +529,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes4()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -549,7 +549,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void PreferDateTimeTest1()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -579,7 +579,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void PreferDateTimeTest2()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -609,7 +609,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void PreferDateTimeTest3()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -689,7 +689,7 @@ namespace Sqleze.Tests.Integration
 
         private ISqlezeConnection connect()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();

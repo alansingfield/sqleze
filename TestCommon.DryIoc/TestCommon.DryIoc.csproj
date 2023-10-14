@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Compile Include="..\TestCommon\Config\*.cs" LinkBase="Config" />
+    <Compile Include="..\TestCommon\DependencyInjection\*.cs" LinkBase="DependencyInjection" />
     <Compile Include="..\TestCommon\TestUtil\*.cs" LinkBase="TestUtil" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DI = DryIoc;
+using DIOC = DryIoc;
 
 namespace Sqleze.Tests.Integration;
 
@@ -17,13 +17,13 @@ public class RootConnectionTests
     [TestMethod]
     public void SecondaryContainerTest()
     {
-        var container = new Container().WithNSubstituteFallback();
+        var container = DI.NewContainer().WithNSubstituteFallback();
 
         //var configuration = Substitute.For<IConfiguration>();
         container.RegisterTestSettings();
 
         container.Register<ISqlezeBuilder>(Reuse.Singleton,
-            made: Made.Of(() => sqlezeFactory(DI.Arg.Of<IConfiguration>())
+            made: Made.Of(() => sqlezeFactory(DIOC.Arg.Of<IConfiguration>())
             ));
 
         using var scope = container.OpenScope();

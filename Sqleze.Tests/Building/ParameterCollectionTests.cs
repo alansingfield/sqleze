@@ -13,7 +13,7 @@ namespace Sqleze.Tests.Building
         [TestMethod]
         public void ParameterCollection1()
         {
-            //var container = new Container().WithNSubstituteFallback();
+            //var container = DI.NewContainer().WithNSubstituteFallback();
 
             //var cmd = container.Resolve<ISqlezeCommand>();
 

@@ -166,7 +166,7 @@ namespace Sqleze.Tests.Dynamics
 
         private IContainer openContainer()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
             container.Register(typeof(IConstructorLambdaBuilder<>), typeof(ConstructorLambdaBuilder<>));
             container.Register<IDefaultFallbackExpressionBuilder, DefaultFallbackExpressionBuilder>(Reuse.Singleton);
 

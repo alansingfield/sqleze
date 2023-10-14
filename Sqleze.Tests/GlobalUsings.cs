@@ -8,6 +8,7 @@ global using DryIoc;
 global using NSubstitute;
 global using NS = NSubstitute;
 global using TestCommon.TestUtil;
+global using TestCommon.DependencyInjection;
 
 // In this project we use the real SqlClient
 global using MS = Microsoft.Data.SqlClient;

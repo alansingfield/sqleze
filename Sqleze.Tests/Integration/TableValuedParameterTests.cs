@@ -154,7 +154,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeEnumerable()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -175,7 +175,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeList()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -196,7 +196,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeArray()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -217,7 +217,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownMulti()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -253,7 +253,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeByteArrayEnumerable()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
@@ -295,7 +295,7 @@ namespace Sqleze.Tests.Integration
 
         private ISqlezeConnection connect()
         {
-            var container = new Container();
+            var container = DI.NewContainer();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();

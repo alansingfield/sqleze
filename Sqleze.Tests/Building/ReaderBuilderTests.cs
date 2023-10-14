@@ -18,7 +18,7 @@ namespace Sqleze.Tests.Building
         public void ReaderBuilder1()
         {
 
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();

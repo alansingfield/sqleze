@@ -24,7 +24,7 @@ namespace Sqleze.Tests.Readers
 //        [TestMethod]
 //        public void ColumnPropertyMapperEmpty()
 //        {
-//            var container = new Container().WithNSubstituteFallback();
+//            var container = DI.NewContainer().WithNSubstituteFallback();
 
 //            container.Register(typeof(IColumnPropertyMapper<>), typeof(ColumnPropertyMapper<>));
 //            container.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
@@ -138,7 +138,7 @@ namespace Sqleze.Tests.Readers
 
         private static IContainer openContainer()
         {
-            var container = new Container().WithNSubstituteFallback();
+            var container = DI.NewContainer().WithNSubstituteFallback();
 
             container.Register(typeof(IColumnPropertyMapper<>), typeof(ColumnPropertyMapper<>));
             container.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
