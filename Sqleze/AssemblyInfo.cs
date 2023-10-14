@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("TestCommon")]
-[assembly:InternalsVisibleTo("sqleze.Tests")]
+[assembly:InternalsVisibleTo("Sqleze.SpatialTypes")]
+[assembly:InternalsVisibleTo("Sqleze.Tests")]

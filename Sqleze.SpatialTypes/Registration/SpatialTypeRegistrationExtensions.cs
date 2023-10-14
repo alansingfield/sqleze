@@ -15,7 +15,12 @@ namespace Sqleze.Registration;
 
 public static class SpatialTypeRegistrationExtensions
 {
-    public static void RegisterSpatialTypes(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSpatialTypes(this IRegistrator registrator)
     {
         registrator.RegisterSpatialSqlDbTypeResolver();
         registrator.RegisterSpatialTypeValueGetters();
@@ -23,14 +28,24 @@ public static class SpatialTypeRegistrationExtensions
         registrator.RegisterSpatialReaders();
     }
 
-    public static void RegisterSpatialSqlDbTypeResolver(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSpatialSqlDbTypeResolver(this IRegistrator registrator)
     {
         registrator.Register<IKnownSqlDbTypeResolver, SpatialSqlDbTypeResolver>(
             Reuse.Singleton,
             ifAlreadyRegistered: IfAlreadyRegistered.AppendNotKeyed);
     }
 
-    public static void RegisterSpatialTypeValueGetters(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSpatialTypeValueGetters(this IRegistrator registrator)
     {
         registrator.Register<IReaderGetValue<SqlGeometry>, ReaderGetValueSqlGeometry>(Reuse.Singleton);
         registrator.Register<IReaderGetValue<SqlGeography>, ReaderGetValueSqlGeography>(Reuse.Singleton);
@@ -60,7 +75,12 @@ public static class SpatialTypeRegistrationExtensions
         registrator.Register<IReaderGetValue<object, IKnownSqlDbTypeHierarchyId>, ReaderGetValueSqlHierarchyIdToObject>(Reuse.Singleton);
     }
 
-    public static void RegisterSpatialTypeParameterDefaults(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSpatialTypeParameterDefaults(this IRegistrator registrator)
     {
         registrator.RegisterInstance<IParameterDefaultSqlTypeOptions<SqlGeometry>>(
             new ParameterDefaultSqlTypeOptions<SqlGeometry>()
@@ -79,7 +99,12 @@ public static class SpatialTypeRegistrationExtensions
             { SqlTypeName = "hierarchyid", Mode = SqlezeParameterMode.AssemblyType });
     }
 
-    public static void RegisterSpatialReaders(this IRegistrator registrator)
+    #if DRYIOC_DLL
+    public
+    #else
+    internal
+    #endif
+    static void RegisterSpatialReaders(this IRegistrator registrator)
     {
         registrator.Register<IReader<SqlGeography?>, ScalarReader<SqlGeography?>>();
         registrator.Register<IReader<SqlGeometry?>, ScalarReader<SqlGeometry?>>();
