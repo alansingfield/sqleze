@@ -7,6 +7,7 @@ using TestCommon.Config;
 
 namespace TestCommon.TestUtil
 {
+    #if !DRYIOC_ABSENT
     public static class SettingsFileExtensions
     {
         #if DRYIOC_DLL
@@ -20,4 +21,5 @@ namespace TestCommon.TestUtil
                 new[] { "serverSettings.json" });
         }
     }
+    #endif
 }

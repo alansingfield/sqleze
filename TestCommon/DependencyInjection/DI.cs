@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace TestCommon.DependencyInjection;
 public static class DI
 {
+    #if !DRYIOC_ABSENT
+
     #if DRYIOC_DLL
     public 
     #else
@@ -23,4 +25,6 @@ public static class DI
 
         return new Container(rules);
     }
+
+    #endif
 }

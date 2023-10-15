@@ -1,10 +1,12 @@
-﻿using NSubstitute;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
+using NSubstitute;
 
 namespace TestCommon.TestUtil;
 
 public static class NSubstituteContainerExtensions
 {
+    #if !DRYIOC_ABSENT
+
     /// <summary>
     /// Configures the container to create any unregistered types through NSubstitute.
     /// </summary>
@@ -44,4 +46,6 @@ public static class NSubstituteContainerExtensions
             DynamicRegistrationFlags.Service | DynamicRegistrationFlags.AsFallback)
         );
     }
+
+    #endif
 }

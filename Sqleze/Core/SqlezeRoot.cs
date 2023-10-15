@@ -1,41 +1,41 @@
-﻿using Sqleze;
+﻿using Microsoft.Extensions.Configuration;
+using Sqleze;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Sqleze;
 
-public static class SqlezeRoot
+public interface ISqlezeRoot
 {
-    /// <summary>
-    /// Opens the configuration chain for customising your SQLEZE connection factory.
-    /// </summary>
-    /// <returns></returns>
-    public static ISqlezeBuilder OpenBuilder()
+    ISqlezeBuilder Builder { get; }
+
+    ISqleze Factory(string connectionString);
+}
+
+public class SqlezeRoot : ISqlezeRoot
+{
+    private readonly ISqlezeBuilder sqlezeBuilder;
+    private readonly ConcurrentDictionary<string, ISqleze> sqlezeFactories;
+
+    public SqlezeRoot(
+        ISqlezeBuilder sqlezeBuilder
+    )
     {
-        var rules = Rules.Default;
+        this.sqlezeBuilder = sqlezeBuilder;
 
-        #if !DRYIOC_DLL
-        rules = rules.With(FactoryMethod.ConstructorWithResolvableArgumentsIncludingNonPublic);
-        #endif
-
-        var container = new Container(rules);
-
-        container.RegisterSqleze();
-
-        return container.Resolve<ISqlezeBuilder>();
+        sqlezeFactories = new();
     }
 
-    /// <summary>
-    /// Open a SQLEZE database connection with the default options. You must dispose when complete.
-    /// </summary>
-    /// <returns></returns>
-    public static ISqlezeConnection Connect(string connectionString)
+    public ISqlezeBuilder Builder => sqlezeBuilder;
+
+    public ISqleze Factory(string connectionString)
     {
-        return OpenBuilder()
-            .WithConnectionString(connectionString)
-            .Connect();
+        return sqlezeFactories.GetOrAdd(connectionString,
+            x => sqlezeBuilder.WithConnectionString(x).Build());
     }
 }

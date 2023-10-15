@@ -175,11 +175,9 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
+        var container = openContainer();
 
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        using var conn = container.Resolve<ISqlezeBuilder>()
             .Connect();
 
         var foos = new List<FooUnderscore>()
@@ -230,14 +228,11 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention2()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
-
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        var container = openContainer();
+        
+        using var conn = container.Resolve<ISqlezeBuilder>()
             .WithCamelUnderscoreNaming()
             .Connect();
-
         var foos = new List<FooUnderscore>()
         {
             new()
@@ -285,11 +280,9 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention3()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
-
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        var container = openContainer();
+        
+        using var conn = container.Resolve<ISqlezeBuilder>()
             .WithCamelUnderscoreNaming()
             .Connect();
 
@@ -371,12 +364,19 @@ public class StoredProcParameterTests
 
     private ISqlezeConnection connect()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
-
-        return SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        return openContainer()
+            .Resolve<ISqlezeBuilder>()
             .WithCamelUnderscoreNaming()
             .Connect();
+    }
+
+    private IContainer openContainer()
+    {
+        var container = DI.NewContainer();
+
+        container.RegisterSqleze();
+        container.RegisterTestSettings();
+
+        return container;
     }
 }

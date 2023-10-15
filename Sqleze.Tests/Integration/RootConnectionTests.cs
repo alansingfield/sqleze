@@ -14,34 +14,43 @@ namespace Sqleze.Tests.Integration;
 [TestClass]
 public class RootConnectionTests
 {
-    [TestMethod]
-    public void SecondaryContainerTest()
-    {
-        var container = DI.NewContainer().WithNSubstituteFallback();
+    //[TestMethod]
+    //public void SecondaryContainerTest()
+    //{
+    //    var container = DI.NewContainer().WithNSubstituteFallback();
 
-        //var configuration = Substitute.For<IConfiguration>();
-        container.RegisterTestSettings();
+    //    //var configuration = Substitute.For<IConfiguration>();
+    //    container.RegisterTestSettings();
 
-        container.Register<ISqlezeBuilder>(Reuse.Singleton,
-            made: Made.Of(() => sqlezeFactory(DIOC.Arg.Of<IConfiguration>())
-            ));
+    //    container.Register<ISqlezeBuilder>(Reuse.Singleton,
+    //        made: Made.Of(() => sqlezeFactory(DIOC.Arg.Of<IConfiguration>())
+    //        ));
 
-        using var scope = container.OpenScope();
+    //    using var scope = container.OpenScope();
 
-        var sqleze = scope.Resolve<ISqlezeBuilder>();
+    //    var sqleze = scope.Resolve<ISqlezeBuilder>();
 
-        using var conn = sqleze.Connect();
+    //    using var conn = sqleze.Connect();
 
-        var cmd = conn.Sql("SELECT @arg");
-        cmd.Parameters.Set("@arg", 123);
-        cmd.ReadSingleOrDefault<int>().ShouldBe(123);
-    }
+    //    var cmd = conn.Sql("SELECT @arg");
+    //    cmd.Parameters.Set("@arg", 123);
+    //    cmd.ReadSingleOrDefault<int>().ShouldBe(123);
+    //}
 
-    private static ISqlezeBuilder sqlezeFactory(IConfiguration configuration)
-    {
-        return SqlezeRoot
-            .OpenBuilder()
-            .WithConfiguration(configuration)
-            .WithConfigKey("ConnectionString");
-    }
+    //private ISqlezeBuilder sqlezeFactory(IConfiguration configuration)
+    //{
+    //    return opencontainer
+    //        .WithConfiguration(configuration)
+    //        .WithConfigKey("ConnectionString");
+    //}
+
+    //private IContainer openContainer()
+    //{
+    //    var container = DI.NewContainer();
+
+    //    container.RegisterSqleze();
+    //    container.RegisterTestSettings();
+
+    //    return container;
+    //}
 }

@@ -8,6 +8,8 @@ namespace TestCommon.TestUtil
 {
     public static class DryIocExtensions
     {
+        #if !DRYIOC_ABSENT
+
         #if DRYIOC_DLL
         public
         #else
@@ -23,5 +25,7 @@ namespace TestCommon.TestUtil
             if(!String.IsNullOrEmpty(validateResult))
                 throw new Exception(validateResult);
         }
+
+        #endif
     }
 }

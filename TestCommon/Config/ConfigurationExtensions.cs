@@ -9,6 +9,7 @@ namespace TestCommon.Config;
 
 public static class ConfigurationExtensions
 {
+    #if !DRYIOC_ABSENT
     /// <summary>
     /// Sets up configuration binding to a section of the appsettings.json file.
     /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1#use-di-services-to-configure-options 
@@ -45,5 +46,5 @@ public static class ConfigurationExtensions
         container.Register<IConfiguration>(reuse: Reuse.Singleton, made: Made.Of(() => ConfigurationFactory.New(filenames, optionalFilenames)));
     }
 
-
+    #endif
 }
