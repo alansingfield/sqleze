@@ -21,6 +21,9 @@ namespace Sqleze
         public static ISqlezeConnection Connect(this ISqlezeBuilder builder)
             => builder.Build().Connect();
 
+        public static ISqlezeConnection Connect(this ISqlezeBuilder builder, string connectionString)
+            => builder.WithConnectionString(connectionString).Build().Connect();
+
         public static ISqlezeRowset<T> OpenRowsetNullable<T>(this ISqlezeRowsetBuilder builder)
             => builder.Build().OpenRowsetNullable<T>();
 

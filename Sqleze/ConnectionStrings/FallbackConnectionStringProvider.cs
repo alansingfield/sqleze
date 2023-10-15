@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Sqleze;
+﻿using Sqleze;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +8,12 @@ using System.Threading.Tasks;
 namespace Sqleze.ConnectionStrings;
 public class FallbackConnectionStringProvider : IConnectionStringProvider
 {
-    private readonly IConfiguration configuration;
-
-    public FallbackConnectionStringProvider(IConfiguration configuration)
+    public FallbackConnectionStringProvider()
     {
-        this.configuration = configuration;
     }
 
     public string GetConnectionString()
     {
-        return configuration.GetConnectionString("ConnectionString");
+        throw new Exception("No ConnectionString can be found. Use the WithConnectionString() method on the ISqlezeBuilder class to provide this");
     }
 }

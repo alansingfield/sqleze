@@ -27,17 +27,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Mock.DryIoc", "Sqlez
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Mock.Tests", "Sqleze.Mock.Tests\Sqleze.Mock.Tests.csproj", "{46B138FE-6EA4-48A0-B14A-DEFB5FA793E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Mock.Tests.DryIoc", "Sqleze.Mock.Tests.DryIoc\Sqleze.Mock.Tests.DryIoc.csproj", "{66885755-90B7-441C-9851-F12E1DCA8A06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Mock.Tests.DryIoc", "Sqleze.Mock.Tests.DryIoc\Sqleze.Mock.Tests.DryIoc.csproj", "{66885755-90B7-441C-9851-F12E1DCA8A06}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.SpatialTypes", "Sqleze.SpatialTypes\Sqleze.SpatialTypes.csproj", "{8082E5AC-4D7A-4A6E-876D-5CFA8B07C778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.SpatialTypes.DryIoc", "Sqleze.SpatialTypes.DryIoc\Sqleze.SpatialTypes.DryIoc.csproj", "{1BFA03D0-8772-4163-BDEF-4855F7F2CB4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.SpatialTypes.DryIoc", "Sqleze.SpatialTypes.DryIoc\Sqleze.SpatialTypes.DryIoc.csproj", "{1BFA03D0-8772-4163-BDEF-4855F7F2CB4D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.SpatialTypes.Tests", "Sqleze.SpatialTypes.Tests\Sqleze.SpatialTypes.Tests.csproj", "{B2F0746D-7CC6-4697-A07E-6F602A4E0B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.SpatialTypes.Tests.DryIoc", "Sqleze.SpatialTypes.Tests.DryIoc\Sqleze.SpatialTypes.Tests.DryIoc.csproj", "{FE5E0DEC-5C65-437C-813B-0D7C37F762C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.SpatialTypes.Tests.DryIoc", "Sqleze.SpatialTypes.Tests.DryIoc\Sqleze.SpatialTypes.Tests.DryIoc.csproj", "{FE5E0DEC-5C65-437C-813B-0D7C37F762C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.NonFriend.Tests", "Sqleze.NonFriend.Tests\Sqleze.NonFriend.Tests.csproj", "{744D0E34-C86F-403F-B002-DB26C1D5523C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.NonFriend.Tests", "Sqleze.NonFriend.Tests\Sqleze.NonFriend.Tests.csproj", "{744D0E34-C86F-403F-B002-DB26C1D5523C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Configuration", "Sqleze.Configuration\Sqleze.Configuration.csproj", "{5B247317-7F44-4ACF-9E2C-03FFB0679F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Configuration.DryIoc", "Sqleze.Configuration.DryIoc\Sqleze.Configuration.DryIoc.csproj", "{DCAB265F-2547-4C4B-9BF2-9A4A8822B957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,6 +108,14 @@ Global
 		{744D0E34-C86F-403F-B002-DB26C1D5523C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{744D0E34-C86F-403F-B002-DB26C1D5523C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{744D0E34-C86F-403F-B002-DB26C1D5523C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B247317-7F44-4ACF-9E2C-03FFB0679F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B247317-7F44-4ACF-9E2C-03FFB0679F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B247317-7F44-4ACF-9E2C-03FFB0679F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B247317-7F44-4ACF-9E2C-03FFB0679F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCAB265F-2547-4C4B-9BF2-9A4A8822B957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAB265F-2547-4C4B-9BF2-9A4A8822B957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCAB265F-2547-4C4B-9BF2-9A4A8822B957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCAB265F-2547-4C4B-9BF2-9A4A8822B957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

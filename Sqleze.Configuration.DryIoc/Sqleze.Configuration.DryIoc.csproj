@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Sqleze.Configuration</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sqleze.DryIoc\Sqleze.DryIoc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Sqleze.Configuration\Configuration\*.cs" LinkBase="Configuration" />
+    <Compile Include="..\Sqleze.Configuration\ConnectionStrings\*.cs" LinkBase="ConnectionStrings" />
+    <Compile Include="..\Sqleze.Configuration\Registration\*.cs" LinkBase="Registration" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+</Project>

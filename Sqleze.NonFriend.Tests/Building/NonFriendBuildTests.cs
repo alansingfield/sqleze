@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Shouldly;
 using TestCommon.Config;
 using TestCommon.TestUtil;
+using Sqleze;
 
 namespace Sqleze.NonFriend.Tests.Building;
 
@@ -20,28 +21,45 @@ public class NonFriendBuildTests
     [TestMethod]
     public void NonFriendConnect()
     {
-        using var conn = Sqleze.Root.Connect(TestSettings.ConnectionString);
+        using var conn = SqlezeRoot.Builder.Connect(TestSettings.ConnectionString);
 
         conn.Sql("SELECT 1234").ReadSingle<int>().ShouldBe(1234);
     }
-
-    [TestMethod]
-    public void NonFriendBuild()
-    {
-        var sqleze = Sqleze.Root.Builder.Build();
-
-        using var conn = sqleze.Connect();
-
-        conn.Sql("SELECT 1234").ReadSingle<int>().ShouldBe(1234);
-    }
-
 
     [TestMethod]
     public void NonFriendFactory()
     {
-        var sqleze = Sqleze.Root.Factory;
+        var builder = SqlezeRoot.Builder.WithConnectionString(TestSettings.ConnectionString);
 
-        using var conn = sqleze.Connect();
+        var factory1 = builder.Build();
+        var factory2 = builder.Build();
+
+        using var conn1 = factory1.Connect();
+        using var conn2 = factory2.Connect();
+
+        conn1.Sql("SELECT 1234").ReadSingle<int>().ShouldBe(1234);
+    }
+    
+    [TestMethod]
+    public void NonFriendBuild()
+    {
+        var factory = SqlezeRoot.Builder.WithConnectionString(TestSettings.ConnectionString).Build();
+
+        using var conn = factory.Connect();
+
+        conn.Sql("SELECT 1234").ReadSingle<int>().ShouldBe(1234);
+    }
+    
+    [TestMethod]
+    public void NonFriendConfigKeyCeremony()
+    {
+        var configuration = ConfigurationFactory.New(new[] {"serverSettings.json" });
+
+        var factory = SqlezeRoot.Builder
+            .WithConfiguration(configuration)
+            .WithConfigKey("ConnectionString").Build();
+
+        using var conn = factory.Connect();
 
         conn.Sql("SELECT 1234").ReadSingle<int>().ShouldBe(1234);
     }

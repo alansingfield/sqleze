@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -60,6 +60,7 @@
     <Compile Include="..\Sqleze\Params\*.cs" LinkBase="Params" />
     <Compile Include="..\Sqleze\Readers\**\*.cs" LinkBase="Readers" />
     <Compile Include="..\Sqleze\Registration\*.cs" LinkBase="Registration" />
+    <Compile Include="..\Sqleze\Root\*.cs" LinkBase="Root" />
     <Compile Include="..\Sqleze\RowsetMetadata\*.cs" LinkBase="RowsetMetadata" />
     <Compile Include="..\Sqleze\Security\*.cs" LinkBase="Security" />
     <Compile Include="..\Sqleze\Sizing\*.cs" LinkBase="Sizing" />
