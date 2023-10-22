@@ -24,6 +24,8 @@ namespace Sqleze
                 scope.Use(configuration);
             });
         }
+
+        // TODO - have an IConfigurationProvider so we can set up the configuration later in the sequence
     }
 }
 
