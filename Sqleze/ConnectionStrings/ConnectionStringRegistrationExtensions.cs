@@ -12,7 +12,6 @@ public static class ConnectionStringRegistrationExtensions
         registrator.Register<IConnectionStringProvider, FallbackConnectionStringProvider>(
             Reuse.Scoped);
 
-        registrator.RegisterSqlezeConfigConnectionStringProvider();
         registrator.RegisterSqlezeVerbatimConnectionStringProvider();
     }
 
@@ -32,19 +31,5 @@ public static class ConnectionStringRegistrationExtensions
         registrator.Register<VerbatimConnectionOptions>(Reuse.ScopedToService<IScopedSqlezeConnectionBuilder<VerbatimConnectionRoot>>());
     }
 
-    public static void RegisterSqlezeConfigConnectionStringProvider(this IRegistrator registrator)
-    {
-        registrator.Register<IConfigConnectionStringProvider, ConfigConnectionStringProvider>(
-            Reuse.Scoped);
 
-        registrator.Register<IConnectionStringProvider, ConfigConnectionStringProvider>(
-            Reuse.Scoped,
-            setup: Setup.With(
-                asResolutionCall: true,
-                condition: Condition.ScopedToGenericArg<ConfigConnectionRoot, ConnectionRoot>()));
-
-        registrator.Register<ConfigConnectionRoot>();
-
-        registrator.Register<ConfigConnectionOptions>(Reuse.ScopedToService<IScopedSqlezeConnectionBuilder<ConfigConnectionRoot>>());
-    }
 }

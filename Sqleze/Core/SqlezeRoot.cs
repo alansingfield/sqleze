@@ -7,29 +7,31 @@ using System.Threading.Tasks;
 
 namespace Sqleze;
 
-public static class SqlezeRoot
+public interface ISqlezeRoot
 {
-    /// <summary>
-    /// Opens the configuration chain for customising your SQLEZE connection factory.
-    /// </summary>
-    /// <returns></returns>
-    public static ISqlezeBuilder OpenBuilder()
-    {
-        var container = new Container();
-
-        container.RegisterSqleze();
-
-        return container.Resolve<ISqlezeBuilder>();
-    }
-
-    /// <summary>
-    /// Open a SQLEZE database connection with the default options. You must dispose when complete.
-    /// </summary>
-    /// <returns></returns>
-    public static ISqlezeConnection Connect(string connectionString)
-    {
-        return OpenBuilder()
-            .WithConnectionString(connectionString)
-            .Connect();
-    }
+    ISqlezeBuilder OpenBuilder();
 }
+
+public class SqlezeRoot : ISqlezeRoot
+{
+    private readonly ISqlezeBuilder builder;
+    public SqlezeRoot(ISqlezeBuilder builder)
+    {
+        this.builder = builder;
+    }
+
+    public ISqlezeBuilder OpenBuilder() => builder;
+}
+
+
+// ABSOLUTE root is called Core - this is static with a global container.
+// Only in non-DLL version?
+// Could have methods to do the registration using reflection perhaps?
+// SqlezeCore.Root gives you ISqlezeRoot (based on a default static)
+// SqlezeCore.SetConfiguration(IConfiguration)
+// SqlezeCore.Builder
+// SqlezeCore.Factory
+// SqlezeCore.Connect(x) - extension method
+// SqlezeCore.NewRoot() makes another container for you
+// SqlezeCore.Root.Register(xxx) - for the config methods.
+
