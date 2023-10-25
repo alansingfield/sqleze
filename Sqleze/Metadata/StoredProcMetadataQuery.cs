@@ -18,10 +18,7 @@ namespace Sqleze.Metadata
     {
         private readonly ISqleze sqleze;
 
-        public StoredProcMetadataQuery(
-            IConnectionStringProvider connectionStringProvider,
-            ISqlezeBuilder sqlezeConnectionBuilder,
-            ISqleze sqleze)
+        public StoredProcMetadataQuery(ISqleze sqleze)
         {
             this.sqleze = sqleze;
         }
