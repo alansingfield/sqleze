@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sqleze.ConnectionStrings;
 
 namespace Sqleze.Tests.Integration;
 
@@ -57,6 +58,7 @@ public class ArrayReadTests
         container.RegisterTestSettings();
 
         return container.Resolve<ISqlezeBuilder>()
+            .WithConfigKey("ConnectionString")
             .Connect();
     }
 }

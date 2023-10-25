@@ -24,9 +24,9 @@ namespace Sqleze.Tests.Building
                 Reuse.ScopedToService<IScopedSqlezeCommandBuilder<CommandInterceptor>>());
 
 
-            var factory = container.Resolve<ISqlezeBuilder>();
+            var builder = container.Resolve<ISqlezeBuilder>();
 
-            var connection = factory
+            var connection = builder
                 .WithConnectionString("Server=XYZ")
                 .Build()
                 .Connect();

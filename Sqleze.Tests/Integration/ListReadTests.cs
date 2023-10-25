@@ -57,6 +57,7 @@ public class ListReadTests
         container.RegisterTestSettings();
 
         return container.Resolve<ISqlezeBuilder>()
+            .WithConfigKey("ConnectionString")
             .Connect();
     }
 }

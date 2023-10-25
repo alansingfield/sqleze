@@ -22,8 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sqleze.Configuration\Sqleze.Configuration.csproj" />
     <ProjectReference Include="..\Sqleze.SpatialTypes\Sqleze.SpatialTypes.csproj" />
     <ProjectReference Include="..\TestCommon\TestCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Sqleze.Tests\TestCommon\*.cs" LinkBase="TestCommon" />
   </ItemGroup>
 
 </Project>

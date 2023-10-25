@@ -321,7 +321,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             using var connection = sqleze
                 .WithPreferredNVarCharSizes(new[] { 10, 20, 50, 100, 4000 })
@@ -351,7 +352,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             // Setting sizes at the connection level will be overridden
             using var connection = sqleze
@@ -385,7 +387,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             // Note - we've not put in 4000 as a preferred size. This will
             // be put in for us automatically.
@@ -417,7 +420,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             // Note - we've not put in 8000 as a preferred size. This will
             // be put in for us automatically.
@@ -450,7 +454,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             using var connection = sqleze
                 .WithPreferredNumericPrecisionScales(new[] { (2, 0), (5, 3), (10, 5) })
@@ -480,7 +485,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             Should.Throw(() =>
             {
@@ -498,7 +504,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             Should.Throw(() =>
             {
@@ -516,7 +523,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             Should.Throw(() =>
             {
@@ -534,7 +542,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             Should.Throw(() =>
             {
@@ -554,7 +563,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             using var connection = sqleze
                 .WithPreferDateTime()
@@ -584,7 +594,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             using var connection = sqleze
                 .WithPreferDateTime2(5)
@@ -614,7 +625,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var sqleze = container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString");
 
             using var connection = sqleze
                 .WithPreferDateTime2()
@@ -695,6 +707,8 @@ namespace Sqleze.Tests.Integration
             container.RegisterTestSettings();
 
             return container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString")
+                .WithConfigKey("ConnectionString")
                 .Connect();
         }
     }

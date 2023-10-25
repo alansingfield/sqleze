@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sqleze.Configuration\Sqleze.Configuration.csproj" />
     <ProjectReference Include="..\Sqleze\Sqleze.csproj" />
     <ProjectReference Include="..\TestCommon\TestCommon.csproj" />
   </ItemGroup>

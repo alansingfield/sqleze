@@ -1,12 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using Sqleze;
+using Sqleze.ConnectionStrings;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Sqleze.Tests.Integration;
 
@@ -111,6 +113,7 @@ public class DataSetReadTests
         container.RegisterTestSettings();
 
         return container.Resolve<ISqlezeBuilder>()
+            .WithConfigKey("ConnectionString")
             .Connect();
     }
 }

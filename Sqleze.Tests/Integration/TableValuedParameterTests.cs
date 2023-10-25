@@ -154,12 +154,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeEnumerable()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            var conn = getBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .Connect();
 
@@ -175,12 +170,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeList()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            var conn = getBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .Connect();
 
@@ -196,12 +186,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeArray()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            var conn = getBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .Connect();
 
@@ -217,12 +202,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownMulti()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            var conn = getBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .WithTableTypeFor<int>("dbo.tt_int_vals")
                 .WithTableTypeFor<int?>("dbo.tt_int_foos")
@@ -253,12 +233,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeByteArrayEnumerable()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            var conn = getBuilder()
                 .WithTableTypeFor<byte[]>("dbo.tt_varbinary_vals")
                 .Connect();
 
@@ -293,7 +268,7 @@ namespace Sqleze.Tests.Integration
             public int Plus { get; set; }
         }
 
-        private ISqlezeConnection connect()
+        private ISqlezeBuilder getBuilder()
         {
             var container = new Container();
 
@@ -301,7 +276,12 @@ namespace Sqleze.Tests.Integration
             container.RegisterTestSettings();
 
             return container.Resolve<ISqlezeBuilder>()
-                .Connect();
+                .WithConfigKey("ConnectionString");
+        }
+
+        private ISqlezeConnection connect()
+        {
+            return getBuilder().Connect();
         }
     }
 }

@@ -71,6 +71,7 @@ namespace Sqleze.SpatialTypes.Tests.Integration
             container.RegisterTestSettings();
 
             return container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("ConnectionString")
                 .Connect();
         }
     }

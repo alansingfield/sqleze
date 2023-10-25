@@ -175,12 +175,14 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
+        var container = openContainer();
+        
+        var factory = container.Resolve<ISqlezeRoot>()
+            .OpenBuilder()
+            .WithConfigKey("ConnectionString")
+            .Build();
 
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
-            .Connect();
+        using var conn = factory.Connect();
 
         var foos = new List<FooUnderscore>()
         {
@@ -230,13 +232,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention2()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
-
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
-            .WithCamelUnderscoreNaming()
-            .Connect();
+        using var conn = connect();
 
         var foos = new List<FooUnderscore>()
         {
@@ -285,11 +281,12 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention3()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
+        var container = openContainer();
 
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        var root = container.Resolve<ISqlezeRoot>();
+
+        var conn = root.OpenBuilder()
+            .WithConfigKey("ConnectionString")
             .WithCamelUnderscoreNaming()
             .Connect();
 
@@ -369,13 +366,24 @@ public class StoredProcParameterTests
         public string foo_name { get; set; } = "";
     }
 
+    private IContainer openContainer()
+    {
+        var container = new Container();
+
+        container.RegisterSqleze();
+        container.RegisterTestSettings();
+
+        return container;
+    }
+
     private ISqlezeConnection connect()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
+        var container = openContainer();
 
-        return SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        var root = container.Resolve<ISqlezeRoot>();
+
+        return root.OpenBuilder()
+            .WithConfigKey("ConnectionString")
             .WithCamelUnderscoreNaming()
             .Connect();
     }
