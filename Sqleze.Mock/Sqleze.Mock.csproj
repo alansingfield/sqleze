@@ -28,7 +28,6 @@
     <Compile Include="..\Sqleze\Collations\*.cs" LinkBase="Collations" />
     <Compile Include="..\Sqleze\Collections\*.cs" LinkBase="Collections" />
     <Compile Include="..\Sqleze\Composition\*.cs" LinkBase="Composition" />
-    <Compile Include="..\Sqleze\Configuration\*.cs" LinkBase="Configuration" />
     <Compile Include="..\Sqleze\ConnectionStrings\*.cs" LinkBase="ConnectionStrings" />
     <Compile Include="..\Sqleze\Converters\**\*.cs" LinkBase="Converters" />
     <Compile Include="..\Sqleze\Core\*.cs" LinkBase="Core" />

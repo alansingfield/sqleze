@@ -23,7 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{DEA02B
 		serverSettings.json = serverSettings.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Docs", "Sqleze.Docs\Sqleze.Docs.csproj", "{3110B7C4-D931-464F-B1E0-00E69B99B485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Docs", "Sqleze.Docs\Sqleze.Docs.csproj", "{3110B7C4-D931-464F-B1E0-00E69B99B485}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqleze.Microsoft.DependencyInjection.Tests", "Sqleze.Microsoft.DependencyInjection.Tests\Sqleze.Microsoft.DependencyInjection.Tests.csproj", "{A94BCA7C-96CA-4FB5-B0ED-DFC450277D24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Microsoft.DependencyInjection", "Sqleze.Microsoft.DependencyInjection\Sqleze.Microsoft.DependencyInjection.csproj", "{C408F49A-58D4-4170-88A3-819E1937477A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sqleze.Configuration", "Sqleze.Configuration\Sqleze.Configuration.csproj", "{7990E62C-5640-4D9E-9218-D50E01CF377E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{3110B7C4-D931-464F-B1E0-00E69B99B485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3110B7C4-D931-464F-B1E0-00E69B99B485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3110B7C4-D931-464F-B1E0-00E69B99B485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A94BCA7C-96CA-4FB5-B0ED-DFC450277D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A94BCA7C-96CA-4FB5-B0ED-DFC450277D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A94BCA7C-96CA-4FB5-B0ED-DFC450277D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A94BCA7C-96CA-4FB5-B0ED-DFC450277D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C408F49A-58D4-4170-88A3-819E1937477A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C408F49A-58D4-4170-88A3-819E1937477A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C408F49A-58D4-4170-88A3-819E1937477A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C408F49A-58D4-4170-88A3-819E1937477A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7990E62C-5640-4D9E-9218-D50E01CF377E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7990E62C-5640-4D9E-9218-D50E01CF377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7990E62C-5640-4D9E-9218-D50E01CF377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7990E62C-5640-4D9E-9218-D50E01CF377E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
