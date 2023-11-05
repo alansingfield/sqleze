@@ -15,6 +15,7 @@ namespace Sqleze.Registration;
 
 public static class SpatialTypeRegistrationExtensions
 {
+
     public static void RegisterSpatialTypes(this IRegistrator registrator)
     {
         registrator.RegisterSpatialSqlDbTypeResolver();

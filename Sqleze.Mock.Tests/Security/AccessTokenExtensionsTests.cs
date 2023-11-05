@@ -39,32 +39,32 @@ public class AccessTokenExtensionsTests
         });
     }
 
-    [TestMethod]
-    public void AccessTokenAfterBuilder()
-    {
-        using var container = new Container().WithNSubstituteFallback();
+    //[TestMethod]
+    //public void AccessTokenAfterBuilder()
+    //{
+    //    using var container = new Container().WithNSubstituteFallback();
 
-        container.RegisterSqlezeCore();
-        container.RegisterSqlezeConnectionStringProviders();
+    //    container.RegisterSqlezeCore();
+    //    container.RegisterSqlezeConnectionStringProviders();
 
-        // Make a singleton MS.SqlConnection
-        var sqlConnection = Substitute.For<MS.SqlConnection>();
-        container.RegisterInstance<MS.SqlConnection>(sqlConnection);
+    //    // Make a singleton MS.SqlConnection
+    //    var sqlConnection = Substitute.For<MS.SqlConnection>();
+    //    container.RegisterInstance<MS.SqlConnection>(sqlConnection);
 
-        _ = sqlConnection.DidNotReceive().AccessToken;
+    //    _ = sqlConnection.DidNotReceive().AccessToken;
 
-        var sqlezeBuilder = container.Resolve<ISqlezeBuilder>();
+    //    var sqlezeBuilder = container.Resolve<ISqlezeBuilder>();
 
-        sqlezeBuilder
-            .WithConnectionString("FAKE")
-            .Build()
-            .WithAccessToken("XXX111")
-            .Connect().Sql("").ExecuteNonQuery();
+    //    sqlezeBuilder
+    //        .WithConnectionString("FAKE")
+    //        .Build()
+    //        .WithAccessToken("XXX111")
+    //        .Connect().Sql("").ExecuteNonQuery();
 
-        Received.InOrder(() =>
-        {
-            _ = sqlConnection.Received(1).AccessToken = "XXX111";
-            sqlConnection.Open();
-        });
-    }
+    //    Received.InOrder(() =>
+    //    {
+    //        _ = sqlConnection.Received(1).AccessToken = "XXX111";
+    //        sqlConnection.Open();
+    //    });
+    //}
 }

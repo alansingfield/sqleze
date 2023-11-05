@@ -28,22 +28,6 @@ namespace Sqleze
                     scope.Use(new VerbatimConnectionOptions() { ConnectionString = connectionString });
                 });
         }
-
-
-
-        /// <summary>
-        /// Specify connection string directly (not via config)
-        /// </summary>
-        /// <param name="sqlezeConnectionBuilder"></param>
-        /// <param name="connectionString"></param>
-        /// <returns></returns>
-        public static ISqlezeBuilder WithConnectionString(
-            this ISqleze sqleze,
-            string connectionString
-            )
-        {
-            return sqleze.Reconfigure().WithConnectionString(connectionString);
-        }
     }
 }
 

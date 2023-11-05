@@ -26,4 +26,5 @@ public static class ConfigKeyRegistrationExtensions
 
         registrator.Register<ConfigConnectionOptions>(Reuse.ScopedToService<IScopedSqlezeConnectionBuilder<ConfigConnectionRoot>>());
     }
+
 }

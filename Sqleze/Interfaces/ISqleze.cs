@@ -4,5 +4,4 @@
 public interface ISqleze
 {
     ISqlezeConnection Connect();
-    ISqlezeBuilder Reconfigure();
 }

@@ -22,18 +22,18 @@ public static class AccessTokenExtensions
     }
 
 
-    /// <summary>
-    /// Specify access token
-    /// </summary>
-    /// <param name="sqlezeConnectionBuilder"></param>
-    /// <param name="accessToken"></param>
-    /// <returns></returns>
-    public static ISqlezeBuilder WithAccessToken(
-        this ISqleze sqleze,
-        string accessToken
-        )
-    {
-        return sqleze.Reconfigure().WithAccessToken(accessToken);
-    }
+    ///// <summary>
+    ///// Specify access token
+    ///// </summary>
+    ///// <param name="sqlezeConnectionBuilder"></param>
+    ///// <param name="accessToken"></param>
+    ///// <returns></returns>
+    //public static ISqlezeBuilder WithAccessToken(
+    //    this ISqleze sqleze,
+    //    string accessToken
+    //    )
+    //{
+    //    return sqleze.Reconfigure().WithAccessToken(accessToken);
+    //}
 
 }
