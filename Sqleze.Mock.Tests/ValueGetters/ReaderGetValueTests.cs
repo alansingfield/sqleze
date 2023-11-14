@@ -28,10 +28,10 @@ namespace Sqleze.Mock.Tests.ValueGetters
             container.Resolve<IReaderGetValue<byte[]>>()         .ShouldBeOfType<ReaderGetValue<byte[]>>();
             container.Resolve<IReaderGetValue<DateTime?>>()      .ShouldBeOfType<ReaderGetValue<DateTime?>>();
             container.Resolve<IReaderGetValue<DateTime>>()       .ShouldBeOfType<ReaderGetValue<DateTime>>();
-            container.Resolve<IReaderGetValue<DateOnly?>>()      .ShouldBeOfType<ReaderGetFieldValue<DateOnly?>>();
-            container.Resolve<IReaderGetValue<DateOnly>>()       .ShouldBeOfType<ReaderGetFieldValue<DateOnly>>();
-            container.Resolve<IReaderGetValue<TimeOnly?>>()      .ShouldBeOfType<ReaderGetFieldValue<TimeOnly?>>();
-            container.Resolve<IReaderGetValue<TimeOnly>>()       .ShouldBeOfType<ReaderGetFieldValue<TimeOnly>>();
+            container.Resolve<IReaderGetValue<DateOnly?>>()      .ShouldBeOfType<ReaderGetValueDateOnlyNullable>();
+            container.Resolve<IReaderGetValue<DateOnly>>()       .ShouldBeOfType<ReaderGetValueDateOnly>();
+            container.Resolve<IReaderGetValue<TimeOnly?>>()      .ShouldBeOfType<ReaderGetValueTimeOnlyNullable>();
+            container.Resolve<IReaderGetValue<TimeOnly>>()       .ShouldBeOfType<ReaderGetValueTimeOnly>();
             container.Resolve<IReaderGetValue<decimal?>>()       .ShouldBeOfType<ReaderGetValue<decimal?>>();
             container.Resolve<IReaderGetValue<decimal>>()        .ShouldBeOfType<ReaderGetValue<decimal>>();
             container.Resolve<IReaderGetValue<double?>>()        .ShouldBeOfType<ReaderGetValue<double?>>();
