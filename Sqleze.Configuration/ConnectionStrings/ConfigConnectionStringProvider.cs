@@ -13,19 +13,21 @@ namespace Sqleze.ConnectionStrings
     public class ConfigConnectionStringProvider : IConfigConnectionStringProvider
     {
         private readonly IConfiguration configuration;
-        private readonly string connectionKey;
+        private readonly ConfigConnectionOptions options;
 
         public ConfigConnectionStringProvider(
             IConfiguration configuration, 
-            ConfigConnectionOptions configConnectionOptions)
+            ConfigConnectionOptions options)
         {
             this.configuration = configuration;
-            this.connectionKey = configConnectionOptions.ConnectionKey;
+            this.options = options;
         }
 
         public string GetConnectionString()
         {
-            return configuration.GetConnectionString(this.connectionKey);
+            string connectionString = configuration.GetConnectionString(options.ConnectionKey);
+
+            if(
         }
     }
 }

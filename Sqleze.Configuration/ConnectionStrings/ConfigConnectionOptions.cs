@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sqleze.ConnectionStrings
 {
-    public class ConfigConnectionOptions
-    {
-        public string ConnectionKey { get; set; } = "ConnectionString";
-    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="ConnectionKey">Key within ConnectionStrings section for SQL server connection string</param>
+    /// <param name="PasswordKey">Key within configuration for password (overrides any password in ConnectionStrings)</param>
+    public record ConfigConnectionOptions
+    (
+        string ConnectionKey,
+        string? PasswordKey
+    );
 }

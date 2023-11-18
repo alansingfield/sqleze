@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Sqleze;
 public static class StartupRegistrationExtensions
 {
-    public static void UseConfiguration(this IStartupRegistration startupRegistration)
+    public static void AddConfiguration(this IStartupRegistration startupRegistration)
     {
         startupRegistration.Registrator.RegisterSqlezeConfigKey();
     }
