@@ -19,7 +19,7 @@ public class StartupSpatialTypesTests
     public void StartupSpatialTypesSimple()
     {
         var configuration = ConfigurationFactory.New(new[] { "serverSettings.json" });
-        var connStr = configuration.GetConnectionString("ConnectionString");
+        var connStr = configuration.GetConnectionString("DefaultConnection");
 
         using var conn = new Sqleze
             .Startup(r => r.UseSpatialTypes())

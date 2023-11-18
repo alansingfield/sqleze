@@ -17,7 +17,7 @@ public class StartupConfigTests
     {
         IConfiguration configuration = getConfiguration();
 
-        using var conn = new Sqleze.Startup(x => x.AddConfiguration())
+        using var conn = new Sqleze.Startup()
             .Connect(configuration);
 
         string result = conn

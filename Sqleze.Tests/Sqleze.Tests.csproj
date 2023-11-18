@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sqleze.Configuration\Sqleze.Configuration.csproj" />
     <ProjectReference Include="..\Sqleze\Sqleze.csproj" />
   </ItemGroup>
 

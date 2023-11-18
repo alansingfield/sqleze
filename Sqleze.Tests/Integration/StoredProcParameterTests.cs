@@ -179,7 +179,7 @@ public class StoredProcParameterTests
         
         var factory = container.Resolve<ISqlezeRoot>()
             .OpenBuilder()
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .Build();
 
         using var conn = factory.Connect();
@@ -286,7 +286,7 @@ public class StoredProcParameterTests
         var root = container.Resolve<ISqlezeRoot>();
 
         var conn = root.OpenBuilder()
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .WithCamelUnderscoreNaming()
             .Connect();
 
@@ -383,7 +383,7 @@ public class StoredProcParameterTests
         var root = container.Resolve<ISqlezeRoot>();
 
         return root.OpenBuilder()
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .WithCamelUnderscoreNaming()
             .Connect();
     }

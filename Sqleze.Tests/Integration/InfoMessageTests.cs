@@ -24,7 +24,7 @@ public class InfoMessageTests
         List<string> messages = new List<string>();
 
         using var conn = container.Resolve<ISqlezeBuilder>()
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .WithInfoMessagesTo(x => messages.Add(x.Message))
             .Connect();
 
@@ -49,7 +49,7 @@ public class InfoMessageTests
         var sqleze = container.Resolve<ISqlezeBuilder>();
 
         var sqleze1 = sqleze
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .WithInfoMessagesTo(x => messages1.Add(x.Message));
 
         using var conn1 = sqleze1.Connect();

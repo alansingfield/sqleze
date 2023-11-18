@@ -341,7 +341,7 @@ namespace Sqleze.Tests.Metadata
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var builder = container.Resolve<ISqlezeBuilder>().WithConfigKey("ConnectionString");
+            var builder = container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
 
             var factory = builder.Build();
 

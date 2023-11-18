@@ -276,7 +276,7 @@ namespace Sqleze.Tests.Integration
             container.RegisterTestSettings();
 
             return container.Resolve<ISqlezeBuilder>()
-                .WithConfigKey("ConnectionString");
+                .WithConfigKey("DefaultConnection");
         }
 
         private ISqlezeConnection connect()

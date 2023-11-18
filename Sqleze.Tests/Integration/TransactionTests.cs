@@ -810,6 +810,6 @@ public class TransactionTests
         container.RegisterSqleze();
         container.RegisterTestSettings();
 
-        return container.Resolve<ISqlezeBuilder>().WithConfigKey("ConnectionString");
+        return container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
     }
 }

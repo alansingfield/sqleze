@@ -48,6 +48,6 @@ public class StartupPlainTests
     private static string getConnectionString()
     {
         var configuration = ConfigurationFactory.New(new[] { "serverSettings.json" });
-        return configuration.GetConnectionString("ConnectionString");
+        return configuration.GetConnectionString("DefaultConnection");
     }
 }

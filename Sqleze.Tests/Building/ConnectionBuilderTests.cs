@@ -44,7 +44,6 @@ public class ConnectionBuilderTests
         var container = new Container().WithNSubstituteFallback();
 
         container.RegisterSqleze();
-        container.RegisterSqlezeConfigKey();
 
         container.Register<ConnectionInterceptor>(Reuse.ScopedToService<IScopedSqlezeConnectionBuilder<ConnectionInterceptor>>());
 

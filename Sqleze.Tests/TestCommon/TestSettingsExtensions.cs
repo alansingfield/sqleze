@@ -12,7 +12,6 @@ namespace TestCommon.TestUtil
     {
         public static void RegisterTestSettings(this IRegistrator container)
         {
-            container.RegisterSqlezeConfigKey();
             container.RegisterSettingsFiles(
                 new[] { "serverSettings.json" });
         }

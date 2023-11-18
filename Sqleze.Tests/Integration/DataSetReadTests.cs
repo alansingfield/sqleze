@@ -113,7 +113,7 @@ public class DataSetReadTests
         container.RegisterTestSettings();
 
         return container.Resolve<ISqlezeBuilder>()
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .Connect();
     }
 }

@@ -128,7 +128,7 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            return container.Resolve<ISqlezeBuilder>().WithConfigKey("ConnectionString");
+            return container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
         }
     }
 }

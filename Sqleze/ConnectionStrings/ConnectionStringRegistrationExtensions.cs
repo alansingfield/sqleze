@@ -8,7 +8,7 @@ public static class ConnectionStringRegistrationExtensions
 {
     public static void RegisterSqlezeConnectionStringProviders(this IRegistrator registrator)
     {
-        // Fallback to using ConnectionString in appsettings.json
+        // If no connection string provided, raise an error.
         registrator.Register<IConnectionStringProvider, FallbackConnectionStringProvider>(
             Reuse.Scoped);
 

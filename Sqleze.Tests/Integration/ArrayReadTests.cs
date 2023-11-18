@@ -58,7 +58,7 @@ public class ArrayReadTests
         container.RegisterTestSettings();
 
         return container.Resolve<ISqlezeBuilder>()
-            .WithConfigKey("ConnectionString")
+            .WithConfigKey("DefaultConnection")
             .Connect();
     }
 }

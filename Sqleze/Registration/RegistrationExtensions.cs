@@ -11,6 +11,8 @@ public static class SqlezeRegistrationExtensions
     {
         registrator.RegisterSqlezeCore();
         registrator.RegisterSqlezeConnectionStringProviders();
+        registrator.RegisterSqlezeConfigKey();
+
 
 #if !MOCK_SQLCLIENT
         registrator.RegisterMicrosoftSqlClient();
