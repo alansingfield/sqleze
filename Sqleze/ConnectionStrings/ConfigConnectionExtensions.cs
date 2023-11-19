@@ -14,37 +14,37 @@ namespace Sqleze
         /// Specify which key to use within the ConnectionStrings section of your options json
         /// </summary>
         /// <param name="sqlezeConnectionBuilder"></param>
-        /// <param name="configKey"></param>
+        /// <param name="connectionKey"></param>
         /// <returns></returns>
         public static ISqlezeBuilder WithConfigKey(
             this ISqlezeBuilder sqlezeConnectionBuilder,
-            string configKey
+            string connectionKey
             )
         {
             return sqlezeConnectionBuilder.With<ConfigConnectionRoot>(
                 (root, scope) =>
                 {
-                    scope.Use(new ConfigConnectionOptions(configKey, null));
+                    scope.Use(new ConfigConnectionOptions(connectionKey, null));
                 });
         }
         
         /// <summary>
         /// Specify which key to use within the ConnectionStrings section of your options json
-        /// and key for the password held separately (secrets.json)
+        /// and key for the password held separately (e.g. via secrets.json)
         /// </summary>
         /// <param name="sqlezeConnectionBuilder"></param>
-        /// <param name="configKey"></param>
+        /// <param name="connectionKey"></param>
         /// <returns></returns>
         public static ISqlezeBuilder WithConfigKey(
             this ISqlezeBuilder sqlezeConnectionBuilder,
-            string configKey,
+            string connectionKey,
             string passwordKey
             )
         {
             return sqlezeConnectionBuilder.With<ConfigConnectionRoot>(
                 (root, scope) =>
                 {
-                    scope.Use(new ConfigConnectionOptions(configKey, passwordKey));
+                    scope.Use(new ConfigConnectionOptions(connectionKey, passwordKey));
                 });
         }
     }
