@@ -18,7 +18,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterFindsTable()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooInit>()
         {
@@ -68,7 +68,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterRecord()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooRecord>()
         {
@@ -97,7 +97,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterGetSet()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooGetSet>()
         {
@@ -146,7 +146,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterConsOnly()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooConsOnly>()
         {
@@ -175,10 +175,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention()
     {
-        var container = openContainer();
-        
-        var factory = container.Resolve<ISqlezeRoot>()
-            .OpenBuilder()
+        var factory = OpenBuilder()
             .WithConfigKey("DefaultConnection")
             .Build();
 
@@ -232,7 +229,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention2()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooUnderscore>()
         {
@@ -281,11 +278,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention3()
     {
-        var container = openContainer();
-
-        var root = container.Resolve<ISqlezeRoot>();
-
-        var conn = root.OpenBuilder()
+        var conn = OpenBuilder()
             .WithConfigKey("DefaultConnection")
             .WithCamelUnderscoreNaming()
             .Connect();
@@ -374,17 +367,5 @@ public class StoredProcParameterTests
         container.RegisterTestSettings();
 
         return container;
-    }
-
-    private ISqlezeConnection connect()
-    {
-        var container = openContainer();
-
-        var root = container.Resolve<ISqlezeRoot>();
-
-        return root.OpenBuilder()
-            .WithConfigKey("DefaultConnection")
-            .WithCamelUnderscoreNaming()
-            .Connect();
     }
 }

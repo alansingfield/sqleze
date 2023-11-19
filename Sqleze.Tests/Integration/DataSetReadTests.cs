@@ -18,7 +18,7 @@ public class DataSetReadTests
     [TestMethod]
     public void DataTablePopulate()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         var dataSet = new DataSet();
         dataSet.Tables.Add("Table1");
@@ -37,7 +37,7 @@ public class DataSetReadTests
     [TestMethod]
     public void DataTablePopulateDual()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         var dataSet = new DataSet();
         dataSet.Tables.Add("Table1");
@@ -73,7 +73,7 @@ public class DataSetReadTests
     [TestMethod]
     public void DataSetPopulate()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         var dataSet = conn.Sql("SELECT a = 1, b = 2").ExecuteDataSet();
 
@@ -89,7 +89,7 @@ public class DataSetReadTests
     [TestMethod]
     public void DataSetPopulateWithParams()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         var dataSet = conn.Sql("SELECT a = @x, b = 2")
             .Parameters.Set("@x", 1)
@@ -104,16 +104,4 @@ public class DataSetReadTests
         row["b"].ShouldBe(2);
     }
 
-
-    private ISqlezeConnection connect()
-    {
-        var container = new Container();
-
-        container.RegisterSqleze();
-        container.RegisterTestSettings();
-
-        return container.Resolve<ISqlezeBuilder>()
-            .WithConfigKey("DefaultConnection")
-            .Connect();
-    }
 }

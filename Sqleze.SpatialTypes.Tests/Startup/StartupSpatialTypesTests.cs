@@ -18,14 +18,9 @@ public class StartupSpatialTypesTests
     [TestMethod]
     public void StartupSpatialTypesSimple()
     {
-        var configuration = ConfigurationFactory.New(new[] { "serverSettings.json" });
-        var connStr = configuration.GetConnectionString("DefaultConnection");
+        using var conn = Connect();
 
-        using var conn = new Sqleze
-            .Startup(r => r.UseSpatialTypes())
-            .Connect(connStr);
-
-         var result = conn.Sql(@"
+        var result = conn.Sql(@"
                 DECLARE @x hierarchyid;
                 SET @x = '/1/';
                 SELECT result = @x;

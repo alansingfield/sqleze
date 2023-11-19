@@ -15,7 +15,7 @@ public class ArrayReadTests
     [TestMethod]
     public void ArrayReadChain()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         int[]? l1 = null;
         int[]? l2 = null;
@@ -33,7 +33,7 @@ public class ArrayReadTests
     [TestMethod]
     public async Task ArrayReadChainAsync()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         int[]? l1 = null;
         int[]? l2 = null;
@@ -48,17 +48,4 @@ public class ArrayReadTests
         l2.ShouldBe(new int[] { 3, 4 });
     }
 
-
-
-    private ISqlezeConnection connect()
-    {
-        var container = new Container();
-
-        container.RegisterSqleze();
-        container.RegisterTestSettings();
-
-        return container.Resolve<ISqlezeBuilder>()
-            .WithConfigKey("DefaultConnection")
-            .Connect();
-    }
 }
