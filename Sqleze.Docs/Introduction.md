@@ -10,10 +10,15 @@ without any interference with the SQL queries themselves.
 ```
 string connStr = "Server=YOURSERVER;Database=YOURDB;...";
 
-using conn = SqlezeRoot.Connect(connStr);
-    
-DateTime now =  conn.Sql("SELECT GETDATE()")
-    .ReadSingle<DateTime>();
+var connector = new Sqleze.Startup()
+    .Build(connStr);
+
+using var conn = connector.Connect();
+
+conn.Sql("SELECT 'Hellorld'")
+    .ReadSingle<string>()
+    .ShouldBe("Hellorld");
+
 ```
 
 Here we connect to the database, run some SQL and read the result as a scalar value.
