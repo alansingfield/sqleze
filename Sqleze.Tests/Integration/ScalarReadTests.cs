@@ -27,7 +27,7 @@ namespace Sqleze.Tests.Integration
             var builder = container.Resolve<ISqlezeBuilder>();
 
             using var connection = builder
-                .WithConfigKey("ConnectionString")
+                .WithConfigKey("DefaultConnection")
                 .Build()
                 .Connect();
 
@@ -59,7 +59,7 @@ namespace Sqleze.Tests.Integration
             container.RegisterTestSettings();
 
             using var connection = container.Resolve<ISqlezeBuilder>()
-                .WithConfigKey("ConnectionString")
+                .WithConfigKey("DefaultConnection")
                 .Connect();
 
             var result = connection
@@ -432,6 +432,7 @@ namespace Sqleze.Tests.Integration
             container.RegisterTestSettings();
 
             return container.Resolve<ISqlezeBuilder>()
+                .WithConfigKey("DefaultConnection")
                 .Connect();
         }
     }

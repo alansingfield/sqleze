@@ -5,16 +5,16 @@ namespace Sqleze;
 public class SqlezeBuilder : ISqlezeBuilder
 {
     private readonly IResolverContext factoryScope;
-    private readonly Func<ISqleze> newSqlezeConnectionFactory;
+    private readonly Func<ISqlezeConnector> newSqlezeConnectionFactory;
 
     public SqlezeBuilder(IResolverContext scope,
-        Func<ISqleze> newSqlezeConnectionFactory)
+        Func<ISqlezeConnector> newSqlezeConnectionFactory)
     {
         this.factoryScope = scope;
         this.newSqlezeConnectionFactory = newSqlezeConnectionFactory;
     }
 
-    public ISqleze Build()
+    public ISqlezeConnector Build()
     {
         // This will create a new scope for the connection factory with all the configured
         // items within.

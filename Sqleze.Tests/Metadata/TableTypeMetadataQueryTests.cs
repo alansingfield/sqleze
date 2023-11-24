@@ -18,16 +18,7 @@ namespace Sqleze.Tests.Metadata
         [TestMethod]
         public void TableTypeMetadataQuery1()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            var s = container.OpenScope();
-
-            var q = s.Resolve<ITableTypeMetadataQuery>();
+            var q = buildQuery();
 
             var result = q.Query("dbo.tt_table_type_all_types");
 
@@ -343,19 +334,29 @@ namespace Sqleze.Tests.Metadata
             }
         }
 
-        [TestMethod]
-        public void TableTypeMetadataQuery2()
+        private static ITableTypeMetadataQuery buildQuery()
         {
             var container = new Container();
 
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
 
-            var s = container.OpenScope();
+            var factory = builder.Build();
 
-            var q = s.Resolve<ITableTypeMetadataQuery>();
+            var container2 = new Container();
+            container2.Register<ITableTypeMetadataQuery, TableTypeMetadataQuery>();
+            container2.Use<ISqlezeConnector>(factory);
+
+            var q = container2.Resolve<ITableTypeMetadataQuery>();
+            return q;
+        }
+
+        [TestMethod]
+        public void TableTypeMetadataQuery2()
+        {
+            var q = buildQuery();
 
             var result = q.Query("dbo.tt_table_type_all_types_nullable");
 
@@ -676,16 +677,7 @@ namespace Sqleze.Tests.Metadata
         [TestMethod]
         public async Task TableTypeMetadataQueryAsync()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            var s = container.OpenScope();
-
-            var q = s.Resolve<ITableTypeMetadataQuery>();
+            var q = buildQuery();
 
             var result = (await q.QueryAsync("dbo.tt_int_vals")).ToList();
 
@@ -706,14 +698,5 @@ namespace Sqleze.Tests.Metadata
 
         }
 
-        private static ISqlezeBuilder openSqleze()
-        {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            return container.Resolve<ISqlezeBuilder>();
-        }
     }
 }

@@ -14,7 +14,7 @@ public class ListReadTests
     [TestMethod]
     public void ListReadChain()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         List<int>? l1 = null;
         List<int>? l2 = null;
@@ -32,7 +32,7 @@ public class ListReadTests
     [TestMethod]
     public async Task ListReadChainAsync()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         List<int>? l1 = null;
         List<int>? l2 = null;
@@ -48,15 +48,22 @@ public class ListReadTests
     }
 
 
-
-    private ISqlezeConnection connect()
+    [TestMethod]
+    public void ListReadChainOut()
     {
-        var container = new Container();
+        using var conn = Connect();
 
-        container.RegisterSqleze();
-        container.RegisterTestSettings();
+        conn.Sql(@"
 
-        return container.Resolve<ISqlezeBuilder>()
-            .Connect();
+            SELECT 1 UNION SELECT 2;
+
+            SELECT 'A' UNION SELECT 'B';
+
+        ")
+            .ReadList<int>(out var l1)
+            .ReadList<string>(out var l2);
+
+        l1.ShouldBe(new List<int> { 1, 2 });
+        l2.ShouldBe(new List<string> { "A", "B" });
     }
 }

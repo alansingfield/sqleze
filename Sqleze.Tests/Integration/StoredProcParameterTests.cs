@@ -18,7 +18,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterFindsTable()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooInit>()
         {
@@ -68,7 +68,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterRecord()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooRecord>()
         {
@@ -97,7 +97,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterGetSet()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooGetSet>()
         {
@@ -146,7 +146,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterConsOnly()
     {
-        using var conn = connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooConsOnly>()
         {
@@ -175,12 +175,11 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
+        var factory = OpenBuilder()
+            .WithConfigKey("DefaultConnection")
+            .Build();
 
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
-            .Connect();
+        using var conn = factory.Connect();
 
         var foos = new List<FooUnderscore>()
         {
@@ -230,13 +229,7 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention2()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
-
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
-            .WithCamelUnderscoreNaming()
-            .Connect();
+        using var conn = OpenBuilder().WithCamelUnderscoreNaming().Connect();
 
         var foos = new List<FooUnderscore>()
         {
@@ -285,11 +278,8 @@ public class StoredProcParameterTests
     [TestMethod]
     public void StoredProcParameterNamingConvention3()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
-
-        var conn = SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
+        var conn = OpenBuilder()
+            .WithConfigKey("DefaultConnection")
             .WithCamelUnderscoreNaming()
             .Connect();
 
@@ -369,14 +359,13 @@ public class StoredProcParameterTests
         public string foo_name { get; set; } = "";
     }
 
-    private ISqlezeConnection connect()
+    private IContainer openContainer()
     {
-        var configuration = ConfigurationFactory.New(
-            new[] { "serverSettings.json" });
+        var container = new Container();
 
-        return SqlezeRoot.OpenBuilder()
-            .WithConfiguration(configuration)
-            .WithCamelUnderscoreNaming()
-            .Connect();
+        container.RegisterSqleze();
+        container.RegisterTestSettings();
+
+        return container;
     }
 }

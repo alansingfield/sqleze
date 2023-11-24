@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sqleze.ConnectionStrings;
 
 namespace Sqleze.Tests.Integration;
 
@@ -14,49 +15,90 @@ public class ArrayReadTests
     [TestMethod]
     public void ArrayReadChain()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         int[]? l1 = null;
-        int[]? l2 = null;
+        string[]? l2 = null;
 
         conn.Sql(@"
+
             SELECT 1 UNION SELECT 2;
-            SELECT 3 UNION SELECT 4;")
+
+            SELECT 'A' UNION SELECT 'B';
+
+        ")
             .ReadArray(() => l1!)
             .ReadArray(() => l2!);
 
         l1.ShouldBe(new int[] { 1, 2 });
-        l2.ShouldBe(new int[] { 3, 4 });
+        l2.ShouldBe(new string[] { "A", "B" });
     }
 
     [TestMethod]
     public async Task ArrayReadChainAsync()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         int[]? l1 = null;
-        int[]? l2 = null;
+        string[]? l2 = null;
 
         await conn.Sql(@"
+
             SELECT 1 UNION SELECT 2;
-            SELECT 3 UNION SELECT 4;")
+
+            SELECT 'A' UNION SELECT 'B';
+
+        ")
             .ReadArrayAsync(() => l1!)
             .ReadArrayAsync(() => l2!);
 
         l1.ShouldBe(new int[] { 1, 2 });
-        l2.ShouldBe(new int[] { 3, 4 });
+        l2.ShouldBe(new string[] { "A", "B" });
+    }
+    
+    [TestMethod]
+    public void ArrayReadChainOut()
+    {
+        using var conn = Connect();
+
+        conn.Sql(@"
+
+            SELECT 1 UNION SELECT 2;
+
+            SELECT 'A' UNION SELECT 'B';
+
+        ")
+            .ReadArray<int>(out var l1)
+            .ReadArray<string>(out var l2);
+
+        l1.ShouldBe(new int[] { 1, 2 });
+        l2.ShouldBe(new string[] { "A", "B" });
     }
 
-
-
-    private ISqlezeConnection connect()
+    private class ReadChainModel
     {
-        var container = new Container();
+        public int[] L1 { get; set; } = new int[0];
+        public string[] L2 { get; set; } = new string[0];
+    }
 
-        container.RegisterSqleze();
-        container.RegisterTestSettings();
+    [TestMethod]
+    public void ArrayReadChainModel()
+    {
+        using var conn = Connect();
 
-        return container.Resolve<ISqlezeBuilder>()
-            .Connect();
+        var model = new ReadChainModel();
+
+        conn.Sql(@"
+
+            SELECT 1 UNION SELECT 2;
+
+            SELECT 'A' UNION SELECT 'B';
+
+        ")
+            .ReadArray(() => model.L1)
+            .ReadArray(() => model.L2);
+
+        model.L1.ShouldBe(new int[] { 1, 2 });
+        model.L2.ShouldBe(new string[] { "A", "B" });
     }
 }

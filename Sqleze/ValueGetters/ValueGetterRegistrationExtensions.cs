@@ -51,11 +51,11 @@ public static class ValueGetterRegistrationExtensions
         registrator.Register<IReaderGetValue<SqlString?>,    ReaderGetValueSqlStringNullable>(Reuse.Singleton);
         //registrator.Register<IReaderGetValue<SqlXml?>,       ReaderGetValueSqlXmlNullable>(Reuse.Singleton);
 
-        registrator.Register<IReaderGetValue<DateOnly>, ReaderGetFieldValue<DateOnly>>(Reuse.Singleton);
-        registrator.Register<IReaderGetValue<DateOnly?>, ReaderGetFieldValue<DateOnly?>>(Reuse.Singleton);
+        registrator.Register<IReaderGetValue<DateOnly>,      ReaderGetValueDateOnly>(Reuse.Singleton);
+        registrator.Register<IReaderGetValue<DateOnly?>,     ReaderGetValueDateOnlyNullable>(Reuse.Singleton);
+        registrator.Register<IReaderGetValue<TimeOnly>,      ReaderGetValueTimeOnly>(Reuse.Singleton);
+        registrator.Register<IReaderGetValue<TimeOnly?>,     ReaderGetValueTimeOnlyNullable>(Reuse.Singleton);
 
-        registrator.Register<IReaderGetValue<TimeOnly>, ReaderGetFieldValue<TimeOnly>>(Reuse.Singleton);
-        registrator.Register<IReaderGetValue<TimeOnly?>, ReaderGetFieldValue<TimeOnly?>>(Reuse.Singleton);
 
 
     }

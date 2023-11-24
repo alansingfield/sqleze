@@ -176,6 +176,74 @@ namespace Sqleze.Tests.Integration
             result.LastName.ShouldBe("B");
         }
 
+        [TestMethod]
+        public void PocoReadDateOnly()
+        {
+            using var connection = connect();
+
+            var result = connection.Sql(@"
+                    SELECT non_nullable_date_only = CONVERT(date, '20230101'),
+                           nullable_date_only = CONVERT(date, '20230101')
+                ")
+                .WithCamelUnderscoreNaming()
+                .ExecuteReader()
+                .ReadSingle<ClassDateOnly>();
+
+            result.NonNullableDateOnly.ShouldBe(DateOnly.Parse("2023-01-01"));
+            result.NullableDateOnly.ShouldBe(DateOnly.Parse("2023-01-01"));
+        }
+
+        [TestMethod]
+        public void PocoReadDateOnlyNull()
+        {
+            using var connection = connect();
+
+            var result = connection.Sql(@"
+                    SELECT non_nullable_date_only = CONVERT(date, null),
+                           nullable_date_only = CONVERT(date, null)
+                ")
+                .WithCamelUnderscoreNaming()
+                .ExecuteReader()
+                .ReadSingle<ClassDateOnly>();
+
+            result.NonNullableDateOnly.ShouldBe(DateOnly.MinValue);
+            result.NullableDateOnly.ShouldBe((DateOnly?)null);
+        }
+
+        [TestMethod]
+        public void PocoReadTimeOnly()
+        {
+            using var connection = connect();
+
+            var result = connection.Sql(@"
+                    SELECT non_nullable_time_only = CONVERT(time, '12:34:56.1234567'),
+                           nullable_time_only = CONVERT(time, '12:34:56.1234567')
+                ")
+                .WithCamelUnderscoreNaming()
+                .ExecuteReader()
+                .ReadSingle<ClassTimeOnly>();
+
+            result.NonNullableTimeOnly.ShouldBe(TimeOnly.Parse("12:34:56.1234567"));
+            result.NullableTimeOnly.ShouldBe(TimeOnly.Parse("12:34:56.1234567"));
+        }
+
+        [TestMethod]
+        public void PocoReadTimeOnlyNull()
+        {
+            using var connection = connect();
+
+            var result = connection.Sql(@"
+                    SELECT non_nullable_time_only = CONVERT(time, null),
+                           nullable_time_only = CONVERT(time, null)
+                ")
+                .WithCamelUnderscoreNaming()
+                .ExecuteReader()
+                .ReadSingle<ClassTimeOnly>();
+
+            result.NonNullableTimeOnly.ShouldBe(TimeOnly.MinValue);
+            result.NullableTimeOnly.ShouldBe((TimeOnly?)null);
+        }
+
         public class ClassOne
         {
             public string? Name { get; set; }
@@ -196,7 +264,16 @@ namespace Sqleze.Tests.Integration
             public string LastName { get; set; } = "";
         }
 
-
+        public class ClassDateOnly
+        {
+            public DateOnly NonNullableDateOnly { get; set; } = DateOnly.MaxValue;
+            public DateOnly? NullableDateOnly { get; set; }
+        }
+        public class ClassTimeOnly
+        {
+            public TimeOnly NonNullableTimeOnly { get; set; } = TimeOnly.MaxValue;
+            public TimeOnly? NullableTimeOnly { get; set; }
+        }
 
         private ISqlezeConnection connect()
         {
@@ -210,7 +287,7 @@ namespace Sqleze.Tests.Integration
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            return container.Resolve<ISqlezeBuilder>();
+            return container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
         }
     }
 }

@@ -8,11 +8,10 @@ public static class ConnectionStringRegistrationExtensions
 {
     public static void RegisterSqlezeConnectionStringProviders(this IRegistrator registrator)
     {
-        // Fallback to using ConnectionString in appsettings.json
+        // If no connection string provided, raise an error.
         registrator.Register<IConnectionStringProvider, FallbackConnectionStringProvider>(
             Reuse.Scoped);
 
-        registrator.RegisterSqlezeConfigConnectionStringProvider();
         registrator.RegisterSqlezeVerbatimConnectionStringProvider();
     }
 
@@ -32,19 +31,5 @@ public static class ConnectionStringRegistrationExtensions
         registrator.Register<VerbatimConnectionOptions>(Reuse.ScopedToService<IScopedSqlezeConnectionBuilder<VerbatimConnectionRoot>>());
     }
 
-    public static void RegisterSqlezeConfigConnectionStringProvider(this IRegistrator registrator)
-    {
-        registrator.Register<IConfigConnectionStringProvider, ConfigConnectionStringProvider>(
-            Reuse.Scoped);
 
-        registrator.Register<IConnectionStringProvider, ConfigConnectionStringProvider>(
-            Reuse.Scoped,
-            setup: Setup.With(
-                asResolutionCall: true,
-                condition: Condition.ScopedToGenericArg<ConfigConnectionRoot, ConnectionRoot>()));
-
-        registrator.Register<ConfigConnectionRoot>();
-
-        registrator.Register<ConfigConnectionOptions>(Reuse.ScopedToService<IScopedSqlezeConnectionBuilder<ConfigConnectionRoot>>());
-    }
 }

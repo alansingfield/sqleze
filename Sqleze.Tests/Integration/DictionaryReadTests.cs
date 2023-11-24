@@ -49,6 +49,7 @@ public class DictionaryReadTests
         container.RegisterTestSettings();
 
         return container.Resolve<ISqlezeBuilder>()
+            .WithConfigKey("DefaultConnection")
             .Connect();
     }
 }

@@ -20,7 +20,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet1()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT arg = @arg");
 
@@ -33,7 +33,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet2()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT foo = @foo, bar = @bar");
 
@@ -50,7 +50,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet3()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT foo = @foo, bar = @bar");
 
@@ -70,7 +70,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet4()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT foo = @foo, bar = @bar");
 
@@ -95,7 +95,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet5()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT foo = @foo, bar = @bar");
 
@@ -117,7 +117,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet6()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT FirstName = @first_name, LastName = @last_name");
 
@@ -137,7 +137,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet7()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT FirstName = @first_name, LastName = @last_name");
 
@@ -160,7 +160,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet8()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT FirstName = @first_name, LastName = @last_name");
 
@@ -180,7 +180,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet9()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT FirstName = @first_name, LastName = @last_name");
 
@@ -201,7 +201,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSet10()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT FirstName = @first_name, LastName = @last_name");
 
@@ -227,7 +227,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetSqlValue()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT @arg");
 
@@ -243,7 +243,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetSqlValueDbNull()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT @arg");
 
@@ -260,7 +260,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetSqlValueNull()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT @arg");
 
@@ -277,7 +277,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetValueReadAtCorrectPoint()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT @arg");
 
@@ -296,7 +296,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetValueAmendAfterSet()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT @arg");
 
@@ -316,14 +316,9 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSize1()
         {
-            var container = new Container();
+            var builder = OpenBuilder();
 
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferredNVarCharSizes(new[] { 10, 20, 50, 100, 4000 })
                 .Connect();
 
@@ -346,15 +341,10 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSize2()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             // Setting sizes at the connection level will be overridden
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferredNVarCharSizes(new[] { 10, 20, 50, 100, 4000 })
                 .Connect();
 
@@ -380,16 +370,11 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeMaxNVarChar()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             // Note - we've not put in 4000 as a preferred size. This will
             // be put in for us automatically.
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferredNVarCharSizes(new[] { 10, 20, 50, 100 })
                 .Connect();
 
@@ -412,16 +397,11 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeMaxVarChar()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             // Note - we've not put in 8000 as a preferred size. This will
             // be put in for us automatically.
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferredVarCharSizes(new[] { 10, 20, 50, 100 })
                 .Connect();
 
@@ -445,14 +425,9 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimal()
         {
-            var container = new Container();
+            var builder = OpenBuilder();
 
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferredNumericPrecisionScales(new[] { (2, 0), (5, 3), (10, 5) })
                 .Connect();
 
@@ -475,16 +450,11 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes1()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             Should.Throw(() =>
             {
-                sqleze
+                builder
                     .WithPreferredNumericPrecisionScales(new[] { (0, 0) });
             }, typeof(Exception))
                 .Message.ShouldBe("A precision / scale of (0,0) is not valid");
@@ -493,16 +463,11 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes2()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             Should.Throw(() =>
             {
-                sqleze
+                builder
                     .WithPreferredNumericPrecisionScales(new[] { (3, 0), (39, 3) });
             }, typeof(Exception))
                 .Message.ShouldBe("A precision / scale of (39,3) is not valid");
@@ -511,16 +476,11 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes3()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             Should.Throw(() =>
             {
-                sqleze
+                builder
                     .WithPreferredNumericPrecisionScales(new[] { (-1, 0) });
             }, typeof(Exception))
                 .Message.ShouldBe("A precision / scale of (-1,0) is not valid");
@@ -529,16 +489,11 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void QuantizeSizeDecimalBadSizes4()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
+            var builder = OpenBuilder();
 
             Should.Throw(() =>
             {
-                sqleze
+                builder
                     .WithPreferredNumericPrecisionScales(new[] { (6, 7) });
             }, typeof(Exception))
                 .Message.ShouldBe("A precision / scale of (6,7) is not valid");
@@ -549,14 +504,9 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void PreferDateTimeTest1()
         {
-            var container = new Container();
+            var builder = OpenBuilder();
 
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferDateTime()
                 .Connect();
 
@@ -579,14 +529,9 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void PreferDateTimeTest2()
         {
-            var container = new Container();
+            var builder = OpenBuilder();
 
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferDateTime2(5)
                 .Connect();
 
@@ -609,14 +554,9 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void PreferDateTimeTest3()
         {
-            var container = new Container();
+            var builder = OpenBuilder();
 
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var sqleze = container.Resolve<ISqlezeBuilder>();
-
-            using var connection = sqleze
+            using var connection = builder
                 .WithPreferDateTime2()
                 .Connect();
 
@@ -640,7 +580,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetAndChange()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT arg = @arg");
 
@@ -665,7 +605,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void ParameterSetChainRead()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var cmd = connection.Sql("SELECT arg = @arg");
 
@@ -687,15 +627,5 @@ namespace Sqleze.Tests.Integration
             public string? LastName { get; set; }
         }
 
-        private ISqlezeConnection connect()
-        {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            return container.Resolve<ISqlezeBuilder>()
-                .Connect();
-        }
     }
 }

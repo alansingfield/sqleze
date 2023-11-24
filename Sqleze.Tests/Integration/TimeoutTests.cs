@@ -67,6 +67,6 @@ public class TimeoutTests
         container.RegisterSqleze();
         container.RegisterTestSettings();
 
-        return container.Resolve<ISqlezeBuilder>();
+        return container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
     }
 }

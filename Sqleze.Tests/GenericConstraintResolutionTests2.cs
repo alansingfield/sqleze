@@ -43,7 +43,9 @@ namespace Sqleze.Tests
             container.Register(typeof(IMyThing<>), typeof(MyThing<,>),
                 Reuse.ScopedOrSingleton);
 
-            // Fails with DryIoc.ContainerException: code: Error.NoMatchedGenericParamConstraints
+            // Prior to DryIoc 5.2.6, fails with DryIoc.ContainerException: code: Error.NoMatchedGenericParamConstraints
+            // https://github.com/dadhi/DryIoc/issues/546
+
             container.Resolve<IMyThing<int[]>>().ShouldBeOfType<MyThing<int[], int>>();
         }
 

@@ -59,6 +59,18 @@ public static class ReadListExtensions
         return sqlezeReader;
     }
 
+    
+    public static ISqlezeReader ReadListNullable<T>(this ISqlezeCommand sqlezeCommand, out List<T?> result)
+        => sqlezeCommand
+            .ExecuteReader()
+            .ReadListNullable<T?>(out result);
+    
+    public static ISqlezeReader ReadList<T>(this ISqlezeCommand sqlezeCommand, out List<T> result)
+        where T : notnull
+        => sqlezeCommand
+            .ExecuteReader()
+            .ReadList<T>(out result);
+
     public static List<T> ReadList<T>(this ISqlezeCommand sqlezeCommand)
         where T : notnull
         => sqlezeCommand

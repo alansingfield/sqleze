@@ -21,7 +21,7 @@ namespace Sqleze.SpatialTypes.Tests.Integration
         [TestMethod]
         public void ScalarReadSqlHierarchyId()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var result = connection
                 .Sql(@"
@@ -37,7 +37,7 @@ namespace Sqleze.SpatialTypes.Tests.Integration
         [TestMethod]
         public void ScalarReadSqlHierarchyIdAsString()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var result = connection
                 .Sql(@"
@@ -53,7 +53,7 @@ namespace Sqleze.SpatialTypes.Tests.Integration
         [TestMethod]
         public void ScalarReadSqlHierarchyIdAsByteArray()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var result = connection
                 .Sql(@"
@@ -68,18 +68,6 @@ namespace Sqleze.SpatialTypes.Tests.Integration
             {
                 result.ShouldBe(new byte[] { 0x58, });
             }
-        }
-
-        private ISqlezeConnection connect()
-        {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterSpatialTypes();
-            container.RegisterTestSettings();
-
-            return container.Resolve<ISqlezeBuilder>()
-                .Connect();
         }
     }
 }

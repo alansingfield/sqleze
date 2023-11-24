@@ -19,7 +19,7 @@ namespace Sqleze.SpatialTypes.Tests.Integration
         [TestMethod]
         public void DictionaryReadSqlHierarchyId()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var result = connection
                 .Sql(@"
@@ -38,7 +38,7 @@ namespace Sqleze.SpatialTypes.Tests.Integration
         [TestMethod]
         public void DictionaryReadSqlHierarchyIdMultiField()
         {
-            using var connection = connect();
+            using var connection = Connect();
 
             var result = connection
                 .Sql(@"
@@ -58,20 +58,6 @@ namespace Sqleze.SpatialTypes.Tests.Integration
             y.ShouldNotBeNull();
             y.ShouldBe("Hello");
 
-        }
-
-
-
-        private ISqlezeConnection connect()
-        {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterSpatialTypes();
-            container.RegisterTestSettings();
-
-            return container.Resolve<ISqlezeBuilder>()
-                .Connect();
         }
     }
 }

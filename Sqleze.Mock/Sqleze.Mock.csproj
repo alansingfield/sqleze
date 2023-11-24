@@ -46,6 +46,7 @@
     <Compile Include="..\Sqleze\Registration\*.cs" LinkBase="Registration" />
     <Compile Include="..\Sqleze\RowsetMetadata\*.cs" LinkBase="RowsetMetadata" />
     <Compile Include="..\Sqleze\Security\*.cs" LinkBase="Security" />
+    <Compile Include="..\Sqleze\Setup\*.cs" LinkBase="Setup" />
     <Compile Include="..\Sqleze\SqlClient\*.cs" LinkBase="SqlClient" />
     <Compile Include="..\Sqleze\TableValuedParameters\*.cs" LinkBase="TableValuedParameters" />
     <Compile Include="..\Sqleze\Timeout\*.cs" LinkBase="Timeout" />
@@ -55,6 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="..\Sqleze\ConnectionStrings\StartupRegistrationExtensions.cs" />
     <Compile Remove="..\Sqleze\Core\AdoParameterBuilder.cs" />
     <Compile Remove="..\Sqleze\Core\AdoParameterBuilderHolder.cs" />
     <Compile Remove="..\Sqleze\NamingConventions\CamelUnderscoreRowsetRoot.cs" />

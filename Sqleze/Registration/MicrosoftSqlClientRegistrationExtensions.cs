@@ -26,6 +26,10 @@ public static class MicrosoftSqlClientRegistrationExtensions
         // As these have constructors have parameters, use factories to create them.
         registrator.Register<ISqlMetaDataFactory, SqlMetaDataFactory>(Reuse.Singleton);
         registrator.Register<ISqlDataRecordFactory, SqlDataRecordFactory>(Reuse.Singleton);
+
+        // Register the concrete type for the connection string builder.
+        registrator.Register<MS.SqlConnectionStringBuilder>(
+            made: Made.Of(() => new MS.SqlConnectionStringBuilder()));
     }
 #endif
 }

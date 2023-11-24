@@ -16,7 +16,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterNVarChar()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string? foo = null;
 
@@ -41,7 +41,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterNVarCharKnown()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string? foo = null;
 
@@ -67,7 +67,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterNVarCharMaxUnknown()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string? foo = null;
 
@@ -90,7 +90,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterVarCharMaxUnknown()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string? foo = null;
 
@@ -113,7 +113,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterDecimalNotSpecified()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         decimal? foo = null;
 
@@ -132,7 +132,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterDecimalSpecified()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         decimal? foo = 34.5m;
 
@@ -159,7 +159,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterMemberNVarChar()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string? foo = null;
 
@@ -184,7 +184,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterDirectNVarChar()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string? foo = null;
 
@@ -209,7 +209,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterReturnToProc()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         int retval = 0;
         conn.StoredProc("dbo.p_return_int")
@@ -223,7 +223,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterReturnToFunctionWithDefault()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         // ALTER FUNCTION[dbo].[fn_return_nvarchar] (@arg nvarchar(20) = 'DEFAULT')
         // RETURNS nvarchar(20)
@@ -243,7 +243,7 @@ public class OutputParameterTests
     [TestMethod]
     public void OutputParameterReturnToFunctionWithArg()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         string arg = "Banana";
         string? retval = null;
@@ -256,12 +256,28 @@ public class OutputParameterTests
         retval.ShouldBe("Banana");
     }
 
+    [TestMethod]
+    public void OutputParameterReturnToFunctionWithArgSetter()
+    {
+        using var conn = Connect();
+
+        string arg = "Banana";
+        string? retval = null;
+
+        conn.StoredProc("dbo.fn_return_nvarchar")
+            .Parameters.ReturnTo(() => retval)
+            .Set(() => arg)
+            .ExecuteNonQuery();
+
+        retval.ShouldBe("Banana");
+    }
+
 
 
     [TestMethod]
     public void OutputParameterReturnMember()
     {
-        using var conn = connect();
+        using var conn = Connect();
 
         int retval = 0;
         conn.StoredProc("dbo.p_return_int")
@@ -272,14 +288,4 @@ public class OutputParameterTests
 
     }
 
-    private ISqlezeConnection connect()
-    {
-        var container = new Container();
-
-        container.RegisterSqleze();
-        container.RegisterTestSettings();
-
-        return container.Resolve<ISqlezeBuilder>()
-            .Connect();
-    }
 }

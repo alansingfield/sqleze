@@ -22,7 +22,7 @@ namespace Sqleze.Tests.Integration
                 new ValClass() { Val = 200 },
             };
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var result = conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set(() => arg)
@@ -39,7 +39,7 @@ namespace Sqleze.Tests.Integration
         {
             var arg = new List<ValClass>();
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var result = conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set(() => arg)
@@ -55,7 +55,7 @@ namespace Sqleze.Tests.Integration
         {
             var arg = new List<ValClass>();
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var result = conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set<List<ValClass>?>("@arg", null)
@@ -74,7 +74,7 @@ namespace Sqleze.Tests.Integration
                 100, 200
             };
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var result = conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set(() => arg)
@@ -96,7 +96,7 @@ namespace Sqleze.Tests.Integration
                 new ValClass() { Val = 200 },
             };
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var result = await conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set(() => arg)
@@ -118,7 +118,7 @@ namespace Sqleze.Tests.Integration
                 new BadClass() { Bad = 200 },
             };
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var cmd = conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set(() => arg)
@@ -139,7 +139,7 @@ namespace Sqleze.Tests.Integration
                 new ValPlusClass() { Val = 200, Plus = 1 },
             };
 
-            using var conn = connect();
+            using var conn = Connect();
 
             var cmd = conn.Sql("SELECT val FROM @arg")
                 .Parameters.Set(() => arg)
@@ -154,12 +154,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeEnumerable()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            using var conn = OpenBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .Connect();
 
@@ -175,12 +170,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeList()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            using var conn = OpenBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .Connect();
 
@@ -196,12 +186,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeArray()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            using var conn = OpenBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .Connect();
 
@@ -217,12 +202,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownMulti()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            using var conn = OpenBuilder()
                 .WithTableTypeFor<string>("dbo.tt_nvarchar_vals")
                 .WithTableTypeFor<int>("dbo.tt_int_vals")
                 .WithTableTypeFor<int?>("dbo.tt_int_foos")
@@ -253,12 +233,7 @@ namespace Sqleze.Tests.Integration
         [TestMethod]
         public void TableValuedParameterKnownTypeByteArrayEnumerable()
         {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            var conn = container.Resolve<ISqlezeBuilder>()
+            using var conn = OpenBuilder()
                 .WithTableTypeFor<byte[]>("dbo.tt_varbinary_vals")
                 .Connect();
 
@@ -291,17 +266,6 @@ namespace Sqleze.Tests.Integration
         {
             public int Val { get; set; }
             public int Plus { get; set; }
-        }
-
-        private ISqlezeConnection connect()
-        {
-            var container = new Container();
-
-            container.RegisterSqleze();
-            container.RegisterTestSettings();
-
-            return container.Resolve<ISqlezeBuilder>()
-                .Connect();
         }
     }
 }

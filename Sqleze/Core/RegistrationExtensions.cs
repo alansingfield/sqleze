@@ -20,7 +20,6 @@ using System.ComponentModel;
 using System.Xml.Linq;
 using Sqleze.Security;
 using Sqleze.Timeout;
-using Sqleze.Configuration;
 using Sqleze.DataSets;
 using Sqleze.Registration;
 
@@ -33,11 +32,13 @@ public static class CoreRegistrationExtensions
         registrator.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
         registrator.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));
 
+        registrator.Register<ISqlezeRoot, SqlezeRoot>(Reuse.Singleton);
+
         registrator.Register<ISqlezeBuilder, SqlezeBuilder>(
             Reuse.ScopedOrSingleton,
             setup: Setup.With(asResolutionCall: true));
 
-        registrator.Register<ISqleze, SqlezeConnectionFactory>(
+        registrator.Register<ISqlezeConnector, SqlezeConnectionFactory>(
             Reuse.ScopedOrSingleton);
 
         registrator.Register<IScopedSqlezeConnectionFactory, ScopedSqlezeConnectionFactory>(
@@ -56,7 +57,6 @@ public static class CoreRegistrationExtensions
             Reuse.ScopedToService<ISqlezeConnectionProvider>(),
             setup: Setup.With(asResolutionCall: true));
 
-        registrator.Register<ConfigurationRoot>();
 
         registrator.Register<ISqlezeCommandBuilder, SqlezeCommandBuilder>(
             Reuse.ScopedOrSingleton,

@@ -23,7 +23,7 @@ namespace Sqleze.Tests.Building
             container.RegisterSqleze();
             container.RegisterTestSettings();
 
-            var factory = container.Resolve<ISqlezeBuilder>();
+            var factory = container.Resolve<ISqlezeBuilder>().WithConfigKey("DefaultConnection");
 
             var connection = factory
                 .Build()

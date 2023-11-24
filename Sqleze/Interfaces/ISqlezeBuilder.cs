@@ -5,5 +5,5 @@
 public interface ISqlezeBuilder
 {
     ISqlezeBuilder With<T>(Action<T, ISqlezeScope> configure);
-    ISqleze Build();
+    ISqlezeConnector Build();
 }
