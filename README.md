@@ -136,9 +136,9 @@ memory at once.
 
 [Stored Procedures](/Sqleze.Docs/StoredProcedures.md)
 
-[Multiple Rowsets](/Sqleze/Docs/MultipleRowsets.md)
+[Multiple Rowsets](/Sqleze.Docs/MultipleRowsets.md)
 
-[Transactions](/Sqleze/Docs/Transactions.md)
+[Transactions](/Sqleze.Docs/Transactions.md)
 
-[Spatial Types](/Sqleze/Docs/SpatialTypes.md)
+[Spatial Types](/Sqleze.Docs/SpatialTypes.md)
 
