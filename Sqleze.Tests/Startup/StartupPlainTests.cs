@@ -36,9 +36,9 @@ public class StartupPlainTests
         var connector = new Sqleze.Startup()
             .Build(connStr);
 
-        using var conn1 = connector.Connect();
+        using var conn = connector.Connect();
 
-        conn1.Sql("SELECT 'Hellorld'")
+        conn.Sql("SELECT 'Hellorld'")
             .ReadSingle<string>()
             .ShouldBe("Hellorld");
 
