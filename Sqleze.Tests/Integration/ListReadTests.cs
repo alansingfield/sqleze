@@ -47,4 +47,23 @@ public class ListReadTests
         l2.ShouldBe(new List<int> { 3, 4 });
     }
 
+
+    [TestMethod]
+    public void ListReadChainOut()
+    {
+        using var conn = Connect();
+
+        conn.Sql(@"
+
+            SELECT 1 UNION SELECT 2;
+
+            SELECT 'A' UNION SELECT 'B';
+
+        ")
+            .ReadList<int>(out var l1)
+            .ReadList<string>(out var l2);
+
+        l1.ShouldBe(new List<int> { 1, 2 });
+        l2.ShouldBe(new List<string> { "A", "B" });
+    }
 }
