@@ -59,6 +59,17 @@ public static class ReadArrayExtensions
         return sqlezeReader;
     }
 
+    public static ISqlezeReader ReadArrayNullable<T>(this ISqlezeCommand sqlezeCommand, out T?[] result)
+        => sqlezeCommand
+            .ExecuteReader()
+            .ReadArrayNullable<T?>(out result);
+    
+    public static ISqlezeReader ReadArray<T>(this ISqlezeCommand sqlezeCommand, out T[] result)
+        where T : notnull
+        => sqlezeCommand
+            .ExecuteReader()
+            .ReadArray<T>(out result);
+
     public static T[] ReadArray<T>(this ISqlezeCommand sqlezeCommand)
         where T : notnull
         => sqlezeCommand
