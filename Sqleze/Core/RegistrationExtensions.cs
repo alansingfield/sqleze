@@ -38,7 +38,7 @@ public static class CoreRegistrationExtensions
             Reuse.ScopedOrSingleton,
             setup: Setup.With(asResolutionCall: true));
 
-        registrator.Register<ISqleze, SqlezeConnectionFactory>(
+        registrator.Register<ISqlezeConnector, SqlezeConnectionFactory>(
             Reuse.ScopedOrSingleton);
 
         registrator.Register<IScopedSqlezeConnectionFactory, ScopedSqlezeConnectionFactory>(

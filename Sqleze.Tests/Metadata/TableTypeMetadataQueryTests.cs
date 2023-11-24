@@ -347,7 +347,7 @@ namespace Sqleze.Tests.Metadata
 
             var container2 = new Container();
             container2.Register<ITableTypeMetadataQuery, TableTypeMetadataQuery>();
-            container2.Use<ISqleze>(factory);
+            container2.Use<ISqlezeConnector>(factory);
 
             var q = container2.Resolve<ITableTypeMetadataQuery>();
             return q;

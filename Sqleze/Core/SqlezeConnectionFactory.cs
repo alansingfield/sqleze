@@ -2,7 +2,7 @@
 
 namespace Sqleze;
 
-public class SqlezeConnectionFactory : ISqleze
+public class SqlezeConnectionFactory : ISqlezeConnector
 {
     private readonly Func<IScopedSqlezeConnectionFactory> newScopedSqlezeConnectionFactory;
     private readonly Lazy<ISqlezeBuilder> lazySqlezeBuilder;

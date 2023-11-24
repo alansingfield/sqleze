@@ -62,7 +62,7 @@ public class MicrosoftDependencyInjectionTests
 
     public class HomeSql : IHomeSql
     {
-        private readonly ISqleze factory;
+        private readonly ISqlezeConnector factory;
 
         public HomeSql(ISqlezeBuilder builder)
         {

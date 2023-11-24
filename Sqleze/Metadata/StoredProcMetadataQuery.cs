@@ -16,9 +16,9 @@ namespace Sqleze.Metadata
 
     public class StoredProcMetadataQuery : IStoredProcMetadataQuery
     {
-        private readonly ISqleze sqleze;
+        private readonly ISqlezeConnector sqleze;
 
-        public StoredProcMetadataQuery(ISqleze sqleze)
+        public StoredProcMetadataQuery(ISqlezeConnector sqleze)
         {
             this.sqleze = sqleze;
         }

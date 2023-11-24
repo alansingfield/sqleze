@@ -13,7 +13,7 @@ public static class StartupConfigurationExtensions
         return startup.OpenBuilder().WithConfigKey(configKey).WithConfiguration(configuration);
     }
 
-    public static ISqleze Build(this Startup startup, IConfiguration configuration, string configKey = "DefaultConnection")
+    public static ISqlezeConnector Build(this Startup startup, IConfiguration configuration, string configKey = "DefaultConnection")
     {
         return startup.OpenBuilder(configuration, configKey).Build();
     }

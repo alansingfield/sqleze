@@ -53,7 +53,7 @@ public interface ISqlezeProvider
 public class DefaultSqlezeProvider : ISqlezeProvider
 {
     private readonly ISqlezeBuilder builder;
-    private readonly ISqleze factory;
+    private readonly ISqlezeConnector factory;
 
     public DefaultSqlezeProvider(ISqlezeBuilder builder)
     {

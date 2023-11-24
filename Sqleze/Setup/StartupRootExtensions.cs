@@ -16,7 +16,7 @@ public static class StartupRootExtensions
     {
         return startup.OpenBuilder().WithConnectionString(connectionString);
     }
-    public static ISqleze Build(this Startup startup, string connectionString)
+    public static ISqlezeConnector Build(this Startup startup, string connectionString)
     {
         return startup.OpenBuilder(connectionString).Build();
     }

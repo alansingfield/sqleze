@@ -17,10 +17,10 @@ namespace Sqleze.Metadata
 
     public class TableTypeMetadataQuery : ITableTypeMetadataQuery
     {
-        private readonly ISqleze sqleze;
+        private readonly ISqlezeConnector sqleze;
 
         public TableTypeMetadataQuery(
-            ISqleze sqleze)
+            ISqlezeConnector sqleze)
         {
             this.sqleze = sqleze;
         }
