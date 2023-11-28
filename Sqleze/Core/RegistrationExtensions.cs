@@ -29,8 +29,8 @@ public static class CoreRegistrationExtensions
 {
     public static void RegisterSqlezeCore(this IRegistrator registrator)
     {
-        registrator.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
-        registrator.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));
+        registrator.RegisterGenericResolver();
+        registrator.RegisterMultiResolver();
 
         registrator.Register<ISqlezeRoot, SqlezeRoot>(Reuse.Singleton);
 
@@ -209,13 +209,11 @@ public static class CoreRegistrationExtensions
         registrator.RegisterSqlezeNamingConventions();
         registrator.RegisterMultiParameterSetter();
 
-//        registrator.Register<INamingConvention, NeutralNamingConvention>(Reuse.Scoped);
+        //        registrator.Register<INamingConvention, NeutralNamingConvention>(Reuse.Scoped);
         registrator.Register<ICollation, Collation>(Reuse.Scoped);
         registrator.Register<CollationOptions>(Reuse.ScopedOrSingleton);
-
-
-        registrator.Register(typeof(IDynamicPropertyCaller<>), typeof(DynamicPropertyCaller<>), Reuse.Singleton);
-        registrator.Register(typeof(IConstructorCache<>), typeof(ConstructorCache<>), Reuse.Singleton);
+        registrator.RegisterDynamicPropertyCaller();
+        registrator.RegisterConstructorCache();
         registrator.RegisterDefaultValueCache();
         registrator.Register<IDefaultFallbackExpressionBuilder, DefaultFallbackExpressionBuilder>(Reuse.Singleton);
 
@@ -240,9 +238,7 @@ public static class CoreRegistrationExtensions
         registrator.RegisterTableValuedParameterExtensions();
 
         registrator.Register<ITableTypeColumnToSqlMetaDataConverter, TableTypeColumnToSqlMetaDataConverter>(Reuse.Singleton);
-
-        registrator.RegisterGenericPromotion(typeof(ISqlDataRecordWriterFromProperty<>), typeof(ISqlDataRecordWriterFromProperty<,>));
-        registrator.Register(typeof(ISqlDataRecordWriterFromProperty<,>), typeof(SqlDataRecordWriterFromProperty<,>));
+        registrator.RegisterSqlDataRecordWriterFromProperty();
 
         registrator.RegisterOutputParamReaders();
 
