@@ -45,6 +45,13 @@ public static class TableValuedParameterRegistrationExtensions
     }
 
 
+    public static void RegisterSqlDataRecordWriterFromProperty(this IRegistrator registrator)
+    {
+        registrator.RegisterGenericPromotion(typeof(ISqlDataRecordWriterFromProperty<>), typeof(ISqlDataRecordWriterFromProperty<,>));
+        registrator.Register(typeof(ISqlDataRecordWriterFromProperty<,>), typeof(SqlDataRecordWriterFromProperty<,>));
+    }
+
+
     public static void RegisterSqlDataRecordMappers(this IRegistrator registrator)
     {
         // By default, map each property in an object to a separate field

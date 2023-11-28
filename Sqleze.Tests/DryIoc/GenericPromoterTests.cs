@@ -34,18 +34,6 @@ namespace Sqleze.Tests.DryIoc
             result.ShouldBe(typeof(IDuoService<string, int>));
         }
 
-        [TestMethod]
-        public void GenericPromoterWrongImpl()
-        {
-            var promoter = GenericPromoter.For(typeof(IDuoService<>));
-
-            Should.Throw(() =>
-            {
-                var result = promoter.Promote(typeof(IUniService), typeof(int));
-            }, typeof(Exception)).Message.ShouldBe(
-                "Generic promotion of type IUniService resulted in type IDuoService`1 which does not implement the former interface.");
-        }
-
         public interface IUniService { }
 
         public interface IUniService<TValue> : IUniService { }

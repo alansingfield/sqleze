@@ -19,8 +19,8 @@ namespace Sqleze.Tests.DryIoc
         {
             var container = new Container().WithNSubstituteFallback();
 
-            container.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
-            container.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));
+            container.RegisterGenericResolver();
+            container.RegisterMultiResolver();
             container.Register(typeof(IMyService<,>), typeof(MyService<,>));
             container.RegisterGenericPromotion(typeof(IMyService<>), typeof(IMyService<,>));
 

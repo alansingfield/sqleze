@@ -34,10 +34,7 @@ public class GenericPromoter : IGenericPromoter
 
             genericArgs.Insert(pos, extraTypeParameter);
 
-            var biggerClosedType =  biggerOpenGeneric.MakeGenericType(genericArgs.ToArray());
-
-            if(!biggerClosedType.IsAssignableTo(smallerType))
-                throw new Exception($"Generic promotion of type {smallerType.Name} resulted in type {biggerClosedType.Name} which does not implement the former interface.");
+            var biggerClosedType = biggerOpenGeneric.MakeGenericType(genericArgs.ToArray());
 
             return biggerClosedType;
         });

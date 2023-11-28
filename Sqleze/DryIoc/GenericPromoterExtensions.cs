@@ -18,13 +18,9 @@ public static class GenericPromoterExtensions
         this IRegistrator registrator,
         Type smallerType,
         Type biggerOpenGeneric,
-        int? argPosition = null,
-        Type? trialType = null)
+        int? argPosition = null)
     {
         var promoter = GenericPromoter.For(biggerOpenGeneric, argPosition);
-
-        // Verify promotion will work.
-        promoter.Promote(smallerType, trialType ?? typeof(object));
 
         registrator.RegisterInstance(promoter, serviceKey: smallerType);
     }

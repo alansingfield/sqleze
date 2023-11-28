@@ -141,16 +141,14 @@ namespace Sqleze.Tests.Readers
             var container = new Container().WithNSubstituteFallback();
 
             container.Register(typeof(IColumnPropertyMapper<>), typeof(ColumnPropertyMapper<>));
-            container.Register(typeof(IGenericResolver<>), typeof(GenericResolver<>));
+            container.RegisterGenericResolver();
             container.Register(typeof(IGenericPromoter), typeof(GenericPromoter));
-            container.Register(typeof(IMultiResolver<,>), typeof(MultiResolver<,>));
+            container.RegisterMultiResolver();
 
-            container.Register(typeof(IColumnPropertyResolver<,>), typeof(ColumnPropertyResolver<,>), Reuse.Transient);
-            container.RegisterGenericPromotion(typeof(IColumnPropertyResolver<>), typeof(IColumnPropertyResolver<,>));
+            container.RegisterColumnPropertyResolver();
 
             container.Register(typeof(IColumnProperty<,,>), typeof(ColumnProperty<,,>), Reuse.Transient);
-            container.RegisterGenericPromotion(typeof(IColumnProperty<,>), typeof(IColumnProperty<,,>),
-                trialType: typeof(IKnownSqlDbType));
+            container.RegisterGenericPromotion(typeof(IColumnProperty<,>), typeof(IColumnProperty<,,>));
 
             container.Register<IKnownSqlDbTypeFinder, KnownSqlDbTypeFinder>(Reuse.Singleton);
             //container.Register<IKnownSqlDbTypeResolver, KnownSqlDbTypeResolver>(Reuse.Singleton);
