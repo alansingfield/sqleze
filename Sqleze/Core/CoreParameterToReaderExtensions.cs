@@ -118,8 +118,26 @@ public static partial class CoreParameterExtensions
 
     public static async Task<T?> ReadSingleOrDefaultAsync<T>(this ISqlezeParameter sqlezeParameter,
         CancellationToken cancellationToken = default)
-        where T : notnull
         => await sqlezeParameter.Command.ReadSingleOrDefaultAsync<T>(cancellationToken).ConfigureAwait(false);
+
+    public static async Task<ISqlezeReader> ReadSingleAsync<T>(this ISqlezeParameter sqlezeParameter,
+        Expression<Func<T>> action,
+        CancellationToken cancellationToken = default)
+        where T : notnull
+        => await sqlezeParameter.Command
+            .ReadSingleAsync<T>(action, cancellationToken).ConfigureAwait(false);
+
+    public static async Task<ISqlezeReader> ReadSingleNullableAsync<T>(this ISqlezeParameter sqlezeParameter,
+        Expression<Func<T?>> action,
+        CancellationToken cancellationToken = default)
+        => await sqlezeParameter.Command
+            .ReadSingleNullableAsync<T?>(action, cancellationToken).ConfigureAwait(false);
+
+    public static async Task<ISqlezeReader> ReadSingleOrDefaultAsync<T>(this ISqlezeParameter sqlezeParameter,
+        Expression<Func<T?>> action,
+        CancellationToken cancellationToken = default)
+        => await sqlezeParameter.Command
+            .ReadSingleOrDefaultAsync<T?>(action, cancellationToken).ConfigureAwait(false);
 
     public static async Task<ISqlezeReader> ReadArrayAsync<T>(this ISqlezeParameter sqlezeParameter,
         Expression<Func<T[]>> action, CancellationToken cancellationToken = default)
@@ -177,12 +195,7 @@ public static partial class CoreParameterExtensions
     {
         return sqlezeParameter.Command.ReadListNullable<T>(action);
     }
-    public static async Task<ISqlezeReader> ReadSingleNullableAsync<T>(this ISqlezeParameter sqlezeParameter,
-        Expression<Func<T?>> action,
-        CancellationToken cancellationToken = default)
-    {
-        return await sqlezeParameter.Command.ReadSingleNullableAsync<T>(action, cancellationToken).ConfigureAwait(false);
-    }
+
 
 
 
