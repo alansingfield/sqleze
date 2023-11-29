@@ -57,7 +57,6 @@ public static partial class CoreParameterCollectionExtensions
 
     public static async Task<T?> ReadSingleOrDefaultAsync<T>(this ISqlezeParameterCollection sqlezeParameterCollection,
         CancellationToken cancellationToken = default)
-        where T : notnull
         => await sqlezeParameterCollection.Command
             .ReadSingleOrDefaultAsync<T>(cancellationToken)
             .ConfigureAwait(false);

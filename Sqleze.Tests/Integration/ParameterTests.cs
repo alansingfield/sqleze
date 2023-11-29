@@ -615,10 +615,37 @@ namespace Sqleze.Tests.Integration
             result.ShouldBe(123);
         }
 
+        [TestMethod]
+        public async Task ParameterSetChainReadAsync()
+        {
+            using var connection = Connect();
+
+            var fooBar = new FooBar() { Foo = 1, Bar = "A" };
+
+            var model = new FooBarModel();
+
+            await connection.Sql(
+                "SELECT foo = @foo + 1, bar = @bar + 'B' "
+                )
+                .Parameters
+                    .Set(() => fooBar.Foo)
+                    .Set(() => fooBar.Bar)
+                .ReadSingleOrDefaultAsync(() => model.FooBarInstance);
+
+            model.FooBarInstance.ShouldNotBeNull();
+            model.FooBarInstance.Foo.ShouldBe(2);
+            model.FooBarInstance.Bar.ShouldBe("AB");
+        }
+
         private class FooBar
         {
             public int Foo { get; set; }
             public string? Bar { get; set; }
+        }
+
+        private class FooBarModel
+        {
+            public FooBar? FooBarInstance { get; set; }
         }
 
         private class NamingTest
