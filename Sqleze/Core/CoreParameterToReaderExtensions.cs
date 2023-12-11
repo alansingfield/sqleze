@@ -24,9 +24,9 @@ public static partial class CoreParameterExtensions
         => sqlezeParameter.Command
                 .ExecuteNonQuery();
 
-    public static async Task<ISqlezeReader> ExecuteNonQueryAsync(this ISqlezeParameter sqlezeParameter, CancellationToken cancellationToken = default)
+    public static async Task<int> ExecuteNonQueryAsync(this ISqlezeParameter sqlezeParameter, CancellationToken cancellationToken = default)
         => await sqlezeParameter.Command
-                .ExecuteReaderAsync(cancellationToken).ConfigureAwait(false);
+                .ExecuteNonQueryAsync(cancellationToken).ConfigureAwait(false);
 
 
     public static async Task<T?> ReadSingleNullableAsync<T>(this ISqlezeParameter sqlezeParameter,
