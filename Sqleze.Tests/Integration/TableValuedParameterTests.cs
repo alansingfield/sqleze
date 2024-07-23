@@ -3,9 +3,11 @@ using Shouldly;
 using Sqleze;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTestCoder.Shouldly.Gen;
 
 namespace Sqleze.Tests.Integration
 {
@@ -252,6 +254,134 @@ namespace Sqleze.Tests.Integration
                 new byte[] { 0x01, 0x02 },
                 new byte[] { 0x03, 0x04 }
             });
+        }
+
+        [TestMethod]
+        public void TableValuedParameterKnownTypeDateOnly()
+        {
+            using var conn = OpenBuilder()
+                .WithTableTypeFor<DateOnly>("dbo.tt_date_vals")
+                .Connect();
+
+            var arg = new List<DateOnly>() 
+            { 
+                new DateOnly(2024,01,01),
+                new DateOnly(2022,12,25),
+            }.AsEnumerable();
+
+            var result = conn.Sql("SELECT val FROM @arg")
+                .Parameters.Set(() => arg)
+                .ReadList<DateOnly>();
+
+            result.ShouldBe(new List<DateOnly>() 
+            { 
+                new DateOnly(2024,01,01),
+                new DateOnly(2022,12,25),
+            });
+        }
+
+        [TestMethod]
+        public void TableValuedParameterKnownTypeDateOnlyNullable()
+        {
+            using var conn = OpenBuilder()
+                .WithTableTypeFor<DateOnly?>("dbo.tt_date_nullable_vals")
+                .Connect();
+
+            var arg = new List<DateOnly?>() 
+            { 
+                new DateOnly(2024,01,01),
+                null,
+                new DateOnly(2022,12,25),
+            }.AsEnumerable();
+
+            var result = conn.Sql("SELECT val FROM @arg")
+                .Parameters.Set(() => arg)
+                .ReadListNullable<DateOnly?>();
+
+            result.ShouldBe(new List<DateOnly?>() 
+            { 
+                new DateOnly(2024,01,01),
+                null,
+                new DateOnly(2022,12,25),
+            });
+        }
+        
+        [TestMethod]
+        public void TableValuedParameterKnownTypeTimeOnly()
+        {
+            using var conn = OpenBuilder()
+                .WithTableTypeFor<TimeOnly>("dbo.tt_time_vals")
+                .Connect();
+
+            var arg = new List<TimeOnly>() 
+            { 
+                new TimeOnly(23,01,01),
+                new TimeOnly(13,12,25),
+            }.AsEnumerable();
+
+            var result = conn.Sql("SELECT val FROM @arg")
+                .Parameters.Set(() => arg)
+                .ReadList<TimeOnly>();
+
+            result.ShouldBe(new List<TimeOnly>() 
+            { 
+                new TimeOnly(23,01,01),
+                new TimeOnly(13,12,25),
+            });
+        }
+
+        [TestMethod]
+        public void TableValuedParameterKnownTypeTimeOnlyNullable()
+        {
+            using var conn = OpenBuilder()
+                .WithTableTypeFor<TimeOnly?>("dbo.tt_time_nullable_vals")
+                .Connect();
+
+            var arg = new List<TimeOnly?>() 
+            { 
+                new TimeOnly(23,01,01),
+                null,
+                new TimeOnly(13,12,25),
+            }.AsEnumerable();
+
+            var result = conn.Sql("SELECT val FROM @arg")
+                .Parameters.Set(() => arg)
+                .ReadListNullable<TimeOnly?>();
+
+            result.ShouldBe(new List<TimeOnly?>() 
+            { 
+                new TimeOnly(23,01,01),
+                null,
+                new TimeOnly(13,12,25),
+            });
+        }
+
+        
+        [TestMethod]
+        public void TableValuedParameterKnownTypeDateTimeOffset()
+        {
+            using var conn = OpenBuilder()
+                .WithTableTypeFor<DateTimeOffset>("dbo.tt_datetimeoffset_7_vals")
+                .Connect();
+
+            var arg = new List<DateTimeOffset>() 
+            { 
+                DateTimeOffset.Parse("2024-07-23T15:57:54.7842948+01:00"),
+                DateTimeOffset.Parse("2023-07-23T15:57:54.7842947+02:00"),
+            }.AsEnumerable();
+
+            var result = conn.Sql("SELECT val FROM @arg")
+                .Parameters.Set(() => arg)
+                .ReadList<DateTimeOffset>();
+
+            //ShouldlyTest.Gen(result,nameof(result));
+
+            {
+                result.ShouldNotBeNull();
+                result.Count().ShouldBe(2);
+                result[0].ShouldBe(DateTimeOffset.Parse("2024-07-23T15:57:54.7842948+01:00"));
+                result[1].ShouldBe(DateTimeOffset.Parse("2023-07-23T15:57:54.7842947+02:00"));
+            }
         }
 
         private class ValClass

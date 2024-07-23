@@ -38,11 +38,23 @@ namespace Sqleze.TableValuedParameters
 
             // Has a precision OR scale, pass them both
             if (sqlDbType.HasPrecision() || sqlDbType.HasScale())
+            {
+                byte precision =
+                    sqlDbType.HasPrecision()
+                    ? (byte)columnDef.Precision
+                    : (byte)0;
+
+                byte scale =
+                    sqlDbType.HasScale()
+                    ? (byte)columnDef.Scale
+                    : (byte)0;
+
                 return sqlMetaDataFactory.New(
                     columnDef.ColumnName,
                     sqlDbType,
-                    (byte)columnDef.Precision,
-                    (byte)columnDef.Scale);
+                    precision,
+                    scale);
+            }
 
             // No size, precision or scale.
             return sqlMetaDataFactory.New(
