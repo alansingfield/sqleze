@@ -160,6 +160,33 @@ CREATE TYPE [test].[udt_table] AS TABLE(
 )
 GO
 
+CREATE TYPE dbo.tt_date_vals
+AS TABLE (val date NULL)
+GO
+
+CREATE TYPE dbo.tt_time_vals
+AS TABLE (val time NULL)
+GO
+
+CREATE TYPE dbo.tt_date_nullable_vals AS TABLE
+(
+    val date NULL
+);
+GO
+
+CREATE TYPE dbo.tt_time_nullable_vals AS TABLE
+(
+    val time NULL
+);
+GO
+
+CREATE TYPE dbo.tt_datetimeoffset_7_vals
+AS TABLE
+(
+    val datetimeoffset(7)
+)
+GO
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

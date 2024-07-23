@@ -42,6 +42,10 @@ public static class TableValuedParameterRegistrationExtensions
         registrator.Register<IRecordSetValue<SqlSingle>, RecordSetSqlValueSqlSingle>(Reuse.Singleton);
         registrator.Register<IRecordSetValue<SqlString>, RecordSetSqlValueSqlString>(Reuse.Singleton);
         registrator.Register<IRecordSetValue<SqlXml>, RecordSetSqlValueSqlXml>(Reuse.Singleton);
+        registrator.Register<IRecordSetValue<DateOnly>, RecordSetValueDateOnly>(Reuse.Singleton);
+        registrator.Register<IRecordSetValue<DateOnly?>, RecordSetValueDateOnlyNullable>(Reuse.Singleton);
+        registrator.Register<IRecordSetValue<TimeOnly>, RecordSetValueTimeOnly>(Reuse.Singleton);
+        registrator.Register<IRecordSetValue<TimeOnly?>, RecordSetValueTimeOnlyNullable>(Reuse.Singleton);
     }
 
 
@@ -85,6 +89,12 @@ public static class TableValuedParameterRegistrationExtensions
         registrator.Register<ISqlDataRecordMapper<Guid?>,           SqlDataRecordScalarMapper<Guid?>>(Reuse.Singleton);
         registrator.Register<ISqlDataRecordMapper<TimeSpan>,        SqlDataRecordScalarMapper<TimeSpan>>(Reuse.Singleton);
         registrator.Register<ISqlDataRecordMapper<TimeSpan?>,       SqlDataRecordScalarMapper<TimeSpan?>>(Reuse.Singleton);
+        registrator.Register<ISqlDataRecordMapper<DateOnly>,        SqlDataRecordScalarMapper<DateOnly>>(Reuse.Singleton);
+        registrator.Register<ISqlDataRecordMapper<DateOnly?>,       SqlDataRecordScalarMapper<DateOnly?>>(Reuse.Singleton);
+        registrator.Register<ISqlDataRecordMapper<TimeOnly>,        SqlDataRecordScalarMapper<TimeOnly>>(Reuse.Singleton);
+        registrator.Register<ISqlDataRecordMapper<TimeOnly?>,       SqlDataRecordScalarMapper<TimeOnly?>>(Reuse.Singleton);
+
+
         registrator.Register<ISqlDataRecordMapper<SqlBinary>,       SqlDataRecordScalarMapper<SqlBinary>>(Reuse.Singleton);
         registrator.Register<ISqlDataRecordMapper<SqlBinary?>,      SqlDataRecordScalarMapper<SqlBinary?>>(Reuse.Singleton);
         registrator.Register<ISqlDataRecordMapper<SqlBoolean>,      SqlDataRecordScalarMapper<SqlBoolean>>(Reuse.Singleton);

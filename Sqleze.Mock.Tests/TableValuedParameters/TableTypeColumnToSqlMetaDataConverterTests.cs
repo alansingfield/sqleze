@@ -121,5 +121,43 @@ namespace Sqleze.Mock.Tests.TableValuedParameters
             sqlMetaDataFactory.DidNotReceiveWithAnyArgs().New("", default(SqlDbType), 0);
             sqlMetaDataFactory.DidNotReceiveWithAnyArgs().New("", default(SqlDbType));
         }
+
+        [TestMethod]
+        public void TableTypeColumnToSqlMetaDataConverterScaledNoPrecision()
+        {
+            var container = new Container().WithNSubstituteFallback();
+
+            container.Register<ITableTypeColumnToSqlMetaDataConverter, TableTypeColumnToSqlMetaDataConverter>();
+
+            var sqlMetaDataFactory = container.Resolve<ISqlMetaDataFactory>();
+
+            var foo = container.Resolve<Func<string, SqlDbType, int, MSS.SqlMetaData>>();
+
+            var conv = container.Resolve<ITableTypeColumnToSqlMetaDataConverter>();
+
+            // Special case, even though Precision of a Time is 16, we want this to be passed as zero
+            var coldef = new TableTypeColumnDefinition(
+                ColumnName: "col",
+                ColumnOrdinal: 2,
+                Datatype: "time",
+                Length: 0,
+                Precision: (byte)16,
+                Scale: (byte)7,
+                IsNullable: false);
+
+            var sqlMetaData = Substitute.For<MSS.SqlMetaData>();
+
+            sqlMetaDataFactory.New("", default(SqlDbType), (byte)0, (byte)0)
+                .ReturnsForAnyArgs(sqlMetaData);
+
+            var result = conv.Convert(coldef);
+            result.ShouldBe(sqlMetaData);
+
+            // Precision is zero but scale is 7.
+            sqlMetaDataFactory.Received(1).New("col", SqlDbType.Time, (byte)0, (byte)7);
+
+            sqlMetaDataFactory.DidNotReceiveWithAnyArgs().New("", default(SqlDbType), 0);
+            sqlMetaDataFactory.DidNotReceiveWithAnyArgs().New("", default(SqlDbType));
+        }
     }
 }
