@@ -17,10 +17,10 @@ public static class ConfigurationExtensions
     /// <param name="configuration">from ConfigurationBuilder</param>
     /// <param name="sectionName">Name of section in appsettings.json file</param>
     /// <returns></returns>
-    public static T BuildOption<T>(this IConfiguration configuration, string sectionName)
-    {
-        return configuration.GetSection(sectionName).Get<T>();
-    }
+    //public static T BuildOption<T>(this IConfiguration configuration, string sectionName)
+    //{
+    //    return configuration.GetSection(sectionName).Get<T>();
+    //}
 
     public static TService BuildOption<TService, TImplementation>
         (this IConfiguration configuration, string sectionName)
