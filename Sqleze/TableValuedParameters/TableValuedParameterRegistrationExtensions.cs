@@ -42,10 +42,6 @@ public static class TableValuedParameterRegistrationExtensions
         registrator.Register<IRecordSetValue<SqlSingle>, RecordSetSqlValueSqlSingle>(Reuse.Singleton);
         registrator.Register<IRecordSetValue<SqlString>, RecordSetSqlValueSqlString>(Reuse.Singleton);
         registrator.Register<IRecordSetValue<SqlXml>, RecordSetSqlValueSqlXml>(Reuse.Singleton);
-        registrator.Register<IRecordSetValue<DateOnly>, RecordSetValueDateOnly>(Reuse.Singleton);
-        registrator.Register<IRecordSetValue<DateOnly?>, RecordSetValueDateOnlyNullable>(Reuse.Singleton);
-        registrator.Register<IRecordSetValue<TimeOnly>, RecordSetValueTimeOnly>(Reuse.Singleton);
-        registrator.Register<IRecordSetValue<TimeOnly?>, RecordSetValueTimeOnlyNullable>(Reuse.Singleton);
     }
 
 

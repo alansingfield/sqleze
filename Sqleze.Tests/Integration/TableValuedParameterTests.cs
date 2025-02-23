@@ -315,7 +315,7 @@ namespace Sqleze.Tests.Integration
 
             var arg = new List<TimeOnly>() 
             { 
-                new TimeOnly(23,01,01),
+                new TimeOnly(23, 01, 01, 123, 456).Add(TimeSpan.FromTicks(7)),
                 new TimeOnly(13,12,25),
             }.AsEnumerable();
 
@@ -325,7 +325,7 @@ namespace Sqleze.Tests.Integration
 
             result.ShouldBe(new List<TimeOnly>() 
             { 
-                new TimeOnly(23,01,01),
+                new TimeOnly(23,01,01).Add(TimeSpan.FromTicks(1234567L)),
                 new TimeOnly(13,12,25),
             });
         }
@@ -339,7 +339,7 @@ namespace Sqleze.Tests.Integration
 
             var arg = new List<TimeOnly?>() 
             { 
-                new TimeOnly(23,01,01),
+                new TimeOnly(23,01,01, 123, 456).Add(TimeSpan.FromTicks(7)),
                 null,
                 new TimeOnly(13,12,25),
             }.AsEnumerable();
@@ -350,7 +350,7 @@ namespace Sqleze.Tests.Integration
 
             result.ShouldBe(new List<TimeOnly?>() 
             { 
-                new TimeOnly(23,01,01),
+                new TimeOnly(23,01,01).Add(TimeSpan.FromTicks(1234567L)),
                 null,
                 new TimeOnly(13,12,25),
             });
