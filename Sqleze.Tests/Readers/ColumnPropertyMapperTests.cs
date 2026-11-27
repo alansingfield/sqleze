@@ -11,7 +11,6 @@ using System.Xml.Linq;
 using Sqleze;
 using Sqleze.NamingConventions;
 using Sqleze.DryIoc;
-using Newtonsoft.Json.Linq;
 using UnitTestCoder.Shouldly.Gen;
 using Sqleze.ValueGetters;
 using Sqleze.Registration;
