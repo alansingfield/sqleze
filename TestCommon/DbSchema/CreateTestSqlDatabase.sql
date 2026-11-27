@@ -161,13 +161,18 @@ CREATE TYPE [test].[udt_table] AS TABLE(
 GO
 
 CREATE TYPE dbo.tt_date_vals
-AS TABLE (val date NULL)
+AS TABLE
+(
+    val date NOT NULL
+)
 GO
 
-CREATE TYPE dbo.tt_time_vals
-AS TABLE (val time NULL)
+CREATE TYPE dbo.tt_time_vals 
+AS TABLE
+(
+    val time NOT NULL
+)
 GO
-
 CREATE TYPE dbo.tt_date_nullable_vals AS TABLE
 (
     val date NULL
@@ -183,7 +188,7 @@ GO
 CREATE TYPE dbo.tt_datetimeoffset_7_vals
 AS TABLE
 (
-    val datetimeoffset(7)
+    val datetimeoffset(7) NULL
 )
 GO
 
